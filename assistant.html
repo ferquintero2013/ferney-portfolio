@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The assistant — Ferney Quintero</title>
+<meta name="description" content="How the assistant on the front page works: a RAG system in Python that answers only from real documents, cites every source, and can be verified against the originals.">
+<meta property="og:title" content="The assistant — Ferney Quintero">
+<meta property="og:description" content="A RAG system in Python. Read the source documents, then check its answers against them.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2316130e'/><text y='70' x='50' text-anchor='middle' font-size='52' font-weight='700' font-family='monospace' fill='%23d1a45f'>FQ</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="bar">
+    <a class="mark" href="index.html">
+      <span class="mark-name">Ferney Quintero</span>
+      <span class="mark-role">AI Automation Engineer</span>
+    </a>
+    <nav aria-label="Sections">
+      <a href="work.html">Work</a>
+      <a href="background.html">Background</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="page">
+
+  <div class="page-head">
+    <p class="crumb mono"><a href="index.html">← Back</a> <span>The assistant</span></p>
+    <h1>How the assistant works</h1>
+    <p>The robot on the front page isn't a widget I installed. It's a system I built, and it's part of the portfolio — arguably the most honest part, because you can check whether it's telling you the truth.</p>
+  </div>
+
+  <div class="prose">
+
+    <h2>What it is</h2>
+    <p>
+      It's a <strong>RAG</strong> system — Retrieval-Augmented Generation. The idea is
+      simple: instead of asking a language model what it happens to remember, you
+      first go find the relevant passages in a set of real documents, hand those to
+      the model, and ask it to answer using only that.
+    </p>
+    <p>
+      The difference matters. A general chatbot asked about my experience would
+      produce something plausible — and plausible is exactly the problem. This one
+      can only repeat what's actually written in my CV and project notes, and it tells
+      you which file and which section each statement came from.
+    </p>
+    <p>
+      When the answer isn't in those documents, it says so. That behaviour is
+      deliberate and it's the hardest part to get right: the natural tendency of these
+      models is to fill the gap with something reasonable-sounding.
+    </p>
+
+    <h2>What happens when you ask it something</h2>
+
+    <div class="flow">
+      <div class="flow-step">
+        <span class="n">01</span>
+        <div>
+          <b>Your question is rewritten</b>
+          <p>Follow-ups like "and what year was that?" mean nothing on their own. A small model turns them into a complete, standalone question first, using the conversation so far — otherwise the search would look for those literal words and find nothing.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="n">02</span>
+        <div>
+          <b>Two searches run at once</b>
+          <p>One matches by meaning, so "has he led teams?" finds a passage about coordinating developers even without those words. The other matches exact terms, which is what catches "Odoo" or "GoHighLevel". Their results are merged by rank.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="n">03</span>
+        <div>
+          <b>The passages become the answer's only source</b>
+          <p>The retrieved fragments go to the model with strict instructions: use nothing else, respect the nuances in the text, cite every claim, and say plainly when the documents don't cover the question.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="n">04</span>
+        <div>
+          <b>Only the sources actually used are shown</b>
+          <p>The search returns five candidates; the model usually uses one or two. Listing all five as "sources" would suggest the answer came from all of them, so the rest are filtered out.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <h3>Don't take my word for it — check it</h3>
+      <p>
+        The documents the assistant reads are public, in the same repository as the
+        code. So you can do something you can't do with an ordinary portfolio:
+        <strong>read the source material, then ask the assistant about it and see
+        whether the answers hold up.</strong>
+      </p>
+      <p>
+        Try asking about something that <em>isn't</em> there — a technology I've never
+        touched — and watch it decline instead of improvise. That test says more about
+        the system than any answer it gets right.
+      </p>
+      <p>
+        <a href="https://github.com/ferquintero2013/rag-perfil-profesional">Source code and documents on GitHub ↗</a>
+      </p>
+    </div>
+
+    <h2>Built with</h2>
+    <p>
+      Python, with <code>ChromaDB</code> as the vector database, <code>rank-bm25</code>
+      for keyword search, and OpenAI's API — <code>text-embedding-3-small</code> to
+      index the documents, <code>gpt-4o</code> to write the answers and
+      <code>gpt-4o-mini</code> for the cheaper rewriting step. The interface is
+      Streamlit, and it's embedded in the front page of this site.
+    </p>
+    <p>
+      No RAG framework. Every piece is written by hand — which is how I found the
+      problem below, and probably wouldn't have with a pre-packaged pipeline.
+    </p>
+
+    <h3>The bug worth mentioning</h3>
+    <p>
+      The first version used semantic search only, and it failed on the most obvious
+      question you could ask it: <em>"does he know Python?"</em> didn't retrieve the
+      project I'd built entirely in Python.
+    </p>
+    <p>
+      The reason is that the passage describes a document-validation system — vision
+      models, business rules, identity checks. The word "Python" appears twice in
+      about a hundred and twenty. Its overall meaning points at "validation system",
+      not at "Python skills". No amount of clever querying fixes that, because the
+      problem is in the document, not the question. Keyword search fixes it instantly,
+      because a technology name is a rare term and weighs heavily.
+    </p>
+    <p>
+      I also tried a well-known technique for this called HyDE and dropped it, with
+      measurements: it made the similarity scores look better while making the actual
+      results worse. Good numbers, wrong answers — a useful reminder that the metric
+      isn't the goal.
+    </p>
+
+    <h3>What it doesn't have</h3>
+    <p>
+      No automated evaluation suite. I test with a fixed set of questions covering the
+      cases I care about, but I run them by hand — which is how a real defect slipped
+      past me once and got caught by accident. It's the first thing I'd build if this
+      were serving anyone but me.
+    </p>
+
+  </div>
+
+  <nav class="pager" aria-label="Other sections">
+    <a href="index.html">
+      <span class="jump-n mono">←</span>
+      <span class="jump-t">Try the assistant</span>
+    </a>
+    <a href="work.html">
+      <span class="jump-n mono">01</span>
+      <span class="jump-t">Work →</span>
+    </a>
+  </nav>
+
+</main>
+
+<footer>
+  <span class="mono">Vanilla HTML, CSS and JavaScript. No framework, no build step.</span>
+  <a class="mono" href="https://github.com/ferquintero2013/ferney-portfolio">Source of this page ↗</a>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
