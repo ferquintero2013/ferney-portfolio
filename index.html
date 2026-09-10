@@ -4,353 +4,111 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ferney Quintero — AI Automation Engineer</title>
-<meta name="description" content="I build AI automations for marketing, sales and operations. 13 years in software delivery before this, so I map the process before I wire the first node.">
+<meta name="description" content="I automate the work nobody should be doing by hand. Ask my assistant anything — it answers from my real documents and cites the source.">
 <meta property="og:title" content="Ferney Quintero — AI Automation Engineer">
-<meta property="og:description" content="Ask my portfolio anything — it answers from my real documents and cites the source.">
+<meta property="og:description" content="Ask my assistant anything — it answers from my real documents and cites the source.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2314171c'/><text y='70' x='50' text-anchor='middle' font-size='52' font-weight='700' font-family='monospace' fill='%23e8b33d'>FQ</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2316130e'/><text y='70' x='50' text-anchor='middle' font-size='52' font-weight='700' font-family='monospace' fill='%23d1a45f'>FQ</text></svg>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="home">
 
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="topbar">
+<header class="topbar on-panel">
   <div class="bar">
-    <a class="mark" href="#top">
+    <a class="mark" href="index.html">
       <span class="mark-name">Ferney Quintero</span>
       <span class="mark-role">AI Automation Engineer</span>
     </a>
     <nav aria-label="Sections">
-      <a href="#ask">Ask</a>
-      <a href="#work">Work</a>
-      <a href="#background">Background</a>
-      <a href="#contact">Contact</a>
+      <a href="work.html">Work</a>
+      <a href="background.html">Background</a>
+      <a href="contact.html">Contact</a>
     </nav>
     <button id="theme" type="button" aria-label="Switch theme" title="Switch theme">◐</button>
   </div>
 </header>
 
-<main id="main">
+<main id="main" class="stage">
 
-  <section id="top" class="stage">
+  <div class="greeting">
+    <svg class="bot" viewBox="0 0 210 250" role="img" aria-label="A small robot waving">
+      <line class="bot-wire" x1="105" y1="30" x2="105" y2="14"/>
+      <circle class="bot-bulb" cx="105" cy="10" r="7"/>
 
-    <div class="greeting">
-      <svg class="bot" viewBox="0 0 210 250" role="img" aria-label="A small robot waving">
-        <!-- antenna -->
-        <line class="bot-wire" x1="105" y1="30" x2="105" y2="14"/>
-        <circle class="bot-bulb" cx="105" cy="10" r="7"/>
+      <path class="bot-skin" d="M105 28
+        c-26 0-44 15-48 38
+        l-6 3 a9 9 0 0 0 0 18 l4 2
+        v13 a10 10 0 0 0 10 10 h80
+        a10 10 0 0 0 10-10 v-13 l4-2
+        a9 9 0 0 0 0-18 l-6-3
+        c-4-23-22-38-48-38 z"/>
 
-        <!-- head: wide dome with squared shoulders -->
-        <path class="bot-skin" d="M105 28
-          c-26 0-44 15-48 38
-          l-6 3 a9 9 0 0 0 0 18 l4 2
-          v13 a10 10 0 0 0 10 10 h80
-          a10 10 0 0 0 10-10 v-13 l4-2
-          a9 9 0 0 0 0-18 l-6-3
-          c-4-23-22-38-48-38 z"/>
+      <g class="bot-eyes">
+        <circle cx="87" cy="74" r="11"/>
+        <circle cx="123" cy="74" r="11"/>
+      </g>
 
-        <!-- eyes -->
-        <g class="bot-eyes">
-          <circle cx="87" cy="74" r="11"/>
-          <circle cx="123" cy="74" r="11"/>
-        </g>
+      <rect class="bot-skin" x="94" y="110" width="22" height="12" rx="4"/>
+      <rect class="bot-skin" x="66" y="120" width="78" height="72" rx="14"/>
+      <rect class="bot-panel" x="86" y="140" width="38" height="34" rx="6"/>
 
-        <!-- neck -->
-        <rect class="bot-skin" x="94" y="110" width="22" height="12" rx="4"/>
+      <circle class="bot-skin" cx="49" cy="163" r="14"/>
+      <g class="bot-wave">
+        <circle class="bot-skin" cx="161" cy="141" r="14"/>
+      </g>
 
-        <!-- torso -->
-        <rect class="bot-skin" x="66" y="120" width="78" height="72" rx="14"/>
-        <rect class="bot-panel" x="86" y="140" width="38" height="34" rx="6"/>
+      <circle class="bot-skin" cx="84" cy="212" r="15"/>
+      <circle class="bot-skin" cx="126" cy="212" r="15"/>
+    </svg>
 
-        <!-- left arm, resting -->
-        <circle class="bot-skin" cx="49" cy="163" r="14"/>
-
-        <!-- right arm, waving -->
-        <g class="bot-wave">
-          <circle class="bot-skin" cx="161" cy="141" r="14"/>
-        </g>
-
-        <!-- legs -->
-        <circle class="bot-skin" cx="84" cy="212" r="15"/>
-        <circle class="bot-skin" cx="126" cy="212" r="15"/>
-      </svg>
-
-      <div class="bubble">
+    <div class="bubble">
+      <div class="bubble-say">
         <p class="bubble-hi">Hi, I'm Ferney's assistant.</p>
         <p class="bubble-ask">What do you want to know about him?</p>
-        <a class="bubble-cta" href="#ask">Ask me down here <span aria-hidden="true">↓</span></a>
-      </div>
-    </div>
-
-    <h1>I automate the work<br>nobody should be doing by hand.</h1>
-
-    <nav class="jump" aria-label="Jump to section">
-      <a href="#work">
-        <span class="jump-n mono">01</span>
-        <span class="jump-t">Work</span>
-        <span class="jump-d">Five systems, two you can open</span>
-      </a>
-      <a href="#background">
-        <span class="jump-n mono">02</span>
-        <span class="jump-t">Background</span>
-        <span class="jump-d">13 years before the AI part</span>
-      </a>
-      <a href="#contact">
-        <span class="jump-n mono">03</span>
-        <span class="jump-t">Contact</span>
-        <span class="jump-d">Bogotá · remote across US hours</span>
-      </a>
-    </nav>
-
-  </section>
-
-  <section id="ask" class="ask">
-    <div class="ask-head">
-      <div class="ask-intro">
-        <p class="eyebrow">Instead of reading this page</p>
-        <h2>Ask it anything.</h2>
-        <p class="ask-sub">
-          A working RAG system I built. It answers from my actual CV and project
-          documents, cites the exact source of every claim, and tells you when it
-          doesn't know instead of inventing an answer.
-        </p>
-      </div>
-      <div class="ask-meta">
-        <dl>
-          <div><dt>Retrieval</dt><dd>BM25 + vector, fused with RRF</dd></div>
-          <div><dt>Stack</dt><dd>Python · ChromaDB · OpenAI</dd></div>
-          <div><dt>Corpus</dt><dd>37 chunks · 4 documents</dd></div>
-        </dl>
-        <a class="src" href="https://github.com/ferquintero2013/rag-perfil-profesional">Read the source →</a>
-      </div>
-    </div>
-
-    <div class="frame">
-      <div class="frame-bar">
-        <span class="mono">chat-perfil-ferney.streamlit.app</span>
-        <a class="mono open" href="https://chat-perfil-ferney.streamlit.app/" target="_blank" rel="noopener">Open full ↗</a>
-      </div>
-      <div class="frame-body">
-        <p class="frame-loading" id="loading">Loading the assistant…</p>
-        <iframe id="ragframe" src="https://chat-perfil-ferney.streamlit.app/?embed=true&amp;compact=1" title="Chat with Ferney's profile"></iframe>
-      </div>
-    </div>
-
-    <p class="try">
-      Try <span class="mono">“Has he worked with real clients?”</span>
-      <span class="sep">·</span>
-      <span class="mono">“What has he built in Python?”</span>
-      <span class="sep">·</span>
-      <span class="mono">“What does he know about Odoo and ERPs?”</span>
-    </p>
-  </section>
-
-  <section id="work" class="work">
-    <div class="sec-head">
-      <h2>Selected work</h2>
-      <p>Two of these you can open and use right now. The rest are client or internal systems.</p>
-    </div>
-
-    <ol class="projects">
-
-      <li class="proj">
-        <span class="proj-n mono">01</span>
-        <div class="proj-body">
-          <div class="proj-top">
-            <h3>Document validation with Vision AI</h3>
-            <span class="state live mono">Live</span>
-          </div>
-          <p>
-            University admission files were reviewed by hand, roughly 14 minutes per
-            document. The system reads each one with GPT-4o Vision, applies
-            deterministic business rules, cross-checks the identity number across
-            every document in the file to flag possible impersonation, and drafts the
-            applicant notification. About 5 seconds per document, with a full audit trail.
-          </p>
-          <p class="note">
-            The design point: AI extracts, rules decide. When the model's own confidence
-            drops, the file escalates to a human instead of guessing.
-          </p>
-          <div class="proj-foot">
-            <span class="tags mono">Python · GPT-4o Vision · Streamlit</span>
-            <span class="links">
-              <a href="https://postulaciones-mvp.streamlit.app/">Live demo</a>
-              <a href="https://github.com/ferquintero2013/postulaciones-mvp-utel">Source</a>
-            </span>
-          </div>
-        </div>
-      </li>
-
-      <li class="proj">
-        <span class="proj-n mono">02</span>
-        <div class="proj-body">
-          <div class="proj-top">
-            <h3>Cross-country ERP implementation</h3>
-            <span class="state mono">2026</span>
-          </div>
-          <p>
-            Odoo across the US, Colombia and Mexico for a D2C brand, with Shopify,
-            Amazon and TikTok Shop synced against it — inventory, orders, invoicing and
-            product data consistent on every storefront. Including automated
-            restructuring and cleanup of accounting records during the migration,
-            replacing manual entry and reconciliation with a repeatable process.
-          </p>
-          <div class="proj-foot">
-            <span class="tags mono">Odoo · Shopify · Amazon · TikTok Shop</span>
-            <span class="links"><span class="muted">Client system</span></span>
-          </div>
-        </div>
-      </li>
-
-      <li class="proj">
-        <span class="proj-n mono">03</span>
-        <div class="proj-body">
-          <div class="proj-top">
-            <h3>CRM automation and attribution</h3>
-            <span class="state mono">2026</span>
-          </div>
-          <p>
-            GoHighLevel automations for a paying client: contact and opportunity
-            management, automated UTM attribution, lead routing, and reporting the
-            sales team could actually trust. Campaigns had been judged on gut feeling
-            because leads arrived stripped of their origin.
-          </p>
-          <div class="proj-foot">
-            <span class="tags mono">GoHighLevel · Zapier · Webhooks</span>
-            <span class="links"><span class="muted">Client work</span></span>
-          </div>
-        </div>
-      </li>
-
-      <li class="proj">
-        <span class="proj-n mono">04</span>
-        <div class="proj-body">
-          <div class="proj-top">
-            <h3>AI sales agents on WhatsApp and Instagram</h3>
-            <span class="state mono">2025</span>
-          </div>
-          <p>
-            Lead capture, qualification and routing across channels, built on Meta APIs,
-            ManyChat and n8n with several data sources behind it. Instagram DMs were
-            arriving faster than the team could answer them.
-          </p>
-          <p class="note">
-            Self-initiated venture — it never reached paying clients. The same technical
-            pattern won 1st place in Best AI Automation at the EmprendIA LATAM hackathon.
-          </p>
-          <div class="proj-foot">
-            <span class="tags mono">Meta APIs · ManyChat · n8n</span>
-            <span class="links"><span class="muted">Own project</span></span>
-          </div>
-        </div>
-      </li>
-
-      <li class="proj">
-        <span class="proj-n mono">05</span>
-        <div class="proj-body">
-          <div class="proj-top">
-            <h3>Amapola Board and its MCP server</h3>
-            <span class="state mono">2026</span>
-          </div>
-          <p>
-            A project board, plus an MCP server that lets an AI agent read and write
-            tickets on it directly. The agent files its own work instead of asking a
-            human to transcribe it.
-          </p>
-          <div class="proj-foot">
-            <span class="tags mono">MCP · AI agents</span>
-            <span class="links"><span class="muted">Private repository</span></span>
-          </div>
-        </div>
-      </li>
-
-    </ol>
-  </section>
-
-  <section id="background" class="bg">
-    <div class="sec-head">
-      <h2>Background</h2>
-      <p>The unusual part of my profile isn't the AI. It's the thirteen years before it.</p>
-    </div>
-
-    <div class="bg-grid">
-      <div class="bg-text">
-        <p class="bg-lead">
-          I wire marketing, sales and operations processes together with n8n, Zapier,
-          Python and LLMs. The reason I get called back isn't the tooling.
-        </p>
-        <p>
-          I started as a developer in Java and Scala, led QA on one of the largest
-          projects in the recent history of the Colombian Stock Exchange, then spent
-          years as a project manager, Scrum Master and Agile Coach at Nequi, Sophos,
-          Imagemaker and Softgic.
-        </p>
-        <p>
-          That path means I sat on the business side of the conversation for a long
-          time — mapping processes, negotiating scope, and watching automation projects
-          fail. They rarely failed because the tooling was hard. They failed because
-          nobody modeled the process properly before building on top of it.
-        </p>
-        <p>
-          So I design for the failure cases, not just the happy path. Error handling,
-          retries, escalation to a human and logging go in from the start, because an
-          automation that fails silently is worse than no automation at all. And I
-          document what I build: if I'm the only person who understands it, I didn't
-          finish the job.
-        </p>
       </div>
 
-      <div class="bg-side">
-        <h3 class="side-h mono">Timeline</h3>
-        <ul class="tl">
-          <li><span class="mono">2026</span> Software Dev Lead — AI &amp; Process Automation</li>
-          <li><span class="mono">2025</span> Independent — AI automation consulting</li>
-          <li><span class="mono">2024</span> Agile Leader — Nequi</li>
-          <li><span class="mono">2021</span> Scrum Master — Sophos, Imagemaker</li>
-          <li><span class="mono">2018</span> Project Manager — Softgic</li>
-          <li><span class="mono">2015</span> QA Lead, then Developer — Colombian Stock Exchange</li>
-          <li><span class="mono">2013</span> Development &amp; consulting engineer — ERP</li>
-        </ul>
-
-        <h3 class="side-h mono">Tools</h3>
-        <p class="tools mono">
-          n8n · Zapier · Python · OpenAI API · Anthropic API · RAG &amp; vector databases ·
-          GoHighLevel · Odoo · Shopify · Amazon · TikTok Shop · Meta APIs · ManyChat ·
-          REST · webhooks · OAuth
-        </p>
-
-        <h3 class="side-h mono">Credentials</h3>
-        <ul class="creds">
-          <li>1st place · Best AI Automation, EmprendIA LATAM</li>
-          <li>Zapier Certified Expert</li>
-          <li>Claude Code · Anthropic</li>
-          <li>AWS Cloud Practitioner</li>
-        </ul>
+      <div class="bubble-chat">
+        <p class="chat-loading" id="loading">Waking up…</p>
+        <iframe
+          id="ragframe"
+          src="https://chat-perfil-ferney.streamlit.app/?embed=true&amp;compact=1"
+          title="Chat with Ferney's assistant"></iframe>
       </div>
-    </div>
-  </section>
 
-  <section id="contact" class="contact">
-    <h2>Tell me the process you want to stop doing by hand.</h2>
-    <p>I'll tell you honestly whether automating it is the right answer.</p>
-    <div class="contact-links">
-      <a class="primary" href="mailto:ferquintero2013@gmail.com">ferquintero2013@gmail.com</a>
-      <a href="https://www.linkedin.com/in/ferneyquintero-7301b547">LinkedIn</a>
-      <a href="https://github.com/ferquintero2013">GitHub</a>
+      <p class="bubble-foot">
+        <span>I answer from his CV and project docs, and cite the source. If it isn't there, I say so.</span>
+        <a href="https://github.com/ferquintero2013/rag-perfil-profesional">How I'm built ↗</a>
+      </p>
     </div>
-  </section>
+  </div>
+
+  <h1>I automate the work<br>nobody should be doing by hand.</h1>
+
+  <nav class="jump" aria-label="Go to a section">
+    <a href="work.html">
+      <span class="jump-n mono">01</span>
+      <span class="jump-t">Work</span>
+      <span class="jump-d">Five systems, two you can open</span>
+    </a>
+    <a href="background.html">
+      <span class="jump-n mono">02</span>
+      <span class="jump-t">Background</span>
+      <span class="jump-d">13 years before the AI part</span>
+    </a>
+    <a href="contact.html">
+      <span class="jump-n mono">03</span>
+      <span class="jump-t">Contact</span>
+      <span class="jump-d">Bogotá · remote across US hours</span>
+    </a>
+  </nav>
 
 </main>
-
-<footer>
-  <span class="mono">Vanilla HTML, CSS and JavaScript. No framework, no build step.</span>
-  <a class="mono" href="https://github.com/ferquintero2013/ferney-portfolio">Source of this page ↗</a>
-</footer>
 
 <script src="script.js"></script>
 </body>

@@ -55,34 +55,6 @@
     setTimeout(hide, 12000);
   }
 
-  /* ---- mark the section currently on screen -------------------------- */
-  var links = Array.prototype.slice.call(
-    document.querySelectorAll('.topbar nav a[href^="#"]')
-  );
-
-  if (links.length && "IntersectionObserver" in window) {
-    var byId = {};
-    links.forEach(function (a) {
-      byId[a.getAttribute("href").slice(1)] = a;
-    });
-
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          var link = byId[entry.target.id];
-          if (!link) return;
-          if (entry.isIntersecting) {
-            links.forEach(function (a) { a.style.color = ""; });
-            link.style.color = "var(--ink)";
-          }
-        });
-      },
-      { rootMargin: "-45% 0px -50% 0px" }
-    );
-
-    Object.keys(byId).forEach(function (id) {
-      var section = document.getElementById(id);
-      if (section) observer.observe(section);
-    });
-  }
+  // The current section is now marked with aria-current="page" in the
+  // markup of each page, so no scroll observer is needed.
 })();

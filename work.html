@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work — Ferney Quintero</title>
+<meta name="description" content="Five systems built for marketing, sales and operations. Two of them you can open and use right now.">
+<meta property="og:title" content="Work — Ferney Quintero">
+<meta property="og:description" content="Five systems built for marketing, sales and operations. Two you can open right now.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2316130e'/><text y='70' x='50' text-anchor='middle' font-size='52' font-weight='700' font-family='monospace' fill='%23d1a45f'>FQ</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="bar">
+    <a class="mark" href="index.html">
+      <span class="mark-name">Ferney Quintero</span>
+      <span class="mark-role">AI Automation Engineer</span>
+    </a>
+    <nav aria-label="Sections">
+      <a href="work.html" aria-current="page">Work</a>
+      <a href="background.html">Background</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button id="theme" type="button" aria-label="Switch theme" title="Switch theme">◐</button>
+  </div>
+</header>
+
+<main id="main" class="page">
+
+  <div class="page-head">
+    <p class="crumb mono"><a href="index.html">← Back</a> <span>01 / Work</span></p>
+    <h1>Selected work</h1>
+    <p>Two of these you can open and use right now. The rest are client or internal systems.</p>
+  </div>
+
+  <ol class="projects">
+
+    <li class="proj">
+      <span class="proj-n mono">01</span>
+      <div class="proj-body">
+        <div class="proj-top">
+          <h2>Document validation with Vision AI</h2>
+          <span class="state live mono">Live</span>
+        </div>
+        <p>
+          University admission files were reviewed by hand, roughly 14 minutes per
+          document. The system reads each one with GPT-4o Vision, applies
+          deterministic business rules, cross-checks the identity number across
+          every document in the file to flag possible impersonation, and drafts the
+          applicant notification. About 5 seconds per document, with a full audit trail.
+        </p>
+        <p class="note">
+          The design point: AI extracts, rules decide. When the model's own confidence
+          drops, the file escalates to a human instead of guessing.
+        </p>
+        <div class="proj-foot">
+          <span class="tags mono">Python · GPT-4o Vision · Streamlit</span>
+          <span class="links">
+            <a href="https://postulaciones-mvp.streamlit.app/">Live demo</a>
+            <a href="https://github.com/ferquintero2013/postulaciones-mvp-utel">Source</a>
+          </span>
+        </div>
+      </div>
+    </li>
+
+    <li class="proj">
+      <span class="proj-n mono">02</span>
+      <div class="proj-body">
+        <div class="proj-top">
+          <h2>The assistant on the front page</h2>
+          <span class="state live mono">Live</span>
+        </div>
+        <p>
+          A RAG system that answers questions about my profile using only my actual
+          documents, cites the exact source of every claim, and says so when the
+          answer isn't there instead of inventing one.
+        </p>
+        <p class="note">
+          Pure vector search failed on the most obvious question — "does he know
+          Python?" didn't retrieve the project built in Python, because the term is
+          diluted across a chunk about something else. Keyword search fixes exactly
+          that, so retrieval is hybrid: BM25 and embeddings, fused by rank.
+        </p>
+        <div class="proj-foot">
+          <span class="tags mono">Python · ChromaDB · BM25 · OpenAI</span>
+          <span class="links">
+            <a href="https://chat-perfil-ferney.streamlit.app/">Live demo</a>
+            <a href="https://github.com/ferquintero2013/rag-perfil-profesional">Source</a>
+          </span>
+        </div>
+      </div>
+    </li>
+
+    <li class="proj">
+      <span class="proj-n mono">03</span>
+      <div class="proj-body">
+        <div class="proj-top">
+          <h2>Cross-country ERP implementation</h2>
+          <span class="state mono">2026</span>
+        </div>
+        <p>
+          Odoo across the US, Colombia and Mexico for a D2C brand, with Shopify,
+          Amazon and TikTok Shop synced against it — inventory, orders, invoicing and
+          product data consistent on every storefront. Including automated
+          restructuring and cleanup of accounting records during the migration,
+          replacing manual entry and reconciliation with a repeatable process.
+        </p>
+        <div class="proj-foot">
+          <span class="tags mono">Odoo · Shopify · Amazon · TikTok Shop</span>
+          <span class="links"><span class="muted">Client system</span></span>
+        </div>
+      </div>
+    </li>
+
+    <li class="proj">
+      <span class="proj-n mono">04</span>
+      <div class="proj-body">
+        <div class="proj-top">
+          <h2>CRM automation and attribution</h2>
+          <span class="state mono">2026</span>
+        </div>
+        <p>
+          GoHighLevel automations for a paying client: contact and opportunity
+          management, automated UTM attribution, lead routing, and reporting the
+          sales team could actually trust. Campaigns had been judged on gut feeling
+          because leads arrived stripped of their origin.
+        </p>
+        <div class="proj-foot">
+          <span class="tags mono">GoHighLevel · Zapier · Webhooks</span>
+          <span class="links"><span class="muted">Client work</span></span>
+        </div>
+      </div>
+    </li>
+
+    <li class="proj">
+      <span class="proj-n mono">05</span>
+      <div class="proj-body">
+        <div class="proj-top">
+          <h2>AI sales agents on WhatsApp and Instagram</h2>
+          <span class="state mono">2025</span>
+        </div>
+        <p>
+          Lead capture, qualification and routing across channels, built on Meta APIs,
+          ManyChat and n8n with several data sources behind it. Instagram DMs were
+          arriving faster than the team could answer them.
+        </p>
+        <p class="note">
+          Self-initiated venture — it never reached paying clients. The same technical
+          pattern won 1st place in Best AI Automation at the EmprendIA LATAM hackathon.
+        </p>
+        <div class="proj-foot">
+          <span class="tags mono">Meta APIs · ManyChat · n8n</span>
+          <span class="links"><span class="muted">Own project</span></span>
+        </div>
+      </div>
+    </li>
+
+    <li class="proj">
+      <span class="proj-n mono">06</span>
+      <div class="proj-body">
+        <div class="proj-top">
+          <h2>Amapola Board and its MCP server</h2>
+          <span class="state mono">2026</span>
+        </div>
+        <p>
+          A project board, plus an MCP server that lets an AI agent read and write
+          tickets on it directly. The agent files its own work instead of asking a
+          human to transcribe it.
+        </p>
+        <div class="proj-foot">
+          <span class="tags mono">MCP · AI agents</span>
+          <span class="links"><span class="muted">Private repository</span></span>
+        </div>
+      </div>
+    </li>
+
+  </ol>
+
+  <nav class="pager" aria-label="Other sections">
+    <a href="background.html">
+      <span class="jump-n mono">02</span>
+      <span class="jump-t">Background →</span>
+    </a>
+    <a href="contact.html">
+      <span class="jump-n mono">03</span>
+      <span class="jump-t">Contact →</span>
+    </a>
+  </nav>
+
+</main>
+
+<footer>
+  <span class="mono">Vanilla HTML, CSS and JavaScript. No framework, no build step.</span>
+  <a class="mono" href="https://github.com/ferquintero2013/ferney-portfolio">Source of this page ↗</a>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
