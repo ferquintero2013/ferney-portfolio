@@ -37,21 +37,76 @@
 
 <main id="main">
 
-  <section id="top" class="intro">
-    <p class="loc"><span class="dot" aria-hidden="true"></span> Bogotá, Colombia · Remote across US hours</p>
+  <section id="top" class="stage">
+
+    <div class="greeting">
+      <svg class="bot" viewBox="0 0 210 250" role="img" aria-label="A small robot waving">
+        <!-- antenna -->
+        <line class="bot-wire" x1="105" y1="30" x2="105" y2="14"/>
+        <circle class="bot-bulb" cx="105" cy="10" r="7"/>
+
+        <!-- head: wide dome with squared shoulders -->
+        <path class="bot-skin" d="M105 28
+          c-26 0-44 15-48 38
+          l-6 3 a9 9 0 0 0 0 18 l4 2
+          v13 a10 10 0 0 0 10 10 h80
+          a10 10 0 0 0 10-10 v-13 l4-2
+          a9 9 0 0 0 0-18 l-6-3
+          c-4-23-22-38-48-38 z"/>
+
+        <!-- eyes -->
+        <g class="bot-eyes">
+          <circle cx="87" cy="74" r="11"/>
+          <circle cx="123" cy="74" r="11"/>
+        </g>
+
+        <!-- neck -->
+        <rect class="bot-skin" x="94" y="110" width="22" height="12" rx="4"/>
+
+        <!-- torso -->
+        <rect class="bot-skin" x="66" y="120" width="78" height="72" rx="14"/>
+        <rect class="bot-panel" x="86" y="140" width="38" height="34" rx="6"/>
+
+        <!-- left arm, resting -->
+        <circle class="bot-skin" cx="49" cy="163" r="14"/>
+
+        <!-- right arm, waving -->
+        <g class="bot-wave">
+          <circle class="bot-skin" cx="161" cy="141" r="14"/>
+        </g>
+
+        <!-- legs -->
+        <circle class="bot-skin" cx="84" cy="212" r="15"/>
+        <circle class="bot-skin" cx="126" cy="212" r="15"/>
+      </svg>
+
+      <div class="bubble">
+        <p class="bubble-hi">Hi, I'm Ferney's assistant.</p>
+        <p class="bubble-ask">What do you want to know about him?</p>
+        <a class="bubble-cta" href="#ask">Ask me down here <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+
     <h1>I automate the work<br>nobody should be doing by hand.</h1>
-    <p class="lead">
-      Marketing, sales and operations processes — wired together with n8n, Zapier,
-      Python and LLMs. I spent 13 years in software delivery as a business analyst,
-      QA lead and project manager before this, so I map the process before I wire
-      the first node.
-    </p>
-    <ul class="creds">
-      <li>1st place · Best AI Automation, EmprendIA LATAM</li>
-      <li>Zapier Certified Expert</li>
-      <li>Claude Code · Anthropic</li>
-      <li>AWS Cloud Practitioner</li>
-    </ul>
+
+    <nav class="jump" aria-label="Jump to section">
+      <a href="#work">
+        <span class="jump-n mono">01</span>
+        <span class="jump-t">Work</span>
+        <span class="jump-d">Five systems, two you can open</span>
+      </a>
+      <a href="#background">
+        <span class="jump-n mono">02</span>
+        <span class="jump-t">Background</span>
+        <span class="jump-d">13 years before the AI part</span>
+      </a>
+      <a href="#contact">
+        <span class="jump-n mono">03</span>
+        <span class="jump-t">Contact</span>
+        <span class="jump-d">Bogotá · remote across US hours</span>
+      </a>
+    </nav>
+
   </section>
 
   <section id="ask" class="ask">
@@ -225,6 +280,10 @@
 
     <div class="bg-grid">
       <div class="bg-text">
+        <p class="bg-lead">
+          I wire marketing, sales and operations processes together with n8n, Zapier,
+          Python and LLMs. The reason I get called back isn't the tooling.
+        </p>
         <p>
           I started as a developer in Java and Scala, led QA on one of the largest
           projects in the recent history of the Colombian Stock Exchange, then spent
@@ -264,6 +323,14 @@
           GoHighLevel · Odoo · Shopify · Amazon · TikTok Shop · Meta APIs · ManyChat ·
           REST · webhooks · OAuth
         </p>
+
+        <h3 class="side-h mono">Credentials</h3>
+        <ul class="creds">
+          <li>1st place · Best AI Automation, EmprendIA LATAM</li>
+          <li>Zapier Certified Expert</li>
+          <li>Claude Code · Anthropic</li>
+          <li>AWS Cloud Practitioner</li>
+        </ul>
       </div>
     </div>
   </section>
