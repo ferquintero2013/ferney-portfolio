@@ -1,0 +1,16 @@
+# Vercel (contiene los IDs del proyecto, es config local)
+.vercel
+
+# Backups locales — git ya es el control de versiones
+.bak/
+*.bak
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp

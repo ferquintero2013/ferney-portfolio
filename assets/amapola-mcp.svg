@@ -1,0 +1,15 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff7e5f"/>
+      <stop offset="100%" stop-color="#feb47b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg2)" rx="40"/>
+  <rect x="100" y="120" width="1000" height="560" fill="#ffffff" opacity="0.12" rx="32"/>
+  <rect x="160" y="200" width="880" height="120" fill="#ffffff" opacity="0.18" rx="24"/>
+  <rect x="160" y="360" width="440" height="180" fill="#ffffff" opacity="0.12" rx="24"/>
+  <rect x="620" y="360" width="420" height="260" fill="#ffffff" opacity="0.12" rx="24"/>
+  <text x="160" y="280" fill="#ffffff" font-size="56" font-weight="700">Amapola MCP</text>
+  <text x="160" y="340" fill="#fff4e5" font-size="28">Agent update bridge</text>
+</svg>

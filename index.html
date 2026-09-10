@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ferney Quintero — AI automation engineer. I turn messy workflows into systems that run themselves. n8n, LLM orchestration, MCP, Next.js, Supabase.">
+    <meta name="theme-color" content="#f4f0e8">
+    <meta property="og:title" content="Ferney Quintero — Automation Studio">
+    <meta property="og:description" content="I turn messy workflows into systems that run themselves.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23171717'/><text y='72' x='50' text-anchor='middle' font-size='58' font-family='monospace' fill='%23ed684a'>FQ</text></svg>">
+    <title>Ferney Quintero — Automation Studio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cursor" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+    <div class="progress" aria-hidden="true"></div>
+
+    <!-- ============ Navigation ============ -->
+    <nav class="navbar">
+        <div class="container">
+            <a class="nav-brand" href="#home" style="text-decoration:none;color:inherit">
+                <i aria-hidden="true"></i><b>FQ</b> / Automation studio
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">01 / Index</a></li>
+                <li><a href="#work" class="nav-link">02 / Work</a></li>
+                <li><a href="#lab" class="nav-link">03 / Terminal</a></li>
+                <li><a href="#about" class="nav-link">04 / About</a></li>
+                <li><a href="#contact" class="nav-link">05 / Contact</a></li>
+            </ul>
+            <div class="nav-tools">
+                <button class="icon-btn" id="palette-open" aria-label="Open command palette">
+                    Search <kbd data-kbd>⌘K</kbd>
+                </button>
+                <button class="icon-btn theme-toggle" id="theme-toggle" aria-label="Toggle color theme">
+                    <span class="moon" aria-hidden="true">◐</span><span class="sun" aria-hidden="true">◑</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============ Hero ============ -->
+    <header id="home" class="hero">
+        <canvas id="flow-canvas" aria-hidden="true"></canvas>
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-kicker">
+                    <span id="availability">Available for select projects</span>
+                    <s>/</s> Bogotá, CO <s>/</s> <span id="clock">--:--:--</span>
+                </p>
+                <h1 class="hero-title">
+                    I turn messy workflows<br><em data-scramble>into systems that run themselves.</em>
+                </h1>
+                <p class="hero-subtitle">
+                    AI automation engineer. Ten years of software behind me, now spent making
+                    n8n, LLMs and APIs do the boring parts on their own.
+                </p>
+                <div class="hero-cta">
+                    <a href="#work" class="btn btn-primary" data-magnetic data-cursor="See the work">Explore the work <span>↘</span></a>
+                    <a href="#contact" class="btn" data-magnetic data-cursor="Say hi">Start a conversation <span>↗</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-note">
+            <span>Selected work <b>2024—2026</b></span>
+            <span id="node-readout">Drag the nodes · click to fire a packet</span>
+            <span>Press <b>⌘K</b> anywhere</span>
+        </div>
+    </header>
+
+    <!-- ============ Ticker ============ -->
+    <div class="ticker" aria-hidden="true">
+        <div class="ticker-track" id="ticker-track"></div>
+    </div>
+
+    <!-- ============ Work ============ -->
+    <section id="work" class="section work">
+        <div class="container">
+            <div class="section-head" data-reveal>
+                <h2 class="section-title">Selected work</h2>
+                <p class="section-index"><b id="work-count">04</b> / case studies · click any card</p>
+            </div>
+            <div class="filters" id="filters" data-reveal role="group" aria-label="Filter projects by stack"></div>
+            <div class="projects-grid" id="projects-grid" style="margin-top:26px"></div>
+            <noscript>
+                <p style="margin-top:24px;font-family:var(--mono);font-size:12px">
+                    This portfolio is interactive — enable JavaScript to browse the case studies,
+                    or reach me at <a href="https://wa.me/573213986410" style="color:var(--coral)">WhatsApp</a>.
+                </p>
+            </noscript>
+        </div>
+    </section>
+
+    <!-- ============ Lab / terminal ============ -->
+    <section id="lab" class="section lab">
+        <div class="container">
+            <div class="section-head" data-reveal>
+                <h2 class="section-title">Ask the terminal</h2>
+                <p class="section-index"><b>03</b> / it actually works</p>
+            </div>
+            <div class="lab-grid">
+                <div class="lab-copy" data-reveal>
+                    <p>
+                        Reading a CV is boring. This one answers back. Type a command and it queries
+                        the same data that builds this page.
+                    </p>
+                    <p>Try <b style="font-family:var(--mono);color:var(--coral)">help</b> if you want the full list.</p>
+                    <div class="lab-hints" id="lab-hints"></div>
+                </div>
+                <div class="terminal" data-reveal data-cursor="Type here">
+                    <div class="term-bar">
+                        <i class="term-dot" aria-hidden="true"></i>
+                        <i class="term-dot" aria-hidden="true"></i>
+                        <i class="term-dot" aria-hidden="true"></i>
+                        <span>ferney@automation-studio — zsh</span>
+                    </div>
+                    <div class="term-body" id="term-body" role="log" aria-live="polite" aria-label="Terminal output"></div>
+                    <label class="term-input-row" for="term-input">
+                        <span class="sr-only">Terminal command</span>
+                        <input id="term-input" autocomplete="off" spellcheck="false" placeholder="type 'help' and hit enter">
+                    </label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ About ============ -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-head" data-reveal>
+                <h2 class="section-title">About</h2>
+                <p class="section-index"><b>04</b> / the human behind the workflows</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text" data-reveal>
+                    <div class="stats">
+                        <div class="stat"><b data-count="10" data-suffix="+">0</b><span>Years shipping software</span></div>
+                        <div class="stat"><b data-count="40" data-suffix="+">0</b><span>Automations in production</span></div>
+                        <div class="stat"><b data-count="1" data-prefix="#">0</b><span>EmprendIA LATAM hackathon</span></div>
+                    </div>
+                    <p>
+                        I am an <strong>AI automation engineer</strong> with more than ten years of software
+                        engineering and project leadership behind me. Today I design and ship production
+                        automations and multi-agent systems that people actually depend on.
+                    </p>
+                    <p>
+                        My background in <strong>Java, Scala, ERP development and Scrum delivery</strong> means I can
+                        go from a raw business problem to a deployed automation without anything getting lost in
+                        translation. I have sat on both sides of the table: the one that writes the ticket and the
+                        one that closes it.
+                    </p>
+                    <p>
+                        The work spans e-commerce, CRM, marketing and operations — multi-platform sync,
+                        lead qualification pipelines, and LLM-driven orchestration across ManyChat,
+                        GoHighLevel, Shopify, Amazon and Odoo.
+                    </p>
+                    <div class="about-award">★ Winner — EmprendIA LATAM Hackathon, Best AI Automation (n8n)</div>
+                </div>
+                <div class="skills" data-reveal>
+                    <div class="skills-head">
+                        <h3>Stack &amp; tooling</h3>
+                        <em>Hover a row</em>
+                    </div>
+                    <div class="skills-list" id="skills-list"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ Contact ============ -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-head" data-reveal>
+                <h2 class="section-title">Let's build<br>something that runs itself.</h2>
+                <p class="section-index"><b>05</b> / open for select projects</p>
+            </div>
+            <div data-reveal>
+                <p class="contact-lead">
+                    If you have a workflow that eats your team's week, I would like to hear about it.
+                    Fastest answer is WhatsApp.
+                </p>
+                <div class="contact-links">
+                    <a href="https://wa.me/573213986410" target="_blank" rel="noopener" class="btn btn-primary" data-magnetic data-cursor="Fastest">WhatsApp <span>↗</span></a>
+                    <a href="mailto:ferquintero2013@gmail.com" class="btn" data-magnetic data-cursor="Email">Email <span>↗</span></a>
+                    <a href="https://github.com/ferquintero2013" target="_blank" rel="noopener" class="btn" data-magnetic data-cursor="Code">GitHub <span>↗</span></a>
+                    <a href="https://www.linkedin.com/in/ferney-quintero-7301b547/" target="_blank" rel="noopener" class="btn" data-magnetic data-cursor="Profile">LinkedIn <span>↗</span></a>
+                </div>
+                <div class="contact-meta">
+                    <span>Bogotá, Colombia · GMT-5</span>
+                    <span id="contact-clock">Local time --:--</span>
+                    <span>Response time · under 24h</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ Footer ============ -->
+    <footer class="footer">
+        <div class="container">
+            <span>&copy; <span id="year">2026</span> Ferney Quintero</span>
+            <span>Built by hand — no template <b>◆</b> vanilla JS, zero dependencies</span>
+            <span>Press <b>⌘K</b></span>
+        </div>
+    </footer>
+
+    <!-- ============ Case study drawer ============ -->
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-scrim" data-close></div>
+        <div class="modal-panel">
+            <div class="modal-head">
+                <span id="modal-eyebrow">Case study</span>
+                <button class="modal-close" data-close>Close · esc</button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- ============ Command palette ============ -->
+    <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Command palette">
+        <div class="palette-scrim" data-close-palette></div>
+        <div class="palette-box">
+            <input id="palette-input" placeholder="Jump to a section, a project, or an action…" autocomplete="off" spellcheck="false">
+            <ul class="palette-list" id="palette-list" role="listbox"></ul>
+            <div class="palette-foot">
+                <span>↑↓ navigate</span><span>↵ select</span><span>esc close</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast" role="status"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
