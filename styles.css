@@ -226,11 +226,6 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
    que devuelve la API. El CSS traduce ese valor a postura y expresion:
    ojos, boca, inclinacion, brazos y los adornos que aparecen alrededor.
    -------------------------------------------------------------------- */
-.greeting {
-  display: flex;
-  align-items: center;
-  gap: clamp(14px, 2.5vw, 28px);
-}
 .bot {
   width: clamp(118px, 19vw, 232px);
   height: auto;
