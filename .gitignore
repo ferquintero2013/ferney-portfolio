@@ -5,6 +5,12 @@
 .bak/
 *.bak
 
+# Python (la API vive en /api)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
 # OS
 .DS_Store
 Thumbs.db
