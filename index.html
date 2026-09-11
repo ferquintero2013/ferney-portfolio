@@ -37,14 +37,26 @@
 
   <div class="greeting">
 
-    <svg class="bot" viewBox="0 0 210 258" role="img" aria-label="A small robot assistant">
+    <svg class="bot" viewBox="0 0 230 262" role="img" aria-label="A small robot assistant">
+
+      <!-- signo de interrogacion: solo cuando no encuentra o no entiende -->
+      <g class="bot-think" aria-hidden="true">
+        <text x="186" y="44" class="bot-mark">?</text>
+      </g>
+
+      <!-- destellos: solo cuando responde con respaldo solido -->
+      <g class="bot-spark" aria-hidden="true">
+        <path d="M182 34 l3.5 8 8 3.5 -8 3.5 -3.5 8 -3.5-8 -8-3.5 8-3.5 z"/>
+        <path d="M40 58 l2.5 6 6 2.5 -6 2.5 -2.5 6 -2.5-6 -6-2.5 6-2.5 z"/>
+      </g>
+
       <g class="bot-body">
 
         <g class="bot-head">
-          <line class="bot-wire" x1="105" y1="30" x2="105" y2="14"/>
-          <circle class="bot-bulb" cx="105" cy="10" r="7"/>
+          <line class="bot-wire" x1="115" y1="30" x2="115" y2="14"/>
+          <circle class="bot-bulb" cx="115" cy="10" r="7"/>
 
-          <path class="bot-skin" d="M105 28
+          <path class="bot-skin" d="M115 28
             c-26 0-44 15-48 38
             l-6 3 a9 9 0 0 0 0 18 l4 2
             v13 a10 10 0 0 0 10 10 h80
@@ -52,38 +64,48 @@
             a9 9 0 0 0 0-18 l-6-3
             c-4-23-22-38-48-38 z"/>
 
-          <g class="eyes" data-eyes="normal">
-            <circle cx="87" cy="74" r="11"/>
-            <circle cx="123" cy="74" r="11"/>
-          </g>
+          <g class="bot-face">
+            <g class="eyes" data-eyes="normal">
+              <circle cx="97" cy="71" r="10.5"/>
+              <circle cx="133" cy="71" r="10.5"/>
+            </g>
+            <g class="eyes" data-eyes="happy">
+              <path d="M87 76 a10 10 0 0 1 20 0"/>
+              <path d="M123 76 a10 10 0 0 1 20 0"/>
+            </g>
+            <g class="eyes" data-eyes="squint">
+              <rect x="86" y="68" width="22" height="7" rx="3.5"/>
+              <rect x="122" y="68" width="22" height="7" rx="3.5"/>
+            </g>
+            <g class="eyes" data-eyes="up">
+              <circle cx="97" cy="65" r="9.5"/>
+              <circle cx="133" cy="65" r="9.5"/>
+            </g>
 
-          <g class="eyes" data-eyes="happy">
-            <path d="M77 79 a10 10 0 0 1 20 0" />
-            <path d="M113 79 a10 10 0 0 1 20 0" />
-          </g>
-
-          <g class="eyes" data-eyes="squint">
-            <rect x="76" y="71" width="22" height="7" rx="3.5"/>
-            <rect x="112" y="71" width="22" height="7" rx="3.5"/>
-          </g>
-
-          <g class="eyes" data-eyes="up">
-            <circle cx="87" cy="68" r="10"/>
-            <circle cx="123" cy="68" r="10"/>
+            <g class="mouth" data-mouth="flat">
+              <rect x="105" y="92" width="20" height="5" rx="2.5"/>
+            </g>
+            <g class="mouth" data-mouth="smile">
+              <path d="M100 90 a16 13 0 0 0 30 0"/>
+            </g>
+            <g class="mouth" data-mouth="wavy">
+              <path d="M101 94 q6-6 12 0 t12 0"/>
+            </g>
+            <g class="mouth" data-mouth="o">
+              <circle cx="115" cy="94" r="6"/>
+            </g>
           </g>
         </g>
 
-        <rect class="bot-skin" x="94" y="110" width="22" height="12" rx="4"/>
-        <rect class="bot-skin" x="66" y="120" width="78" height="72" rx="14"/>
-        <rect class="bot-panel" x="86" y="140" width="38" height="34" rx="6"/>
+        <rect class="bot-skin" x="104" y="110" width="22" height="12" rx="4"/>
+        <rect class="bot-skin" x="76" y="120" width="78" height="72" rx="14"/>
+        <rect class="bot-panel" x="96" y="140" width="38" height="34" rx="6"/>
 
-        <circle class="bot-skin bot-arm-l" cx="49" cy="163" r="14"/>
-        <g class="bot-arm-r">
-          <circle class="bot-skin" cx="161" cy="141" r="14"/>
-        </g>
+        <g class="bot-arm-l"><circle class="bot-skin" cx="59" cy="163" r="14"/></g>
+        <g class="bot-arm-r"><circle class="bot-skin" cx="171" cy="141" r="14"/></g>
 
-        <circle class="bot-skin" cx="84" cy="212" r="15"/>
-        <circle class="bot-skin" cx="126" cy="212" r="15"/>
+        <circle class="bot-skin" cx="94" cy="212" r="15"/>
+        <circle class="bot-skin" cx="136" cy="212" r="15"/>
       </g>
     </svg>
 

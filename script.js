@@ -46,6 +46,42 @@
     }
   }
 
+  /* ---- la mirada sigue al cursor --------------------------------------- */
+
+  // Solo en reposo: mientras piensa o reacciona manda su propia expresion.
+  // El desplazamiento es minimo (unos pocos px en coordenadas del SVG) —
+  // basta para que parezca vivo sin que el gesto se note fabricado.
+  var cara = document.querySelector(".bot-face");
+  var bot = document.querySelector(".bot");
+
+  if (cara && bot && window.matchMedia("(hover: hover)").matches) {
+    var pendiente = false;
+
+    window.addEventListener("mousemove", function (e) {
+      if (pendiente) return;
+      pendiente = true;
+
+      requestAnimationFrame(function () {
+        pendiente = false;
+        if (stage.getAttribute("data-mood") !== "idle") {
+          cara.style.transform = "";
+          return;
+        }
+
+        var caja = bot.getBoundingClientRect();
+        if (!caja.width) return;
+
+        var cx = caja.left + caja.width / 2;
+        var cy = caja.top + caja.height * 0.34;   // altura de los ojos
+
+        var dx = Math.max(-1, Math.min(1, (e.clientX - cx) / 420)) * 7;
+        var dy = Math.max(-1, Math.min(1, (e.clientY - cy) / 340)) * 4;
+
+        cara.style.transform = "translate(" + dx.toFixed(1) + "px, " + dy.toFixed(1) + "px)";
+      });
+    }, { passive: true });
+  }
+
   /* ---- pintar mensajes ------------------------------------------------- */
 
   function addMessage(quien, texto, fuentes) {
