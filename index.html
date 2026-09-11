@@ -37,9 +37,35 @@
   </div>
 </header>
 
-<main id="main" class="stage" data-mood="idle">
+<main id="main" class="stage" data-mood="idle" data-point="none">
 
-  <div class="greeting">
+  <h1 data-es="Automatizo el trabajo<br><span class='soft'>que nadie debería hacer a mano.</span>">I automate the work<br><span class="soft">nobody should be doing by hand.</span></h1>
+
+  <div class="scene">
+
+    <nav class="doors" aria-label="Sections">
+      <a href="work.html" data-point="up"
+         data-say="Six systems. Two of them you can open and try right now."
+         data-es-say="Seis sistemas. Dos puedes abrirlos y probarlos ahora mismo.">
+        <span class="door-n mono">01</span>
+        <span class="door-t" data-es="Proyectos">Work</span>
+        <span class="door-d" data-es="Lo que ha construido">What he has built</span>
+      </a>
+      <a href="background.html" data-point="mid"
+         data-say="Thirteen years in software before the AI part. That's the interesting bit."
+         data-es-say="Trece años en software antes de la parte de IA. Eso es lo interesante.">
+        <span class="door-n mono">02</span>
+        <span class="door-t" data-es="Trayectoria">Background</span>
+        <span class="door-d" data-es="De dónde viene">Where he comes from</span>
+      </a>
+      <a href="contact.html" data-point="down"
+         data-say="Bogotá, working across US hours. He answers quickly."
+         data-es-say="Bogotá, en horario de Estados Unidos. Responde rápido.">
+        <span class="door-n mono">03</span>
+        <span class="door-t" data-es="Contacto">Contact</span>
+        <span class="door-d" data-es="Cómo escribirle">How to reach him</span>
+      </a>
+    </nav>
 
     <svg class="bot" viewBox="0 0 230 262" role="img" aria-label="A small robot assistant">
 
@@ -113,9 +139,11 @@
 
     <div class="bubble">
 
+      <div class="host-say" id="host-say" aria-hidden="true"><p></p></div>
+
       <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-label="Conversation">
         <div class="msg from-bot">
-          <p class="msg-text" data-es="Hola, soy el asistente de Ferney. ¿Qué quieres saber sobre él?">Hi, I'm Ferney's assistant. What do you want to know about him?</p>
+          <p class="msg-text" data-es="Hola, soy el asistente de Ferney. Pregúntame lo que quieras — o elige una puerta y te cuento qué hay detrás.">Hi, I'm Ferney's assistant. Ask me anything — or pick a door and I'll tell you what's behind it.</p>
         </div>
       </div>
 
@@ -154,27 +182,8 @@
         <a href="assistant.html" data-es="Cómo estoy hecho →">How I'm built →</a>
       </p>
     </div>
+
   </div>
-
-  <h1 data-es="Automatizo el trabajo<br><span class='soft'>que nadie debería hacer a mano.</span>">I automate the work<br><span class="soft">nobody should be doing by hand.</span></h1>
-
-  <nav class="jump" aria-label="Go to a section">
-    <a href="work.html">
-      <span class="jump-n mono">01</span>
-      <span class="jump-t" data-es="Proyectos">Work</span>
-      <span class="jump-d" data-es="Seis sistemas, dos que puedes abrir">Six systems, two you can open</span>
-    </a>
-    <a href="background.html">
-      <span class="jump-n mono">02</span>
-      <span class="jump-t" data-es="Trayectoria">Background</span>
-      <span class="jump-d" data-es="13 años antes de la parte de IA">13 years before the AI part</span>
-    </a>
-    <a href="contact.html">
-      <span class="jump-n mono">03</span>
-      <span class="jump-t" data-es="Contacto">Contact</span>
-      <span class="jump-d" data-es="Bogotá · remoto en horario de EE. UU.">Bogotá · remote across US hours</span>
-    </a>
-  </nav>
 
 </main>
 

@@ -66,6 +66,42 @@
     }
   }
 
+  /* ---- el anfitrion presenta las puertas -------------------------------- */
+
+  // Al pasar por una puerta, el robot gira a mirarla, la senala y la
+  // comenta en su globo. Al salir, vuelve a la conversacion. El gesto lo
+  // hace el CSS a partir de data-point; aqui solo se decide a donde mira.
+  var puertas = document.querySelectorAll(".doors a[data-point]");
+  var decir = document.getElementById("host-say");
+  var soltar = null;
+
+  function comentar(enlace) {
+    clearTimeout(soltar);
+    stage.setAttribute("data-point", enlace.getAttribute("data-point"));
+    if (decir) {
+      var lang = (window.FQ_LANG && window.FQ_LANG()) || "en";
+      var texto = lang === "es"
+        ? enlace.getAttribute("data-es-say")
+        : enlace.getAttribute("data-say");
+      decir.querySelector("p").textContent = texto || "";
+    }
+  }
+
+  function soltarPuerta() {
+    // Pequena espera: al moverse entre puertas vecinas el robot no vuelve
+    // a la posicion neutra y se queda a medio camino.
+    soltar = setTimeout(function () {
+      stage.setAttribute("data-point", "none");
+    }, 90);
+  }
+
+  puertas.forEach(function (a) {
+    a.addEventListener("mouseenter", function () { comentar(a); });
+    a.addEventListener("focus", function () { comentar(a); });
+    a.addEventListener("mouseleave", soltarPuerta);
+    a.addEventListener("blur", soltarPuerta);
+  });
+
   /* ---- la mirada sigue al cursor --------------------------------------- */
 
   // Solo en reposo: mientras piensa o reacciona manda su propia expresion.
@@ -83,7 +119,9 @@
 
       requestAnimationFrame(function () {
         pendiente = false;
-        if (stage.getAttribute("data-mood") !== "idle") {
+        var quieto = stage.getAttribute("data-mood") !== "idle" ||
+                     stage.getAttribute("data-point") !== "none";
+        if (quieto) {
           cara.style.transform = "";
           return;
         }
