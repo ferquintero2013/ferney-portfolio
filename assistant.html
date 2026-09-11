@@ -159,11 +159,13 @@
     </p>
 
     <h3 data-es="Lo que no tiene">What it doesn't have</h3>
-    <p data-es="<strong>No hay evaluación automatizada.</strong> Pruebo con un conjunto fijo de preguntas que cubren los casos que me importan, pero las corro a mano — que es como un defecto real se me coló una vez y lo pillé de casualidad. Es lo primero que construiría si esto sirviera a alguien más que a mí.">
-      <strong>No automated evaluation suite.</strong> I test with a fixed set of
-      questions covering the cases I care about, but I run them by hand — which is how a
-      real defect slipped past me once and got caught by accident. It's the first thing
-      I'd build if this were serving anyone but me.
+    <p data-es="<strong>Ahora tiene batería de evaluación</strong> — 17 casos en seis categorías, en dos capas. Las aserciones deterministas comprueban lo que una máquina puede comprobar: si citó fuentes, si la respuesta contiene lo que debe, si el estado es el correcto, si respondió en el idioma en que le preguntaron. Un segundo modelo juzga lo que un <code>if</code> no alcanza: si el matiz sobrevivió y si el tono sirve para enseñárselo a un reclutador. También hay casos de inyección de prompt y de intento de extraer las instrucciones.">
+      <strong>It now has an evaluation suite</strong> — 17 cases across six categories,
+      run in two layers. Deterministic assertions check what a machine can check: did it
+      cite sources, does the answer contain what it must, is the mood right, did it reply
+      in the language it was asked in. A second model judges what an <code>if</code>
+      can't: whether the nuance survived and whether the tone is fit to show a recruiter.
+      Prompt injection and system-prompt extraction are in there too.
     </p>
     <p data-es="<strong>No hay límite de peticiones de verdad.</strong> Hay un contador por IP, pero vive en la memoria de una instancia serverless, y puede haber varias corriendo a la vez — así que frena ráfagas en lugar de imponer un límite global. Hacerlo bien necesita estado compartido, como Redis. El tope duro de gasto está en la cuenta de OpenAI, que es la capa que de verdad me protege.">
       <strong>No real rate limiting.</strong> There's a per-IP counter, but it lives in

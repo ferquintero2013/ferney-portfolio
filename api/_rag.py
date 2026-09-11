@@ -3,6 +3,7 @@
 #   rag.py
 
 import os
+import re
 from openai import OpenAI
 from dotenv import load_dotenv
 from _retriever import retrieve
@@ -148,6 +149,24 @@ def extract_cited(answer_text, chunks):
     return citados
 
 
+# Marcadores de cita tipo [archivo.md -> Seccion], tal como los escribe el
+# modelo dentro del texto.
+CITA = re.compile(r"\s*\[[^\[\]]*?\.md\s*->[^\[\]]*?\]")
+
+
+def strip_citations(texto):
+    """Quita los marcadores de cita del texto que ve el usuario.
+
+    El modelo los escribe inline porque el prompt le obliga a atribuir cada
+    afirmacion, y extract_cited los necesita para saber que fuentes uso.
+    Pero dejarlos en la respuesta visible duplica lo que ya aparece en el
+    bloque de fuentes, y mete nombres de seccion en espanol dentro de
+    respuestas en ingles.
+    """
+    limpio = CITA.sub("", texto)
+    return limpio.replace(" .", ".").replace(" ,", ",").strip()
+
+
 def detect_mood(answer_text, citados):
     """Deriva el estado de animo del asistente de lo que ya sabemos.
 
@@ -199,8 +218,12 @@ def answer(question, history=None, n_results=5):
         max_tokens=500
     )
 
-    texto = response.choices[0].message.content
-    citados = extract_cited(texto, chunks)
+    bruto = response.choices[0].message.content
+
+    # Las citas se extraen del texto ANTES de limpiarlo: extract_cited las
+    # necesita para saber que fuentes uso el modelo.
+    citados = extract_cited(bruto, chunks)
+    texto = strip_citations(bruto)
 
     return {
         "question": question,
