@@ -1,0 +1,231 @@
+{
+ "model": "text-embedding-3-small",
+ "dimensions": 1536,
+ "count": 37,
+ "normalized": true,
+ "exported": "2026-09-10",
+ "chunks": [
+  {
+   "id": "chunk_000",
+   "source": "cv.md",
+   "section": "Datos de contacto",
+   "text": "## Datos de contacto\n- **Nombre**: Ferney Quintero\n- **Titulo**: AI Automation Engineer / Software Engineer / Project Manager\n- **Email**: ferquintero2013@gmail.com\n- **LinkedIn**: linkedin.com/in/ferneyquintero-7301b547\n- **Ubicacion**: Bogota, Colombia\n- **Disponibilidad**: Inmediata (trabaja actualmente en Fajas Forma Tu Cuerpo + consultoria independiente)"
+  },
+  {
+   "id": "chunk_001",
+   "source": "cv.md",
+   "section": "Resumen profesional",
+   "text": "## Resumen profesional\nAutomation Engineer con trayectoria que abarca roles clave del ciclo de vida de desarrollo de software: analista de negocio, desarrollador, y project manager. Esta combinacion le da un entendimiento profundo de workflows organizacionales, procesos y necesidades operativas. Con el auge de la IA, pivoteo su carrera hacia automatizacion inteligente, aprovechando su conocimiento de negocio, habilidades tecnicas y experiencia liderando iniciativas tecnologicas. Actualmente disena, implementa e integra automatizaciones impulsadas por IA y soluciones de orquestacion de procesos que maximizan eficiencia, reducen carga operativa y aseguran escalabilidad."
+  },
+  {
+   "id": "chunk_002",
+   "source": "cv.md",
+   "section": "Fajas Forma Tu Cuerpo Shapewear | Software Development Lead - AI & Process Automation | Marzo 2026 - Presente",
+   "text": "### Fajas Forma Tu Cuerpo Shapewear | Software Development Lead - AI & Process Automation | Marzo 2026 - Presente\n- **Tecnologias**: Odoo ERP, TikTok Shop, Amazon, Shopify, herramientas IA\n- **Logros clave**:\n  - Liderando implementacion de ERP cross-country (US, Colombia, Mexico)\n  - Diseno de frameworks de gobernanza de producto para eliminar inconsistencias de datos\n  - Aplicacion de IA para acelerar toma de decisiones: analisis de reuniones, extraccion de requerimientos, identificacion de riesgos a 3x velocidad\n- **Responsabilidades**: Alineacion de stakeholders (Operaciones, Contabilidad, Tecnologia), orquestacion de equipos de desarrollo, control de inventario, facturacion, sincronizacion multi-plataforma"
+  },
+  {
+   "id": "chunk_003",
+   "source": "cv.md",
+   "section": "Independiente (Self-Employed) | AI Automation Consultant | Julio 2025 - Marzo 2026 (9 meses)",
+   "text": "### Independiente (Self-Employed) | AI Automation Consultant | Julio 2025 - Marzo 2026 (9 meses)\n- **Tecnologias**: n8n, Zapier, Meta APIs, ManyChat, GoHighLevel CRM\n- **Logros clave**:\n  - **Onest Vision (cliente pagante, Ene-Mar 2026)**: Automatizaciones CRM en GoHighLevel para gestion de contactos, atribucion UTM y reporting. Contrato como contractor.\n  - **Lambda AI (proyecto propio, Ago-Dic 2025)**: Prototipo de agentes de soporte de ventas con Meta APIs y ManyChat, automatizando captura, calificacion y gestion de leads. Iniciativa propia para lanzar negocio de chatbots; arquitectura completa construida, no llego a clientes pagantes. El mismo patron tecnico gano 1er lugar en el hackathon EmprendIA LATAM.\n  - **Hackathon EmprendIA LATAM (2025)**: 1er lugar en la categoria Best AI Automation con solucion construida en n8n.\n- **Responsabilidades**: Consultoria independiente en automatizaciones IA y sistemas multi-agente, optimizacion de workflows, integracion de asistentes IA"
+  },
+  {
+   "id": "chunk_004",
+   "source": "cv.md",
+   "section": "Nequi | Agile Leader | Marzo 2024 - Julio 2025 (1 ano 5 meses)",
+   "text": "### Nequi | Agile Leader | Marzo 2024 - Julio 2025 (1 ano 5 meses)\n- **Tecnologias**: Herramientas agiles, metricas de productividad\n- **Logros clave**:\n  - Mejora de productividad en la cadena de valor de desarrollo de producto de software\n  - Implementacion de enfoques innovadores para eficiencia y colaboracion\n- **Responsabilidades**: Liderazgo de equipos, tacticas y estrategias agiles"
+  },
+  {
+   "id": "chunk_005",
+   "source": "cv.md",
+   "section": "Imagemaker | Scrum Master | Mayo 2022 - Julio 2023 (1 ano 3 meses)",
+   "text": "### Imagemaker | Scrum Master | Mayo 2022 - Julio 2023 (1 ano 3 meses)\n- **Tecnologias**: Herramientas agiles, gestion de proyectos\n- **Logros clave**:\n  - Liderazgo de equipos multiculturales\n  - Colaboracion con gerentes de ventas en propuestas de proyectos (estimaciones y alcance)\n  - Sesiones de descubrimiento colaborativo con stakeholders\n- **Responsabilidades**: Coaching agil, gestion de proyectos end-to-end, evaluacion de factibilidad tecnica y comercial"
+  },
+  {
+   "id": "chunk_006",
+   "source": "cv.md",
+   "section": "Sophos Solutions S.A.S. | Scrum Master / Agile Consultant | Enero 2021 - Mayo 2022 (1 ano 5 meses)",
+   "text": "### Sophos Solutions S.A.S. | Scrum Master / Agile Consultant | Enero 2021 - Mayo 2022 (1 ano 5 meses)\n- **Logros clave**:\n  - Implementacion de metodologia agil mejorando eficiencia y adaptabilidad de proyectos\n  - Remocion proactiva de impedimentos\n- **Responsabilidades**: Coaching agil, facilitacion, gestion de dinamicas de equipo"
+  },
+  {
+   "id": "chunk_007",
+   "source": "cv.md",
+   "section": "Softgic | Project Manager | Agosto 2018 - Diciembre 2020 (2 anos 5 meses)",
+   "text": "### Softgic | Project Manager | Agosto 2018 - Diciembre 2020 (2 anos 5 meses)\n- **Tecnologias**: Framework PMI\n- **Logros clave**:\n  - Entregas a tiempo y dentro del alcance\n- **Responsabilidades**: Gestion de proyectos bajo PMI, analisis de contratos, seguimiento de entregables"
+  },
+  {
+   "id": "chunk_008",
+   "source": "cv.md",
+   "section": "BVC - Bolsa de Valores de Colombia | Senior Software QA Analyst - Team Leader | 2015 - Agosto 2018 (3 anos)",
+   "text": "### BVC - Bolsa de Valores de Colombia | Senior Software QA Analyst - Team Leader | 2015 - Agosto 2018 (3 anos)\n- **Tecnologias**: Scala, Java, herramientas QA\n- **Logros clave**:\n  - Lider de QA para uno de los proyectos mas grandes en la historia reciente de la empresa\n- **Responsabilidades**: Planificacion, control y aseguramiento de calidad en proyectos de software"
+  },
+  {
+   "id": "chunk_009",
+   "source": "cv.md",
+   "section": "BVC - Bolsa de Valores de Colombia | Software Developer Scrum Team | Junio 2015 - Diciembre 2016 (1 ano 7 meses)",
+   "text": "### BVC - Bolsa de Valores de Colombia | Software Developer Scrum Team | Junio 2015 - Diciembre 2016 (1 ano 7 meses)\n- **Tecnologias**: Scala, Java\n- **Responsabilidades**: Desarrollo de software en equipo Scrum"
+  },
+  {
+   "id": "chunk_010",
+   "source": "cv.md",
+   "section": "DIIT Consultores SAS | Development and Consulting Engineer | Febrero 2013 - Marzo 2015 (2 anos 2 meses)",
+   "text": "### DIIT Consultores SAS | Development and Consulting Engineer | Febrero 2013 - Marzo 2015 (2 anos 2 meses)\n- **Tecnologias**: Microsoft Dynamics AX ERP\n- **Responsabilidades**: Desarrollo y consultoria en ERP, analisis de negocio, documentacion funcional y tecnica"
+  },
+  {
+   "id": "chunk_011",
+   "source": "cv.md",
+   "section": "MVP de Validacion Inteligente de Documentos con IA | Agosto - Septiembre 2026",
+   "text": "### MVP de Validacion Inteligente de Documentos con IA | Agosto - Septiembre 2026\nSistema end-to-end de validacion automatizada de expedientes de admision universitaria, construido integramente en Python. Extrae datos de documentos con GPT-4o Vision, aplica reglas de negocio auditables, hace cross-check de identidad entre documentos para detectar posibles suplantaciones, y genera notificaciones personalizadas con IA.\n- **Stack**: Python 3.14, Streamlit, OpenAI GPT-4o Vision + GPT-4o-mini, GitHub API. Desarrollado con Claude Code.\n- **Resultado**: reduccion de ~14 min a ~5 seg por documento (99%). Cross-check de identidad como capacidad nueva. 100% de notificaciones automatizadas.\n- **Demo publico**: https://postulaciones-mvp.streamlit.app/\n- **Codigo**: https://github.com/ferquintero2013/postulaciones-mvp-utel"
+  },
+  {
+   "id": "chunk_012",
+   "source": "cv.md",
+   "section": "Universidad del Rosario | Especialista en Gerencia de Proyectos de Sistemas | 2015 - 2016",
+   "text": "### Universidad del Rosario | Especialista en Gerencia de Proyectos de Sistemas | 2015 - 2016"
+  },
+  {
+   "id": "chunk_013",
+   "source": "cv.md",
+   "section": "Universidad Catolica de Colombia | Ingeniero de Sistemas | 2007 - 2012",
+   "text": "### Universidad Catolica de Colombia | Ingeniero de Sistemas | 2007 - 2012"
+  },
+  {
+   "id": "chunk_014",
+   "source": "cv.md",
+   "section": "Certificaciones",
+   "text": "## Certificaciones\n- 1st Place - Best AI Automation | n8n EmprendIA LATAM Hackathon (2025)\n- Claude Code: Software Engineering with Generative AI Agents (Anthropic)\n- n8n: Agentes y automatizaciones de IA\n- AWS Certified Cloud Practitioner\n- Certified SAFe 5 Scrum Master\n- Lean Portfolio Management (ICP-LPM)\n- Becoming an Agile Coach\n- Curso Practico de Frontend Developer\n- Experto en Zapier"
+  },
+  {
+   "id": "chunk_015",
+   "source": "cv.md",
+   "section": "Idiomas",
+   "text": "## Idiomas\n- Espanol: Nativo\n- Ingles: Full Professional"
+  },
+  {
+   "id": "chunk_016",
+   "source": "cv.md",
+   "section": "Top Skills (destacados en LinkedIn)",
+   "text": "## Top Skills (destacados en LinkedIn)\n- Claude Skills\n- Anthropic Claude\n- Vibe Coding"
+  },
+  {
+   "id": "chunk_017",
+   "source": "habilidades.md",
+   "section": "AI y Automatizacion",
+   "text": "## AI y Automatizacion\n\n| Habilidad | Nivel (1-5) | Anos experiencia | Ultimo uso | Notas |\n|-----------|-------------|-------------------|------------|-------|\n| n8n | 4 | 1+ | Actual | Ganador hackathon EmprendIA LATAM |\n| Zapier | 4 | 2+ | Actual | Certificado como Experto |\n| Anthropic Claude / Claude Code | 4 | 1+ | Actual | Certificado, top skill LinkedIn |\n| Agentes IA / Multi-agent systems | 4 | 1+ | Actual | Lambda AI, Onestvision |\n| ManyChat | 3 | 1 | 2025 | Proyecto Lambda AI |\n| Meta APIs (WhatsApp/Messenger) | 3 | 1 | 2025 | Integracion con agentes de ventas |\n| GoHighLevel CRM | 3 | 1 | 2026 | Automatizaciones CRM, Onest Vision |\n| Vibe Coding | 4 | 1+ | Actual | Top skill LinkedIn |"
+  },
+  {
+   "id": "chunk_018",
+   "source": "habilidades.md",
+   "section": "Desarrollo de Software",
+   "text": "## Desarrollo de Software\n\n| Habilidad | Nivel (1-5) | Anos experiencia | Ultimo uso | Notas |\n|-----------|-------------|-------------------|------------|-------|\n| Java | 3 | 3+ | 2018 | BVC - Bolsa de Valores |\n| Scala | 3 | 2 | 2016 | BVC - desarrollo en equipo Scrum |\n| Microsoft Dynamics AX | 3 | 2 | 2015 | DIIT Consultores - ERP |\n| Frontend (HTML/CSS/JS) | 2 | 1+ | Variable | Certificacion Platzi |"
+  },
+  {
+   "id": "chunk_019",
+   "source": "habilidades.md",
+   "section": "ERP y Plataformas de Negocio",
+   "text": "## ERP y Plataformas de Negocio\n\n| Habilidad | Nivel (1-5) | Anos experiencia | Ultimo uso | Notas |\n|-----------|-------------|-------------------|------------|-------|\n| Odoo ERP | 3 | 1 | Actual | Implementacion cross-country Fajas FTC |\n| Microsoft Dynamics AX | 3 | 2 | 2015 | Desarrollo y consultoria |\n| Shopify | 3 | 1 | Actual | E-commerce Fajas FTC |\n| Amazon Seller | 3 | 1 | Actual | E-commerce Fajas FTC |\n| TikTok Shop | 3 | 1 | Actual | E-commerce Fajas FTC |"
+  },
+  {
+   "id": "chunk_020",
+   "source": "habilidades.md",
+   "section": "Gestion de Proyectos y Agilidad",
+   "text": "## Gestion de Proyectos y Agilidad\n\n| Habilidad | Nivel (1-5) | Anos experiencia | Ultimo uso | Notas |\n|-----------|-------------|-------------------|------------|-------|\n| Scrum / Scrum Master | 5 | 5+ | 2025 | Multiples empresas: Nequi, Imagemaker, Sophos |\n| Agile Coaching | 5 | 4+ | 2025 | Certificado, Nequi, Sophos |\n| Project Management (PMI) | 4 | 4+ | 2020 | Softgic, especialista en gerencia |\n| Stakeholder Management | 4 | 5+ | Actual | Cross-functional alignment |\n| QA / Quality Assurance | 4 | 3 | 2018 | Team leader QA en BVC |"
+  },
+  {
+   "id": "chunk_021",
+   "source": "habilidades.md",
+   "section": "Habilidades de Negocio",
+   "text": "## Habilidades de Negocio\n\n| Habilidad | Nivel (1-5) | Anos experiencia | Ultimo uso | Notas |\n|-----------|-------------|-------------------|------------|-------|\n| Business Analysis | 4 | 5+ | Actual | DIIT, BVC, Fajas FTC |\n| Documentacion funcional/tecnica | 4 | 5+ | Actual | Toda la carrera |\n| Process Optimization | 4 | 3+ | Actual | Core de su rol actual |\n| Elaboracion de propuestas | 4 | 3+ | Actual | Imagemaker, consultoria independiente |\n| E-commerce operations | 3 | 1 | Actual | Fajas FTC multi-plataforma |"
+  },
+  {
+   "id": "chunk_022",
+   "source": "habilidades.md",
+   "section": "Habilidades blandas",
+   "text": "## Habilidades blandas\n- Liderazgo de equipos multiculturales (Imagemaker)\n- Comunicacion entre areas tecnicas y de negocio (bridge builder)\n- Coaching y mentoria de equipos\n- Facilitacion de sesiones de descubrimiento\n- Resolucion de impedimentos y conflictos\n- Gestion de equipos distribuidos/remotos"
+  },
+  {
+   "id": "chunk_023",
+   "source": "habilidades.md",
+   "section": "Idiomas",
+   "text": "## Idiomas\n| Idioma | Nivel | Certificacion |\n|--------|-------|---------------|\n| Espanol | Nativo | - |\n| Ingles | Full Professional | LinkedIn |"
+  },
+  {
+   "id": "chunk_024",
+   "source": "habilidades.md",
+   "section": "En aprendizaje",
+   "text": "## En aprendizaje\n| Habilidad | Fecha inicio | Recurso | Progreso |\n|-----------|-------------|---------|----------|\n| Claude Code / AI Agents | 2025 | Anthropic | Certificado |\n| Vibe Coding | 2025 | Practica | Activo |\n| Python | 2026-04 | Codecademy + practica | Iniciando |\n| Claude API / Anthropic SDK | 2026-04 | Documentacion oficial | Iniciando |\n| LangChain | 2026-05 | Tutorial oficial + proyecto FTC | Pendiente |\n| RAG en no-code (n8n + Vector Store) | 2025 | Proyecto propio | **Completado**: flujo RAG funcional en n8n con Vector Store node (Pinecone). Sin codigo propio — orquestacion no-code. |\n| RAG con codigo (Python + Vector DB) | 2026-05 | Proyecto propio `rag_portfolio` | **En progreso** (desde 2026-09-03): chunking estructural por headers y embeddings + ChromaDB implementados en Python. Pendiente: retrieval con HyDE, generacion, UI y deploy. |\n| Vector databases | 2026-05 | Proyecto propio `rag_portfolio` | **En progreso**: ChromaDB local (PersistentClient, collections, metadata, query por embeddings). Pinecone conocido via n8n, no via codigo. |"
+  },
+  {
+   "id": "chunk_025",
+   "source": "habilidades.md",
+   "section": "Plan de aprendizaje completo",
+   "text": "## Plan de aprendizaje completo\nVer `coaching/plan-aprendizaje-ia.md` para roadmap detallado de 12 semanas."
+  },
+  {
+   "id": "chunk_026",
+   "source": "portafolio.md",
+   "section": "1. MVP de Validacion Inteligente de Documentos con IA (UTEL) — PUBLICO",
+   "text": "### 1. MVP de Validacion Inteligente de Documentos con IA (UTEL) — PUBLICO\n- **Descripcion**: Sistema de hiperautomatizacion que valida expedientes de admision universitaria. Extrae datos de documentos con GPT-4o Vision, aplica reglas de negocio auditables, hace cross-check de identidad entre documentos para detectar posibles suplantaciones, y genera notificaciones personalizadas al aspirante con IA.\n- **Rol**: Arquitecto y desarrollador unico (100% del codigo, diseno y deploy)\n- **Tecnologias**: Python 3.14, Streamlit, OpenAI GPT-4o Vision + GPT-4o-mini, GitHub API, ChromaDB-free (reglas deterministas), deploy en Streamlit Community Cloud. Construido usando Claude Code como companero de desarrollo.\n- **Impacto/Resultados**: Reduccion de ~14 minutos a ~5 segundos por documento (99% menos tiempo). Cross-check de identidad = capacidad nueva que no existia en el proceso manual. Notificacion al aspirante 100% automatizada. Trazabilidad completa para auditoria.\n- **Arquitectura**: 6 modulos Python con separacion de responsabilidades — ingesta, extraccion con Vision AI, validacion por reglas de negocio, analisis de expediente con cross-check, generacion de notificacion, UI.\n- **Decisiones de diseno destacadas**: hibrido IA + reglas deterministas (la IA extrae, las reglas deciden), anti-alucinacion via auto-declaracion de confianza del modelo, jerarquia de decision por severidad, modelos distintos por caso de uso (GPT-4o para extraccion critica, GPT-4o-mini 10x mas barato para redaccion).\n- **Periodo**: Agosto - Septiembre 2026\n- **Demo publico**: https://postulaciones-mvp.streamlit.app/\n- **Codigo fuente**: https://github.com/ferquintero2013/postulaciones-mvp-utel"
+  },
+  {
+   "id": "chunk_027",
+   "source": "portafolio.md",
+   "section": "2. Implementacion ERP Cross-Country (Fajas Forma Tu Cuerpo)",
+   "text": "### 2. Implementacion ERP Cross-Country (Fajas Forma Tu Cuerpo)\n- **Descripcion**: Implementacion de Odoo ERP para operaciones en US, Colombia y Mexico con sincronizacion multi-plataforma (TikTok Shop, Amazon, Shopify)\n- **Rol**: Software Development Lead\n- **Tecnologias**: Odoo, integraciones e-commerce, herramientas IA\n- **Impacto/Resultados**: Eliminacion de inconsistencias de datos entre plataformas, frameworks de gobernanza de producto, documentacion acelerada 3x con IA\n- **Periodo**: Marzo 2026 - Presente\n- **Link**: _(privado)_"
+  },
+  {
+   "id": "chunk_028",
+   "source": "portafolio.md",
+   "section": "3. Automatizaciones CRM (Onest Vision) — Cliente real",
+   "text": "### 3. Automatizaciones CRM (Onest Vision) — Cliente real\n- **Descripcion**: Desarrollo y mantenimiento de automatizaciones CRM en GoHighLevel para gestion de contactos, atribucion UTM automatizada y reporting\n- **Rol**: Independent Contractor (cliente pagante)\n- **Tecnologias**: GoHighLevel CRM, Zapier, automatizaciones de datos\n- **Impacto/Resultados**: Gestion de contactos y oportunidades optimizada, atribucion de datos UTM automatizada, insights de reporting confiables\n- **Periodo**: Enero - Marzo 2026\n- **Link**: _(trabajo de cliente, no publico)_"
+  },
+  {
+   "id": "chunk_029",
+   "source": "portafolio.md",
+   "section": "4. Hackathon EmprendIA LATAM - 1er Lugar",
+   "text": "### 4. Hackathon EmprendIA LATAM - 1er Lugar\n- **Descripcion**: Proyecto ganador del primer lugar en la categoria Best AI Automation usando n8n\n- **Rol**: Participante / Desarrollador\n- **Tecnologias**: n8n\n- **Impacto/Resultados**: 1er puesto en Best AI Automation\n- **Periodo**: 2025\n- **Link**: _(agregar si disponible)_"
+  },
+  {
+   "id": "chunk_030",
+   "source": "portafolio.md",
+   "section": "5. Agentes IA de Soporte de Ventas (Lambda AI) — Proyecto propio",
+   "text": "### 5. Agentes IA de Soporte de Ventas (Lambda AI) — Proyecto propio\n- **Descripcion**: Prototipo de agentes IA de soporte de ventas construido con Meta APIs y ManyChat, integrando multiples repositorios de datos para automatizar captura, calificacion y gestion de leads. Iniciativa propia con el objetivo de lanzar un negocio de chatbots.\n- **Rol**: Creador y desarrollador unico (proyecto personal, no cliente)\n- **Tecnologias**: Meta APIs, ManyChat, n8n, integraciones de datos\n- **Impacto/Resultados**: Arquitectura completa del pipeline de ventas construida y funcional (captura → calificacion → gestion de leads). El mismo patron tecnico gano 1er lugar en el hackathon EmprendIA LATAM. No llego a clientes pagantes.\n- **Periodo**: Agosto - Diciembre 2025\n- **Link**: _(prototipo propio, codigo privado)_"
+  },
+  {
+   "id": "chunk_031",
+   "source": "portafolio.md",
+   "section": "6. QA Lead - Proyecto Mayor de BVC",
+   "text": "### 6. QA Lead - Proyecto Mayor de BVC\n- **Descripcion**: Liderazgo del equipo de QA para uno de los proyectos mas grandes en la historia reciente de la Bolsa de Valores de Colombia\n- **Rol**: Senior Software QA Analyst - Team Leader\n- **Tecnologias**: Scala, Java, herramientas QA\n- **Impacto/Resultados**: Aseguramiento de calidad exitoso en proyecto de alta criticidad financiera\n- **Periodo**: 2015 - 2018\n- **Link**: _(confidencial)_"
+  },
+  {
+   "id": "chunk_032",
+   "source": "portafolio.md",
+   "section": "7. Transformacion Agil - Nequi",
+   "text": "### 7. Transformacion Agil - Nequi\n- **Descripcion**: Mejora de productividad en la cadena de valor de desarrollo de producto de software de Nequi (fintech lider en Colombia)\n- **Rol**: Agile Leader\n- **Tecnologias**: Frameworks agiles, metricas de productividad\n- **Impacto/Resultados**: Implementacion de enfoques innovadores para eficiencia y colaboracion en equipos de desarrollo\n- **Periodo**: Marzo 2024 - Julio 2025\n- **Link**: _(interno)_"
+  },
+  {
+   "id": "chunk_033",
+   "source": "portafolio.md",
+   "section": "Portafolio web",
+   "text": "## Portafolio web\n\n- **Sitio publico**: https://ferney-portfolio.vercel.app/\n- **GitHub**: https://github.com/ferquintero2013"
+  },
+  {
+   "id": "chunk_034",
+   "source": "portafolio.md",
+   "section": "Certificaciones",
+   "text": "## Certificaciones\n\n- 1er Lugar — Best AI Automation, n8n EmprendIA LATAM Hackathon (2025)\n- Claude Code: Software Engineering with Generative AI Agents (Anthropic)\n- n8n: Agentes y automatizaciones de IA\n- AWS Certified Cloud Practitioner\n- Certified SAFe 5 Scrum Master\n- Lean Portfolio Management (ICP-LPM)"
+  },
+  {
+   "id": "chunk_035",
+   "source": "resumen-ejecutivo.md",
+   "section": "Parrafo 1: Quien es Ferney",
+   "text": "## Parrafo 1: Quien es Ferney\nIngeniero de sistemas con +13 anos de experiencia en el ciclo completo de desarrollo de software, habiendo ocupado roles de desarrollador, QA lead, project manager, Scrum Master, Agile Coach y ahora AI Automation Engineer. Esta trayectoria multifacetica le permite entender problemas desde la perspectiva tecnica, de negocio y de gestion simultaneamente. Ha trabajado en sectores como fintech (BVC - Bolsa de Valores de Colombia, Nequi), consultoria tecnologica (Sophos Solutions, Imagemaker, Softgic), y e-commerce internacional."
+  },
+  {
+   "id": "chunk_036",
+   "source": "resumen-ejecutivo.md",
+   "section": "Parrafo 2: Propuesta de valor",
+   "text": "## Parrafo 2: Propuesta de valor\nSu diferenciador es la interseccion unica entre conocimiento profundo de procesos de negocio, experiencia tecnica en desarrollo, y dominio de herramientas de automatizacion con IA (n8n, Zapier, Claude, agentes multi-sistema). Ganador del 1er lugar en Best AI Automation en el hackathon EmprendIA LATAM con n8n. Actualmente lidera implementaciones ERP cross-country y construye agentes IA que automatizan ventas, CRM y operaciones. Busca oportunidades donde pueda aplicar esta combinacion para transformar operaciones empresariales mediante automatizacion inteligente."
+  }
+ ]
+}

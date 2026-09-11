@@ -1,0 +1,8 @@
+{
+  "functions": {
+    "api/ask.py": {
+      "includeFiles": "api/_index_*",
+      "maxDuration": 30
+    }
+  }
+}
