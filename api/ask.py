@@ -11,8 +11,14 @@ que la consume, asi que el navegador no la considera una peticion cruzada.
 """
 
 import json
+import os
+import sys
 import traceback
 from http.server import BaseHTTPRequestHandler
+
+# Vercel no garantiza que el directorio de la funcion este en sys.path,
+# asi que los modulos vecinos (_rag, _retriever) no se encuentran solos.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from _rag import answer
 
