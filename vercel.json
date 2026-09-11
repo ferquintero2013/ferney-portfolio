@@ -3,10 +3,6 @@
     "api/ask.py": {
       "includeFiles": "api/**",
       "maxDuration": 30
-    },
-    "api/diag.py": {
-      "includeFiles": "api/**",
-      "maxDuration": 10
     }
   }
 }
