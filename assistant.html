@@ -115,14 +115,21 @@
 
     <h2>Built with</h2>
     <p>
-      Python, with <code>ChromaDB</code> as the vector database, <code>rank-bm25</code>
-      for keyword search, and OpenAI's API — <code>text-embedding-3-small</code> to
-      index the documents, <code>gpt-4o</code> to write the answers and
-      <code>gpt-4o-mini</code> for the cheaper rewriting step. The interface is
-      Streamlit, and it's embedded in the front page of this site.
+      Python, running as a serverless function on this same domain —
+      <a href="https://ferney-portfolio.vercel.app/api/ask">/api/ask</a>. It uses
+      OpenAI's API: <code>text-embedding-3-small</code> to index the documents,
+      <code>gpt-4o</code> to write the answers, and <code>gpt-4o-mini</code> for the
+      cheaper rewriting step. Keyword search is <code>rank-bm25</code>.
     </p>
     <p>
-      No RAG framework. Every piece is written by hand — which is how I found the
+      <strong>No vector database.</strong> The first version used ChromaDB, and then I
+      measured: 37 documents fit in 222 KB of memory, and searching them is one matrix
+      multiplication that numpy does in under a millisecond. A vector database is built
+      for millions of vectors — here it was infrastructure heavier than the problem, so
+      I removed it. I'd bring one back somewhere north of ten thousand chunks.
+    </p>
+    <p>
+      No RAG framework either. Every piece is written by hand — which is how I found the
       problem below, and probably wouldn't have with a pre-packaged pipeline.
     </p>
 
@@ -149,10 +156,33 @@
 
     <h3>What it doesn't have</h3>
     <p>
-      No automated evaluation suite. I test with a fixed set of questions covering the
-      cases I care about, but I run them by hand — which is how a real defect slipped
-      past me once and got caught by accident. It's the first thing I'd build if this
-      were serving anyone but me.
+      <strong>No automated evaluation suite.</strong> I test with a fixed set of
+      questions covering the cases I care about, but I run them by hand — which is how a
+      real defect slipped past me once and got caught by accident. It's the first thing
+      I'd build if this were serving anyone but me.
+    </p>
+    <p>
+      <strong>No real rate limiting.</strong> There's a per-IP counter, but it lives in
+      the memory of a serverless instance, and there can be several running at once —
+      so it slows bursts rather than enforcing a global limit. Doing it properly needs
+      shared state like Redis. The hard spending cap is on the OpenAI account, which is
+      the layer that actually protects me.
+    </p>
+
+    <h2>Why the robot reacts</h2>
+    <p>
+      The little robot on the front page changes expression with the answer: it nods
+      when it found solid ground, tilts its head and shrugs when the documents don't
+      cover the question, looks up while it's thinking.
+    </p>
+    <p>
+      That isn't decoration bolted on top — it reads a field the API already returns.
+      The system doesn't ask the model how it feels; it derives it from whether the
+      answer cited any sources, which it already had to compute. One of those states,
+      <code>unsure</code>, only fires when the model writes at length <em>without</em>
+      citing anything — something the instructions forbid. So a confused-looking robot
+      is really a grounding failure, visible from the interface. Nobody designed it as
+      monitoring; it fell out of picking the right signal.
     </p>
 
   </div>

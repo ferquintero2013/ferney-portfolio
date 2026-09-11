@@ -13,7 +13,9 @@ que la consume, asi que el navegador no la considera una peticion cruzada.
 import json
 import os
 import sys
+import time
 import traceback
+from collections import defaultdict, deque
 from http.server import BaseHTTPRequestHandler
 
 # Vercel no garantiza que el directorio de la funcion este en sys.path,
@@ -27,11 +29,50 @@ MAX_HISTORY_TURNS = 6
 MAX_TURN_CHARS = 2000
 MAX_BODY_BYTES = 32_000
 
+# Ventana de peticiones por IP.
+VENTANA_SEGUNDOS = 600
+MAX_EN_VENTANA = 20
+MAX_IPS_EN_MEMORIA = 500
+
+# ADVERTENCIA HONESTA: este contador vive en la memoria del proceso, y una
+# funcion serverless puede correr en varias instancias a la vez, cada una
+# con su propio diccionario. Frena rafagas contra una misma instancia, que
+# es el abuso accidental mas comun, pero NO es un limite global.
+# Un rate limit de verdad necesita estado compartido (Vercel KV, Redis).
+# El limite duro de gasto vive en la cuenta de OpenAI.
+_peticiones = defaultdict(deque)
+
+
+def _limite_alcanzado(ip):
+    ahora = time.time()
+    marcas = _peticiones[ip]
+
+    while marcas and ahora - marcas[0] > VENTANA_SEGUNDOS:
+        marcas.popleft()
+
+    if len(marcas) >= MAX_EN_VENTANA:
+        return True
+
+    marcas.append(ahora)
+
+    # Sin esto el diccionario crece sin limite mientras viva la instancia.
+    if len(_peticiones) > MAX_IPS_EN_MEMORIA:
+        for clave in [k for k, v in _peticiones.items() if not v]:
+            del _peticiones[clave]
+
+    return False
+
 
 class handler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         try:
+            ip = (self.headers.get("x-forwarded-for") or "").split(",")[0].strip()
+            if _limite_alcanzado(ip or "desconocida"):
+                return self._json(429, {
+                    "error": "Too many questions in a short time. Give me a minute."
+                })
+
             longitud = int(self.headers.get("content-length") or 0)
             if longitud > MAX_BODY_BYTES:
                 return self._json(413, {"error": "Request too large."})

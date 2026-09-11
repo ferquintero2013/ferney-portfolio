@@ -131,7 +131,10 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
 }
 .stage > * { max-width: var(--maxw); width: 100%; margin-inline: auto; }
 
-/* --- robot --- */
+/* --- robot: una parte por gesto ---------------------------------------
+   El estado llega en data-mood sobre .stage, puesto por script.js con lo
+   que devuelve la API. El CSS traduce ese valor a postura y expresion.
+   -------------------------------------------------------------------- */
 .greeting {
   display: flex;
   align-items: center;
@@ -145,21 +148,57 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
 }
 .bot-skin  { fill: var(--skin); }
 .bot-panel { fill: var(--paper); }
-.bot-eyes circle { fill: #17140f; }
 .bot-wire  { stroke: var(--skin-dim); stroke-width: 4; stroke-linecap: round; }
 .bot-bulb  { fill: var(--amber-vivid); }
-.bot-wave  { transform-origin: 152px 152px; }
+
+.eyes circle, .eyes rect { fill: #17140f; }
+.eyes path { fill: none; stroke: #17140f; stroke-width: 6; stroke-linecap: round; }
+
+/* Solo un juego de ojos visible a la vez */
+.eyes { display: none; }
+.stage[data-mood="idle"]      [data-eyes="normal"],
+.stage[data-mood="answering"] [data-eyes="normal"] { display: block; }
+.stage[data-mood="confident"] [data-eyes="happy"]  { display: block; }
+.stage[data-mood="thinking"]  [data-eyes="up"]     { display: block; }
+.stage[data-mood="declined"]  [data-eyes="squint"] { display: block; }
+.stage[data-mood="unsure"]    [data-eyes="squint"] { display: block; }
+
+.bot-head  { transform-origin: 105px 118px; transition: transform .45s ease; }
+.bot-body  { transform-origin: 105px 220px; transition: transform .45s ease; }
+.bot-arm-r { transform-origin: 152px 152px; transition: transform .45s ease; }
+.bot-arm-l { transform-origin: 58px 152px;  transition: transform .45s ease; }
+
+/* Cabeza ladeada cuando no encuentra o no entiende */
+.stage[data-mood="declined"] .bot-head,
+.stage[data-mood="unsure"]   .bot-head { transform: rotate(-11deg); }
+
+/* Hombros encogidos al declinar */
+.stage[data-mood="declined"] .bot-arm-l { transform: translateY(-9px); }
+.stage[data-mood="declined"] .bot-arm-r { transform: translate(-4px, 14px); }
 
 @media (prefers-reduced-motion: no-preference) {
-  .bot-wave { animation: wave 2.9s ease-in-out infinite; }
-  .bot-eyes { animation: blink 5.4s steps(1, end) infinite; transform-origin: 105px 74px; }
+  /* En reposo: saluda, parpadea y late la antena */
+  .stage[data-mood="idle"] .bot-arm-r { animation: wave 3.4s ease-in-out infinite; }
+  .stage[data-mood="idle"] [data-eyes="normal"] {
+    animation: blink 5.4s steps(1, end) infinite;
+    transform-origin: 105px 74px;
+  }
   .bot-bulb { animation: pulse 2.9s ease-in-out infinite; }
+
+  /* Pensando: la antena se acelera y el cuerpo se balancea apenas */
+  .stage[data-mood="thinking"] .bot-bulb { animation: pulse .7s ease-in-out infinite; }
+  .stage[data-mood="thinking"] .bot-body { animation: sway 1.6s ease-in-out infinite; }
+
+  /* Seguro de la respuesta: asiente */
+  .stage[data-mood="confident"] .bot-body  { animation: nod .55s ease-in-out 2; }
+  .stage[data-mood="confident"] .bot-arm-r { transform: rotate(-24deg); }
 }
+
 @keyframes wave {
-  0%, 55%, 100% { transform: rotate(0deg); }
-  15%           { transform: rotate(-24deg); }
+  0%, 62%, 100% { transform: rotate(0deg); }
+  14%           { transform: rotate(-26deg); }
   30%           { transform: rotate(-6deg); }
-  45%           { transform: rotate(-20deg); }
+  46%           { transform: rotate(-22deg); }
 }
 @keyframes blink {
   0%, 92%, 100% { transform: scaleY(1); }
@@ -167,10 +206,18 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
 }
 @keyframes pulse {
   0%, 100% { opacity: 1; }
-  50%      { opacity: 0.35; }
+  50%      { opacity: 0.3; }
+}
+@keyframes sway {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(2.2deg); }
+}
+@keyframes nod {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(7px); }
 }
 
-/* --- speech bubble holding the chat --- */
+/* --- globo: ahora contiene la conversacion --------------------------- */
 .bubble {
   position: relative;
   background: var(--sunken);
@@ -180,13 +227,13 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
   width: min(100%, 640px);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 11px;
 }
 .bubble::before {
   content: "";
   position: absolute;
   left: -9px;
-  top: 20px;
+  top: 22px;
   width: 16px;
   height: 16px;
   background: var(--sunken);
@@ -194,55 +241,130 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
   border-bottom: 1px solid var(--line-2);
   transform: rotate(45deg);
 }
-.bubble p { margin: 0; }
-.bubble-say { display: grid; gap: 4px; }
-.bubble-hi {
-  font-family: var(--mono);
-  font-size: 11.5px;
-  letter-spacing: 0.06em;
-  color: var(--muted);
+
+.chat-log {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: clamp(180px, 30vh, 300px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-2) transparent;
 }
-.bubble-ask {
+.chat-log::-webkit-scrollbar { width: 6px; }
+.chat-log::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 3px; }
+
+.msg p { margin: 0; }
+.msg-text { font-size: 14.6px; line-height: 1.55; }
+
+.from-bot .msg-text { color: var(--ink); }
+.from-bot:first-child .msg-text {
   font-family: var(--display);
   font-weight: 600;
-  font-size: clamp(1rem, 2vw, 1.28rem);
-  line-height: 1.25;
+  font-size: clamp(1rem, 2vw, 1.22rem);
+  line-height: 1.3;
   letter-spacing: -0.015em;
-  color: var(--ink);
 }
-.bubble-chat {
-  position: relative;
-  height: clamp(300px, 42vh, 400px);
+
+.from-user {
+  align-self: flex-end;
+  max-width: 85%;
+  background: var(--raised);
   border: 1px solid var(--line-2);
-  border-radius: 8px;
-  overflow: hidden;
-  background: var(--paper);
+  border-radius: 12px 12px 3px 12px;
+  padding: 7px 12px;
 }
-.bubble-chat iframe { position: relative; width: 100%; height: 100%; border: 0; display: block; }
-.chat-loading {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 !important;
+.from-user .msg-text { color: var(--soft); font-size: 13.8px; }
+
+.msg-sources {
+  margin-top: 6px !important;
   font-family: var(--mono);
-  font-size: 12px;
-  color: var(--muted);
+  font-size: 10.5px;
+  line-height: 1.6;
+  color: var(--dim);
 }
+
+.typing { display: flex; gap: 5px; padding: 6px 2px; }
+.typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--skin-dim);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .typing span { animation: blip 1.1s ease-in-out infinite; }
+  .typing span:nth-child(2) { animation-delay: .16s; }
+  .typing span:nth-child(3) { animation-delay: .32s; }
+}
+@keyframes blip {
+  0%, 60%, 100% { opacity: .25; transform: translateY(0); }
+  30%           { opacity: 1;   transform: translateY(-3px); }
+}
+
+.chat-form { display: flex; gap: 8px; }
+.chat-form input {
+  flex: 1;
+  min-width: 0;
+  background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: 7px;
+  padding: 10px 13px;
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 14px;
+}
+.chat-form input::placeholder { color: var(--dim); }
+.chat-form input:focus { outline: none; border-color: var(--skin); }
+.chat-form input:disabled { opacity: .5; }
+
+.chat-form button {
+  flex: none;
+  width: 42px;
+  background: var(--skin);
+  border: 1px solid var(--skin);
+  border-radius: 7px;
+  color: var(--paper);
+  font-size: 17px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .12s ease;
+}
+.chat-form button:hover:not(:disabled) {
+  background: var(--amber-vivid);
+  border-color: var(--amber-vivid);
+}
+.chat-form button:disabled { opacity: .4; cursor: default; }
+
+.chat-suggestions { display: flex; flex-wrap: wrap; gap: 6px; }
+.chat-suggestions button {
+  font-family: var(--mono);
+  font-size: 11px;
+  background: none;
+  border: 1px solid var(--line-2);
+  border-radius: 20px;
+  padding: 5px 11px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color .12s ease, color .12s ease;
+}
+.chat-suggestions button:hover { border-color: var(--skin); color: var(--ink); }
+
 .bubble-foot {
   display: flex;
   flex-wrap: wrap;
   gap: 4px 14px;
   justify-content: space-between;
   align-items: baseline;
-  font-size: 11.5px;
-  color: var(--muted);
+  font-size: 11px;
+  color: var(--dim);
   line-height: 1.45;
+  margin: 0;
+  padding-top: 3px;
+  border-top: 1px solid var(--line);
 }
 .bubble-foot a {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 10.5px;
   color: var(--amber-vivid);
   text-decoration: none;
   white-space: nowrap;
@@ -596,7 +718,7 @@ footer a:hover { color: var(--ink); }
   .bot { width: 86px; }
   .bubble { border-radius: 14px 14px 14px 4px; padding: 14px; }
   .bubble::before { left: 26px; top: -9px; transform: rotate(135deg); }
-  .bubble-chat { height: 340px; }
+  .chat-log { max-height: 240px; }
   .bubble-foot { flex-direction: column; gap: 6px; }
 
   .page { padding: 32px 0 52px; }

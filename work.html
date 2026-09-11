@@ -89,10 +89,15 @@
           diluted across a chunk about something else. Keyword search fixes exactly
           that, so retrieval is hybrid: BM25 and embeddings, fused by rank.
         </p>
+        <p class="note">
+          It started on ChromaDB and ended without a vector database: at 37 documents
+          the embeddings fit in 222 KB and the search is one matrix multiplication.
+          It now runs as a serverless function on this domain.
+        </p>
         <div class="proj-foot">
-          <span class="tags mono">Python · ChromaDB · BM25 · OpenAI</span>
+          <span class="tags mono">Python · numpy · BM25 · OpenAI · Vercel</span>
           <span class="links">
-            <a href="https://chat-perfil-ferney.streamlit.app/">Live demo</a>
+            <a href="index.html">Try it</a>
             <a href="assistant.html">How it works</a>
             <a href="https://github.com/ferquintero2013/rag-perfil-profesional">Source</a>
           </span>

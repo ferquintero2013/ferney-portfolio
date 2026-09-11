@@ -17,7 +17,7 @@
 </head>
 <body class="home">
 
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#chat-input">Skip to the assistant</a>
 
 <header class="topbar">
   <div class="bar">
@@ -33,55 +33,89 @@
   </div>
 </header>
 
-<main id="main" class="stage">
+<main id="main" class="stage" data-mood="idle">
 
   <div class="greeting">
-    <svg class="bot" viewBox="0 0 210 250" role="img" aria-label="A small robot waving">
-      <line class="bot-wire" x1="105" y1="30" x2="105" y2="14"/>
-      <circle class="bot-bulb" cx="105" cy="10" r="7"/>
 
-      <path class="bot-skin" d="M105 28
-        c-26 0-44 15-48 38
-        l-6 3 a9 9 0 0 0 0 18 l4 2
-        v13 a10 10 0 0 0 10 10 h80
-        a10 10 0 0 0 10-10 v-13 l4-2
-        a9 9 0 0 0 0-18 l-6-3
-        c-4-23-22-38-48-38 z"/>
+    <svg class="bot" viewBox="0 0 210 258" role="img" aria-label="A small robot assistant">
+      <g class="bot-body">
 
-      <g class="bot-eyes">
-        <circle cx="87" cy="74" r="11"/>
-        <circle cx="123" cy="74" r="11"/>
+        <g class="bot-head">
+          <line class="bot-wire" x1="105" y1="30" x2="105" y2="14"/>
+          <circle class="bot-bulb" cx="105" cy="10" r="7"/>
+
+          <path class="bot-skin" d="M105 28
+            c-26 0-44 15-48 38
+            l-6 3 a9 9 0 0 0 0 18 l4 2
+            v13 a10 10 0 0 0 10 10 h80
+            a10 10 0 0 0 10-10 v-13 l4-2
+            a9 9 0 0 0 0-18 l-6-3
+            c-4-23-22-38-48-38 z"/>
+
+          <g class="eyes" data-eyes="normal">
+            <circle cx="87" cy="74" r="11"/>
+            <circle cx="123" cy="74" r="11"/>
+          </g>
+
+          <g class="eyes" data-eyes="happy">
+            <path d="M77 79 a10 10 0 0 1 20 0" />
+            <path d="M113 79 a10 10 0 0 1 20 0" />
+          </g>
+
+          <g class="eyes" data-eyes="squint">
+            <rect x="76" y="71" width="22" height="7" rx="3.5"/>
+            <rect x="112" y="71" width="22" height="7" rx="3.5"/>
+          </g>
+
+          <g class="eyes" data-eyes="up">
+            <circle cx="87" cy="68" r="10"/>
+            <circle cx="123" cy="68" r="10"/>
+          </g>
+        </g>
+
+        <rect class="bot-skin" x="94" y="110" width="22" height="12" rx="4"/>
+        <rect class="bot-skin" x="66" y="120" width="78" height="72" rx="14"/>
+        <rect class="bot-panel" x="86" y="140" width="38" height="34" rx="6"/>
+
+        <circle class="bot-skin bot-arm-l" cx="49" cy="163" r="14"/>
+        <g class="bot-arm-r">
+          <circle class="bot-skin" cx="161" cy="141" r="14"/>
+        </g>
+
+        <circle class="bot-skin" cx="84" cy="212" r="15"/>
+        <circle class="bot-skin" cx="126" cy="212" r="15"/>
       </g>
-
-      <rect class="bot-skin" x="94" y="110" width="22" height="12" rx="4"/>
-      <rect class="bot-skin" x="66" y="120" width="78" height="72" rx="14"/>
-      <rect class="bot-panel" x="86" y="140" width="38" height="34" rx="6"/>
-
-      <circle class="bot-skin" cx="49" cy="163" r="14"/>
-      <g class="bot-wave">
-        <circle class="bot-skin" cx="161" cy="141" r="14"/>
-      </g>
-
-      <circle class="bot-skin" cx="84" cy="212" r="15"/>
-      <circle class="bot-skin" cx="126" cy="212" r="15"/>
     </svg>
 
     <div class="bubble">
-      <div class="bubble-say">
-        <p class="bubble-hi">Hi, I'm Ferney's assistant.</p>
-        <p class="bubble-ask">What do you want to know about him?</p>
+
+      <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-label="Conversation">
+        <div class="msg from-bot">
+          <p class="msg-text">Hi, I'm Ferney's assistant. What do you want to know about him?</p>
+        </div>
       </div>
 
-      <div class="bubble-chat">
-        <p class="chat-loading" id="loading">Waking up…</p>
-        <iframe
-          id="ragframe"
-          src="https://chat-perfil-ferney.streamlit.app/?embed=true&amp;compact=1"
-          title="Chat with Ferney's assistant"></iframe>
+      <form class="chat-form" id="chat-form" autocomplete="off">
+        <input
+          id="chat-input"
+          type="text"
+          name="question"
+          maxlength="500"
+          placeholder="Ask me anything about Ferney…"
+          aria-label="Your question">
+        <button type="submit" id="chat-send" aria-label="Send">
+          <span aria-hidden="true">→</span>
+        </button>
+      </form>
+
+      <div class="chat-suggestions" id="chat-suggestions">
+        <button type="button" data-q="Has he worked with real clients?">Real clients?</button>
+        <button type="button" data-q="What has he built in Python?">Python projects</button>
+        <button type="button" data-q="What does he know about Odoo and ERPs?">Odoo &amp; ERPs</button>
       </div>
 
       <p class="bubble-foot">
-        <span>I answer from his CV and project docs, and cite the source. If it isn't there, I say so.</span>
+        <span>I answer only from his CV and project docs, and cite the source. If it isn't there, I say so.</span>
         <a href="assistant.html">How I'm built →</a>
       </p>
     </div>
