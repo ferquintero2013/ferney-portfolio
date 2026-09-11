@@ -148,7 +148,6 @@ def extract_cited(answer_text, chunks):
     return citados
 
 
-# Frases con las que el modelo declina cuando el dato no esta en el corpus.
 def detect_mood(answer_text, citados):
     """Deriva el estado de animo del asistente de lo que ya sabemos.
 
