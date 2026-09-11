@@ -582,6 +582,24 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
 }
 .jump-d { font-size: 12px; color: var(--muted); line-height: 1.4; }
 
+/* --- entrada de las paginas internas --- */
+@media (prefers-reduced-motion: no-preference) {
+  .page > .page-head,
+  .page > .projects,
+  .page > .bg-grid,
+  .page > .contact-grid,
+  .page > .prose,
+  .page > .pager {
+    animation: surge .6s cubic-bezier(.16, .84, .44, 1) both;
+  }
+  .page > .page-head { animation-delay: .04s; }
+  .page > .projects,
+  .page > .bg-grid,
+  .page > .contact-grid,
+  .page > .prose { animation-delay: .14s; }
+  .page > .pager { animation-delay: .24s; }
+}
+
 /* --- entrada: el escenario se enciende por partes --- */
 @media (prefers-reduced-motion: no-preference) {
   .stage .greeting,
@@ -604,11 +622,33 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
 }
 
 /* ---------------- inner pages ---------------- */
-.page { padding: 46px 0 70px; }
+.page {
+  position: relative;
+  padding: 52px 0 76px;
+}
+
+/* Las internas heredan el foco de la portada, mas tenue y arriba: liga
+   las paginas sin repetir la puesta en escena del personaje. */
+.page::before {
+  content: "";
+  position: absolute;
+  left: -10%;
+  top: -12%;
+  width: min(40rem, 90vw);
+  height: 24rem;
+  background: radial-gradient(
+    closest-side,
+    rgba(224, 164, 88, 0.09) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+.page > * { position: relative; z-index: 1; }
 
 .page-head {
-  padding-bottom: 26px;
-  margin-bottom: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 36px;
   border-bottom: 2px solid var(--line-2);
 }
 .crumb {
@@ -626,14 +666,20 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
 .page-head h1 {
   font-family: var(--display);
   font-weight: 800;
-  font-size: clamp(1.9rem, 4.6vw, 2.9rem);
-  line-height: 1.06;
-  letter-spacing: -0.03em;
-  margin: 0 0 10px;
-  max-width: 20ch;
+  font-size: clamp(2.2rem, 5.8vw, 3.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  margin: 0 0 14px;
+  max-width: 19ch;
   color: var(--ink);
+  text-wrap: balance;
 }
-.page-head > p { color: var(--muted); margin: 0; font-size: 15.5px; max-width: 62ch; }
+.page-head > p {
+  color: var(--soft);
+  margin: 0;
+  font-size: clamp(15.5px, 1.5vw, 17px);
+  max-width: 60ch;
+}
 
 /* ---------------- projects ---------------- */
 .projects { list-style: none; margin: 0; padding: 0; }
@@ -739,27 +785,62 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
   font-size: 10.5px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--dim);
-  margin: 0 0 12px;
-  padding-bottom: 7px;
+  color: var(--amber);
+  margin: 0 0 13px;
+  padding-bottom: 8px;
   border-bottom: 1px solid var(--line);
   font-weight: 400;
 }
-.bg-side > * + .side-h,
-.contact-side > * + .side-h { margin-top: 28px; }
-
-.tl { list-style: none; margin: 0; padding: 0; }
-.tl li {
-  display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 12px;
-  font-size: 13.2px;
-  color: var(--soft);
-  padding: 6px 0;
-  border-bottom: 1px dotted var(--line);
+.bg-side, .contact-side {
+  background: linear-gradient(180deg, var(--surface) 0%, transparent 70%);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 22px 22px 24px;
+  align-self: start;
 }
-.tl li:last-child { border-bottom: none; }
-.tl .mono { color: var(--amber); font-size: 11.5px; padding-top: 2px; }
+.bg-side > * + .side-h,
+.contact-side > * + .side-h { margin-top: 30px; }
+
+.tl { list-style: none; margin: 0; padding: 0; position: relative; }
+
+/* Una linea vertical une los anos: la trayectoria se ve como continua en
+   vez de como filas sueltas, que es justo lo que la seccion argumenta. */
+.tl::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 12px;
+  bottom: 12px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--line-2), transparent);
+}
+.tl li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 14px;
+  font-size: 13.4px;
+  color: var(--soft);
+  padding: 9px 0;
+}
+.tl li::before {
+  content: "";
+  position: absolute;
+  left: 17px;
+  top: 15px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1.5px solid var(--line-2);
+}
+.tl li:first-child::before { border-color: var(--amber); background: var(--amber); }
+.tl .mono {
+  color: var(--amber);
+  font-size: 12px;
+  font-weight: 500;
+  padding-top: 1px;
+}
 
 .tools { font-size: 11.8px; line-height: 1.9; color: var(--muted); margin: 0; }
 
@@ -779,15 +860,24 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
 }
 
 /* ---------------- assistant page ---------------- */
-.prose p { color: var(--soft); margin: 0 0 15px; max-width: 68ch; }
+.prose p {
+  color: var(--soft);
+  margin: 0 0 16px;
+  max-width: 68ch;
+  font-size: 15.6px;
+  line-height: 1.68;
+}
 .prose h2 {
   font-family: var(--display);
-  font-weight: 700;
-  font-size: 1.32rem;
-  letter-spacing: -0.02em;
-  margin: 38px 0 12px;
+  font-weight: 800;
+  font-size: clamp(1.42rem, 2.6vw, 1.72rem);
+  letter-spacing: -0.028em;
+  margin: 46px 0 14px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
   color: var(--ink);
 }
+.prose h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
 .prose h3 {
   font-family: var(--body);
   font-weight: 600;
@@ -813,27 +903,48 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
   gap: 1px;
   background: var(--line);
   border: 1px solid var(--line-2);
-  margin: 22px 0 26px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 26px 0 30px;
   max-width: 68ch;
+  box-shadow: 0 16px 40px -28px rgba(0, 0, 0, .9);
 }
 .flow-step {
-  background: var(--sunken);
-  padding: 13px 16px;
+  background: linear-gradient(180deg, var(--raised) 0%, var(--sunken) 100%);
+  padding: 16px 18px;
   display: grid;
-  grid-template-columns: 26px 1fr;
-  gap: 14px;
-  align-items: baseline;
+  grid-template-columns: 46px 1fr;
+  gap: 16px;
+  align-items: start;
+  transition: background .2s ease;
 }
-.flow-step b { color: var(--ink); font-weight: 600; font-size: 14.5px; display: block; margin-bottom: 3px; }
-.flow-step span.n { font-family: var(--mono); font-size: 11px; color: var(--amber); }
+.flow-step:hover { background: var(--raised); }
+.flow-step b { color: var(--ink); font-weight: 600; font-size: 15px; display: block; margin-bottom: 5px; }
+.flow-step span.n {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.9rem;
+  line-height: .8;
+  letter-spacing: -0.03em;
+  color: transparent;
+  -webkit-text-stroke: 1.3px var(--line-2);
+  padding-top: 3px;
+  user-select: none;
+  transition: -webkit-text-stroke-color .2s ease;
+}
+.flow-step:hover span.n { -webkit-text-stroke-color: var(--accent-soft); }
 .flow-step p { margin: 0 !important; font-size: 13.4px; color: var(--muted); max-width: none; }
 
 .callout {
+  position: relative;
   border: 1px solid var(--accent-soft);
-  background: var(--accent-wash);
-  padding: 20px 22px;
-  margin: 30px 0;
+  border-left-width: 3px;
+  border-radius: 0 8px 8px 0;
+  background: linear-gradient(100deg, var(--accent-wash) 0%, var(--sunken) 85%);
+  padding: 24px 26px;
+  margin: 36px 0;
   max-width: 68ch;
+  box-shadow: 0 18px 44px -30px rgba(0, 0, 0, .95);
 }
 .callout h3 { margin-top: 0; color: var(--accent); }
 .callout p:last-child { margin-bottom: 0; }
