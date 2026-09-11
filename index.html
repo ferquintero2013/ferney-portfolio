@@ -8,7 +8,7 @@
 <meta property="og:title" content="Ferney Quintero — AI Automation Engineer">
 <meta property="og:description" content="Ask my assistant anything — it answers from my real documents and cites the source.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2316130e'/><text y='70' x='50' text-anchor='middle' font-size='52' font-weight='700' font-family='monospace' fill='%23d1a45f'>FQ</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230e1219'/><text y='70' x='50' text-anchor='middle' font-size='52' font-weight='700' font-family='monospace' fill='%23e0a458'>FQ</text></svg>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,19 +17,23 @@
 </head>
 <body class="home">
 
-<a class="skip" href="#chat-input">Skip to the assistant</a>
+<a class="skip" href="#chat-input" data-es="Ir al asistente">Skip to the assistant</a>
 
 <header class="topbar">
   <div class="bar">
     <a class="mark" href="index.html">
       <span class="mark-name">Ferney Quintero</span>
-      <span class="mark-role">AI Automation Engineer</span>
+      <span class="mark-role" data-es="Ingeniero de Automatización con IA">AI Automation Engineer</span>
     </a>
     <nav aria-label="Sections">
-      <a href="work.html">Work</a>
-      <a href="background.html">Background</a>
-      <a href="contact.html">Contact</a>
+      <a href="work.html" data-es="Proyectos">Work</a>
+      <a href="background.html" data-es="Trayectoria">Background</a>
+      <a href="contact.html" data-es="Contacto">Contact</a>
     </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang-btn="es" aria-pressed="false">ES</button>
+    </div>
   </div>
 </header>
 
@@ -39,12 +43,10 @@
 
     <svg class="bot" viewBox="0 0 230 262" role="img" aria-label="A small robot assistant">
 
-      <!-- signo de interrogacion: solo cuando no encuentra o no entiende -->
       <g class="bot-think" aria-hidden="true">
         <text x="186" y="44" class="bot-mark">?</text>
       </g>
 
-      <!-- destellos: solo cuando responde con respaldo solido -->
       <g class="bot-spark" aria-hidden="true">
         <path d="M182 34 l3.5 8 8 3.5 -8 3.5 -3.5 8 -3.5-8 -8-3.5 8-3.5 z"/>
         <path d="M40 58 l2.5 6 6 2.5 -6 2.5 -2.5 6 -2.5-6 -6-2.5 6-2.5 z"/>
@@ -91,8 +93,8 @@
             <g class="mouth" data-mouth="wavy">
               <path d="M101 94 q6-6 12 0 t12 0"/>
             </g>
-            <g class="mouth" data-mouth="o">
-              <circle cx="115" cy="94" r="6"/>
+            <g class="mouth" data-mouth="think">
+              <rect x="108" y="92" width="13" height="5" rx="2.5"/>
             </g>
           </g>
         </g>
@@ -113,7 +115,7 @@
 
       <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-label="Conversation">
         <div class="msg from-bot">
-          <p class="msg-text">Hi, I'm Ferney's assistant. What do you want to know about him?</p>
+          <p class="msg-text" data-es="Hola, soy el asistente de Ferney. ¿Qué quieres saber sobre él?">Hi, I'm Ferney's assistant. What do you want to know about him?</p>
         </div>
       </div>
 
@@ -124,47 +126,59 @@
           name="question"
           maxlength="500"
           placeholder="Ask me anything about Ferney…"
-          aria-label="Your question">
-        <button type="submit" id="chat-send" aria-label="Send">
+          data-es-ph="Pregúntame lo que quieras sobre Ferney…"
+          aria-label="Your question"
+          data-es-label="Tu pregunta">
+        <button type="submit" id="chat-send" aria-label="Send" data-es-label="Enviar">
           <span aria-hidden="true">→</span>
         </button>
       </form>
 
       <div class="chat-suggestions" id="chat-suggestions">
-        <button type="button" data-q="Has he worked with real clients?">Real clients?</button>
-        <button type="button" data-q="What has he built in Python?">Python projects</button>
-        <button type="button" data-q="What does he know about Odoo and ERPs?">Odoo &amp; ERPs</button>
+        <button type="button"
+                data-q="Has he worked with real clients?"
+                data-es-q="¿Ha trabajado con clientes reales?"
+                data-es="¿Clientes reales?">Real clients?</button>
+        <button type="button"
+                data-q="What has he built in Python?"
+                data-es-q="¿Qué ha construido en Python?"
+                data-es="Proyectos en Python">Python projects</button>
+        <button type="button"
+                data-q="What does he know about Odoo and ERPs?"
+                data-es-q="¿Qué sabe de Odoo y ERPs?"
+                data-es="Odoo y ERPs">Odoo &amp; ERPs</button>
       </div>
 
       <p class="bubble-foot">
-        <span>I answer only from his CV and project docs, and cite the source. If it isn't there, I say so.</span>
-        <a href="assistant.html">How I'm built →</a>
+        <span data-es="Respondo solo desde su CV y la documentación de sus proyectos, y cito la fuente. Si no está ahí, lo digo.">I answer only from his CV and project docs, and cite the source. If it isn't there, I say so.</span>
+        <a href="assistant.html" data-es="Cómo estoy hecho →">How I'm built →</a>
       </p>
     </div>
   </div>
 
-  <h1>I automate the work<br>nobody should be doing by hand.</h1>
+  <h1 data-es="Automatizo el trabajo<br>que nadie debería hacer a mano.">I automate the work<br>nobody should be doing by hand.</h1>
 
   <nav class="jump" aria-label="Go to a section">
     <a href="work.html">
       <span class="jump-n mono">01</span>
-      <span class="jump-t">Work</span>
-      <span class="jump-d">Six systems, two you can open</span>
+      <span class="jump-t" data-es="Proyectos">Work</span>
+      <span class="jump-d" data-es="Seis sistemas, dos que puedes abrir">Six systems, two you can open</span>
     </a>
     <a href="background.html">
       <span class="jump-n mono">02</span>
-      <span class="jump-t">Background</span>
-      <span class="jump-d">13 years before the AI part</span>
+      <span class="jump-t" data-es="Trayectoria">Background</span>
+      <span class="jump-d" data-es="13 años antes de la parte de IA">13 years before the AI part</span>
     </a>
     <a href="contact.html">
       <span class="jump-n mono">03</span>
-      <span class="jump-t">Contact</span>
-      <span class="jump-d">Bogotá · remote across US hours</span>
+      <span class="jump-t" data-es="Contacto">Contact</span>
+      <span class="jump-d" data-es="Bogotá · remoto en horario de EE. UU.">Bogotá · remote across US hours</span>
     </a>
   </nav>
 
 </main>
 
+<script src="i18n.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

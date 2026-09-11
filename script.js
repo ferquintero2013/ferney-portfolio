@@ -30,6 +30,26 @@
   var historial = [];
   var esperando = false;
 
+  // Los mensajes que genera el propio chat tambien cambian de idioma.
+  // i18n.js expone el idioma activo; si no cargo, se usa ingles.
+  var TEXTOS = {
+    limite: {
+      en: "That's the limit for one session — reload the page to start over. " +
+          "Meanwhile, the Work and Background pages have the full story.",
+      es: "Ese es el limite de una sesion: recarga la pagina para empezar de nuevo. " +
+          "Mientras tanto, las paginas de Proyectos y Trayectoria tienen la historia completa."
+    },
+    error: {
+      en: "Something went wrong reaching my brain. Try again in a moment.",
+      es: "Algo fallo al llegar a mi cerebro. Intentalo de nuevo en un momento."
+    }
+  };
+
+  function t(clave) {
+    var lang = (window.FQ_LANG && window.FQ_LANG()) || "en";
+    return TEXTOS[clave][lang] || TEXTOS[clave].en;
+  }
+
   /* ---- gestos del robot ------------------------------------------------ */
 
   var VOLVER_A_IDLE = 4200;
@@ -125,8 +145,7 @@
     if (!pregunta) return;
 
     if (usadas >= MAX_PREGUNTAS) {
-      addMessage("bot", "That's the limit for one session — reload the page to start over. " +
-                        "Meanwhile, the Work and Background pages have the full story.");
+      addMessage("bot", t("limite"));
       setMood("declined");
       return;
     }
@@ -166,7 +185,7 @@
       })
       .catch(function (err) {
         typing.remove();
-        addMessage("bot", "Something went wrong reaching my brain. Try again in a moment.");
+        addMessage("bot", t("error"));
         setMood("unsure");
         if (window.console) console.error(err);
       })

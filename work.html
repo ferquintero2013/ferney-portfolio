@@ -8,7 +8,7 @@
 <meta property="og:title" content="Work — Ferney Quintero">
 <meta property="og:description" content="Six systems built for marketing, sales and operations. Two you can open right now.">
 <meta property="og:type" content="article">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2316130e'/><text y='70' x='50' text-anchor='middle' font-size='52' font-weight='700' font-family='monospace' fill='%23d1a45f'>FQ</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230e1219'/><text y='70' x='50' text-anchor='middle' font-size='52' font-weight='700' font-family='monospace' fill='%23e0a458'>FQ</text></svg>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,28 +17,32 @@
 </head>
 <body>
 
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main" data-es="Ir al contenido">Skip to content</a>
 
 <header class="topbar">
   <div class="bar">
     <a class="mark" href="index.html">
       <span class="mark-name">Ferney Quintero</span>
-      <span class="mark-role">AI Automation Engineer</span>
+      <span class="mark-role" data-es="Ingeniero de Automatización con IA">AI Automation Engineer</span>
     </a>
     <nav aria-label="Sections">
-      <a href="work.html" aria-current="page">Work</a>
-      <a href="background.html">Background</a>
-      <a href="contact.html">Contact</a>
+      <a href="work.html" aria-current="page" data-es="Proyectos">Work</a>
+      <a href="background.html" data-es="Trayectoria">Background</a>
+      <a href="contact.html" data-es="Contacto">Contact</a>
     </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang-btn="es" aria-pressed="false">ES</button>
+    </div>
   </div>
 </header>
 
 <main id="main" class="page">
 
   <div class="page-head">
-    <p class="crumb mono"><a href="index.html">← Back</a> <span>01 / Work</span></p>
-    <h1>Selected work</h1>
-    <p>Two of these you can open and use right now. The rest are client or internal systems.</p>
+    <p class="crumb mono"><a href="index.html" data-es="← Volver">← Back</a> <span data-es="01 / Proyectos">01 / Work</span></p>
+    <h1 data-es="Proyectos seleccionados">Selected work</h1>
+    <p data-es="Dos de estos puedes abrirlos y usarlos ahora mismo. El resto son sistemas de cliente o internos.">Two of these you can open and use right now. The rest are client or internal systems.</p>
   </div>
 
   <ol class="projects">
@@ -47,25 +51,25 @@
       <span class="proj-n mono">01</span>
       <div class="proj-body">
         <div class="proj-top">
-          <h2>Document validation with Vision AI</h2>
-          <span class="state live mono">Live</span>
+          <h2 data-es="Validación de documentos con Vision AI">Document validation with Vision AI</h2>
+          <span class="state live mono" data-es="En vivo">Live</span>
         </div>
-        <p>
+        <p data-es="Los expedientes de admisión universitaria se revisaban a mano, unos 14 minutos por documento. El sistema lee cada uno con GPT-4o Vision, aplica reglas de negocio deterministas, coteja el número de identidad entre todos los documentos del expediente para detectar posibles suplantaciones, y redacta la notificación al aspirante. Unos 5 segundos por documento, con trazabilidad completa.">
           University admission files were reviewed by hand, roughly 14 minutes per
           document. The system reads each one with GPT-4o Vision, applies
           deterministic business rules, cross-checks the identity number across
           every document in the file to flag possible impersonation, and drafts the
           applicant notification. About 5 seconds per document, with a full audit trail.
         </p>
-        <p class="note">
+        <p class="note" data-es="La decisión de diseño: la IA extrae, las reglas deciden. Cuando la confianza del propio modelo baja, el expediente escala a un humano en vez de adivinar.">
           The design point: AI extracts, rules decide. When the model's own confidence
           drops, the file escalates to a human instead of guessing.
         </p>
         <div class="proj-foot">
           <span class="tags mono">Python · GPT-4o Vision · Streamlit</span>
           <span class="links">
-            <a href="https://postulaciones-mvp.streamlit.app/">Live demo</a>
-            <a href="https://github.com/ferquintero2013/postulaciones-mvp-utel">Source</a>
+            <a href="https://postulaciones-mvp.streamlit.app/" data-es="Ver demo" data-es="Ver demo">Live demo</a>
+            <a href="https://github.com/ferquintero2013/postulaciones-mvp-utel" data-es="Código" data-es="Código">Source</a>
           </span>
         </div>
       </div>
@@ -75,21 +79,21 @@
       <span class="proj-n mono">02</span>
       <div class="proj-body">
         <div class="proj-top">
-          <h2>The assistant on the front page</h2>
-          <span class="state live mono">Live</span>
+          <h2 data-es="El asistente de la portada">The assistant on the front page</h2>
+          <span class="state live mono" data-es="En vivo">Live</span>
         </div>
-        <p>
+        <p data-es="Un sistema RAG que responde preguntas sobre mi perfil usando únicamente mis documentos reales, cita la fuente exacta de cada afirmación, y avisa cuando la respuesta no está ahí en lugar de inventarla.">
           A RAG system that answers questions about my profile using only my actual
           documents, cites the exact source of every claim, and says so when the
           answer isn't there instead of inventing one.
         </p>
-        <p class="note">
+        <p class="note" data-es="La búsqueda vectorial pura fallaba en la pregunta más obvia: «¿sabe Python?» no recuperaba el proyecto construido en Python, porque el término queda diluido en un fragmento que habla de otra cosa. La búsqueda por palabras clave resuelve exactamente eso, así que la recuperación es híbrida: BM25 y embeddings, fusionados por posición.">
           Pure vector search failed on the most obvious question — "does he know
           Python?" didn't retrieve the project built in Python, because the term is
           diluted across a chunk about something else. Keyword search fixes exactly
           that, so retrieval is hybrid: BM25 and embeddings, fused by rank.
         </p>
-        <p class="note">
+        <p class="note" data-es="Empezó con ChromaDB y terminó sin base de datos vectorial: con 37 documentos los embeddings caben en 222 KB y la búsqueda es una multiplicación de matriz. Ahora corre como función serverless en este mismo dominio.">
           It started on ChromaDB and ended without a vector database: at 37 documents
           the embeddings fit in 222 KB and the search is one matrix multiplication.
           It now runs as a serverless function on this domain.
@@ -97,9 +101,9 @@
         <div class="proj-foot">
           <span class="tags mono">Python · numpy · BM25 · OpenAI · Vercel</span>
           <span class="links">
-            <a href="index.html">Try it</a>
-            <a href="assistant.html">How it works</a>
-            <a href="https://github.com/ferquintero2013/rag-perfil-profesional">Source</a>
+            <a href="index.html" data-es="Probarlo" data-es="Probarlo">Try it</a>
+            <a href="assistant.html" data-es="Cómo funciona" data-es="Cómo funciona">How it works</a>
+            <a href="https://github.com/ferquintero2013/rag-perfil-profesional" data-es="Código" data-es="Código">Source</a>
           </span>
         </div>
       </div>
@@ -109,10 +113,10 @@
       <span class="proj-n mono">03</span>
       <div class="proj-body">
         <div class="proj-top">
-          <h2>Cross-country ERP implementation</h2>
+          <h2 data-es="Implementación de ERP en tres países">Cross-country ERP implementation</h2>
           <span class="state mono">2026</span>
         </div>
-        <p>
+        <p data-es="Odoo en Estados Unidos, Colombia y México para una marca D2C, con Shopify, Amazon y TikTok Shop sincronizados contra él: inventario, pedidos, facturación y datos de producto consistentes en cada tienda. Incluye la reestructuración y limpieza automatizada de los registros contables durante la migración, sustituyendo captura y conciliación manual por un proceso repetible.">
           Odoo across the US, Colombia and Mexico for a D2C brand, with Shopify,
           Amazon and TikTok Shop synced against it — inventory, orders, invoicing and
           product data consistent on every storefront. Including automated
@@ -121,7 +125,7 @@
         </p>
         <div class="proj-foot">
           <span class="tags mono">Odoo · Shopify · Amazon · TikTok Shop</span>
-          <span class="links"><span class="muted">Client system</span></span>
+          <span class="links"><span class="muted" data-es="Sistema de cliente">Client system</span></span>
         </div>
       </div>
     </li>
@@ -130,10 +134,10 @@
       <span class="proj-n mono">04</span>
       <div class="proj-body">
         <div class="proj-top">
-          <h2>CRM automation and attribution</h2>
+          <h2 data-es="Automatización de CRM y atribución">CRM automation and attribution</h2>
           <span class="state mono">2026</span>
         </div>
-        <p>
+        <p data-es="Automatizaciones en GoHighLevel para un cliente pagante: gestión de contactos y oportunidades, atribución UTM automatizada, enrutamiento de leads y reportes en los que el equipo comercial podía confiar. Antes las campañas se juzgaban por intuición porque los leads llegaban sin su origen.">
           GoHighLevel automations for a paying client: contact and opportunity
           management, automated UTM attribution, lead routing, and reporting the
           sales team could actually trust. Campaigns had been judged on gut feeling
@@ -141,7 +145,7 @@
         </p>
         <div class="proj-foot">
           <span class="tags mono">GoHighLevel · Zapier · Webhooks</span>
-          <span class="links"><span class="muted">Client work</span></span>
+          <span class="links"><span class="muted" data-es="Trabajo de cliente">Client work</span></span>
         </div>
       </div>
     </li>
@@ -150,21 +154,21 @@
       <span class="proj-n mono">05</span>
       <div class="proj-body">
         <div class="proj-top">
-          <h2>AI sales agents on WhatsApp and Instagram</h2>
+          <h2 data-es="Agentes de ventas con IA en WhatsApp e Instagram">AI sales agents on WhatsApp and Instagram</h2>
           <span class="state mono">2025</span>
         </div>
-        <p>
+        <p data-es="Captura, calificación y enrutamiento de leads entre canales, sobre Meta APIs, ManyChat y n8n, con varias fuentes de datos detrás. Los mensajes de Instagram llegaban más rápido de lo que el equipo podía responder.">
           Lead capture, qualification and routing across channels, built on Meta APIs,
           ManyChat and n8n with several data sources behind it. Instagram DMs were
           arriving faster than the team could answer them.
         </p>
-        <p class="note">
+        <p class="note" data-es="Iniciativa propia: nunca llegó a clientes pagantes. El mismo patrón técnico ganó el 1er lugar en Best AI Automation del hackathon EmprendIA LATAM.">
           Self-initiated venture — it never reached paying clients. The same technical
           pattern won 1st place in Best AI Automation at the EmprendIA LATAM hackathon.
         </p>
         <div class="proj-foot">
           <span class="tags mono">Meta APIs · ManyChat · n8n</span>
-          <span class="links"><span class="muted">Own project</span></span>
+          <span class="links"><span class="muted" data-es="Proyecto propio">Own project</span></span>
         </div>
       </div>
     </li>
@@ -173,17 +177,17 @@
       <span class="proj-n mono">06</span>
       <div class="proj-body">
         <div class="proj-top">
-          <h2>Amapola Board and its MCP server</h2>
+          <h2 data-es="Amapola Board y su servidor MCP">Amapola Board and its MCP server</h2>
           <span class="state mono">2026</span>
         </div>
-        <p>
+        <p data-es="Un tablero de proyectos, más un servidor MCP que permite a un agente de IA leer y escribir tickets directamente. El agente registra su propio trabajo en vez de pedirle a un humano que lo transcriba.">
           A project board, plus an MCP server that lets an AI agent read and write
           tickets on it directly. The agent files its own work instead of asking a
           human to transcribe it.
         </p>
         <div class="proj-foot">
           <span class="tags mono">MCP · AI agents</span>
-          <span class="links"><span class="muted">Private repository</span></span>
+          <span class="links"><span class="muted" data-es="Repositorio privado">Private repository</span></span>
         </div>
       </div>
     </li>
@@ -191,23 +195,25 @@
   </ol>
 
   <nav class="pager" aria-label="Other sections">
-    <a href="background.html">
+    <a href="background.html" data-es="Trayectoria">
       <span class="jump-n mono">02</span>
-      <span class="jump-t">Background →</span>
+      <span class="jump-t" data-es="Trayectoria →">Background →</span>
     </a>
-    <a href="contact.html">
+    <a href="contact.html" data-es="Contacto">
       <span class="jump-n mono">03</span>
-      <span class="jump-t">Contact →</span>
+      <span class="jump-t" data-es="Contacto →">Contact →</span>
     </a>
   </nav>
 
 </main>
 
 <footer>
-  <span class="mono">Vanilla HTML, CSS and JavaScript. No framework, no build step.</span>
-  <a class="mono" href="https://github.com/ferquintero2013/ferney-portfolio">Source of this page ↗</a>
+  <span class="mono" data-es="HTML, CSS y JavaScript puros. Sin framework, sin paso de build.">Vanilla HTML, CSS and JavaScript. No framework, no build step.</span>
+  <a class="mono" href="https://github.com/ferquintero2013/ferney-portfolio" data-es="Código de esta página ↗">Source of this page ↗</a>
 </footer>
 
+<script src="i18n.js"></script>
+<script src="i18n.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <meta property="og:title" content="The assistant — Ferney Quintero">
 <meta property="og:description" content="A RAG system in Python. Read the source documents, then check its answers against them.">
 <meta property="og:type" content="article">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2316130e'/><text y='70' x='50' text-anchor='middle' font-size='52' font-weight='700' font-family='monospace' fill='%23d1a45f'>FQ</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230e1219'/><text y='70' x='50' text-anchor='middle' font-size='52' font-weight='700' font-family='monospace' fill='%23e0a458'>FQ</text></svg>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,129 +17,133 @@
 </head>
 <body>
 
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main" data-es="Ir al contenido">Skip to content</a>
 
 <header class="topbar">
   <div class="bar">
     <a class="mark" href="index.html">
       <span class="mark-name">Ferney Quintero</span>
-      <span class="mark-role">AI Automation Engineer</span>
+      <span class="mark-role" data-es="Ingeniero de Automatización con IA">AI Automation Engineer</span>
     </a>
     <nav aria-label="Sections">
-      <a href="work.html">Work</a>
-      <a href="background.html">Background</a>
-      <a href="contact.html">Contact</a>
+      <a href="work.html" data-es="Proyectos">Work</a>
+      <a href="background.html" data-es="Trayectoria">Background</a>
+      <a href="contact.html" data-es="Contacto">Contact</a>
     </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang-btn="es" aria-pressed="false">ES</button>
+    </div>
   </div>
 </header>
 
 <main id="main" class="page">
 
   <div class="page-head">
-    <p class="crumb mono"><a href="index.html">← Back</a> <span>The assistant</span></p>
-    <h1>How the assistant works</h1>
-    <p>The robot on the front page isn't a widget I installed. It's a system I built, and it's part of the portfolio — arguably the most honest part, because you can check whether it's telling you the truth.</p>
+    <p class="crumb mono"><a href="index.html" data-es="← Volver">← Back</a> <span data-es="El asistente">The assistant</span></p>
+    <h1 data-es="Cómo funciona el asistente">How the assistant works</h1>
+    <p data-es="El robot de la portada no es un widget que instalé. Es un sistema que construí, y forma parte del portafolio — probablemente la parte más honesta, porque puedes comprobar si te está diciendo la verdad.">The robot on the front page isn't a widget I installed. It's a system I built, and it's part of the portfolio — arguably the most honest part, because you can check whether it's telling you the truth.</p>
   </div>
 
   <div class="prose">
 
-    <h2>What it is</h2>
-    <p>
+    <h2 data-es="Qué es">What it is</h2>
+    <p data-es="Es un sistema <strong>RAG</strong>, de generación aumentada por recuperación. La idea es simple: en vez de preguntarle a un modelo de lenguaje lo que recuerda, primero se buscan los pasajes relevantes en un conjunto de documentos reales, se le entregan, y se le pide que responda usando solo eso.">
       It's a <strong>RAG</strong> system — Retrieval-Augmented Generation. The idea is
       simple: instead of asking a language model what it happens to remember, you
       first go find the relevant passages in a set of real documents, hand those to
       the model, and ask it to answer using only that.
     </p>
-    <p>
+    <p data-es="La diferencia importa. Un chatbot genérico al que le preguntes por mi experiencia produciría algo plausible — y plausible es justo el problema. Este solo puede repetir lo que está escrito en mi CV y en las notas de mis proyectos, y te dice de qué archivo y qué sección salió cada afirmación.">
       The difference matters. A general chatbot asked about my experience would
       produce something plausible — and plausible is exactly the problem. This one
       can only repeat what's actually written in my CV and project notes, and it tells
       you which file and which section each statement came from.
     </p>
-    <p>
+    <p data-es="Cuando la respuesta no está en esos documentos, lo dice. Ese comportamiento es deliberado y es lo más difícil de conseguir: la tendencia natural de estos modelos es rellenar el hueco con algo que suene razonable.">
       When the answer isn't in those documents, it says so. That behaviour is
       deliberate and it's the hardest part to get right: the natural tendency of these
       models is to fill the gap with something reasonable-sounding.
     </p>
 
-    <h2>What happens when you ask it something</h2>
+    <h2 data-es="Qué pasa cuando le preguntas algo">What happens when you ask it something</h2>
 
     <div class="flow">
       <div class="flow-step">
         <span class="n">01</span>
         <div>
-          <b>Your question is rewritten</b>
-          <p>Follow-ups like "and what year was that?" mean nothing on their own. A small model turns them into a complete, standalone question first, using the conversation so far — otherwise the search would look for those literal words and find nothing.</p>
+          <b data-es="Tu pregunta se reescribe">Your question is rewritten</b>
+          <p data-es="Un seguimiento como «¿y en qué año fue eso?» no significa nada por sí solo. Un modelo pequeño lo convierte primero en una pregunta completa y autónoma usando la conversación previa; si no, la búsqueda buscaría esas palabras literales y no encontraría nada.">Follow-ups like "and what year was that?" mean nothing on their own. A small model turns them into a complete, standalone question first, using the conversation so far — otherwise the search would look for those literal words and find nothing.</p>
         </div>
       </div>
       <div class="flow-step">
         <span class="n">02</span>
         <div>
-          <b>Two searches run at once</b>
-          <p>One matches by meaning, so "has he led teams?" finds a passage about coordinating developers even without those words. The other matches exact terms, which is what catches "Odoo" or "GoHighLevel". Their results are merged by rank.</p>
+          <b data-es="Se lanzan dos búsquedas a la vez">Two searches run at once</b>
+          <p data-es="Una busca por significado, así que «¿ha liderado equipos?» encuentra un pasaje sobre coordinar desarrolladores aunque no use esas palabras. La otra busca términos exactos, que es lo que atrapa «Odoo» o «GoHighLevel». Los resultados se combinan por posición.">One matches by meaning, so "has he led teams?" finds a passage about coordinating developers even without those words. The other matches exact terms, which is what catches "Odoo" or "GoHighLevel". Their results are merged by rank.</p>
         </div>
       </div>
       <div class="flow-step">
         <span class="n">03</span>
         <div>
-          <b>The passages become the answer's only source</b>
-          <p>The retrieved fragments go to the model with strict instructions: use nothing else, respect the nuances in the text, cite every claim, and say plainly when the documents don't cover the question.</p>
+          <b data-es="Los pasajes son la única fuente de la respuesta">The passages become the answer's only source</b>
+          <p data-es="Los fragmentos recuperados llegan al modelo con instrucciones estrictas: no usar nada más, respetar los matices del texto, citar cada afirmación y decir claramente cuando los documentos no cubren la pregunta.">The retrieved fragments go to the model with strict instructions: use nothing else, respect the nuances in the text, cite every claim, and say plainly when the documents don't cover the question.</p>
         </div>
       </div>
       <div class="flow-step">
         <span class="n">04</span>
         <div>
-          <b>Only the sources actually used are shown</b>
-          <p>The search returns five candidates; the model usually uses one or two. Listing all five as "sources" would suggest the answer came from all of them, so the rest are filtered out.</p>
+          <b data-es="Solo se muestran las fuentes realmente usadas">Only the sources actually used are shown</b>
+          <p data-es="La búsqueda devuelve cinco candidatos; el modelo suele usar uno o dos. Listar los cinco como «fuentes» sugeriría que la respuesta salió de todos ellos, así que el resto se filtran.">The search returns five candidates; the model usually uses one or two. Listing all five as "sources" would suggest the answer came from all of them, so the rest are filtered out.</p>
         </div>
       </div>
     </div>
 
     <div class="callout">
-      <h3>Don't take my word for it — check it</h3>
-      <p>
+      <h3 data-es="No me creas: compruébalo">Don't take my word for it — check it</h3>
+      <p data-es="Los documentos que lee el asistente son públicos, en el mismo repositorio que el código. Así que puedes hacer algo que no se puede con un portafolio normal: <strong>leer el material fuente y después preguntarle al asistente sobre él, a ver si las respuestas se sostienen.</strong>">
         The documents the assistant reads are public, in the same repository as the
         code. So you can do something you can't do with an ordinary portfolio:
         <strong>read the source material, then ask the assistant about it and see
         whether the answers hold up.</strong>
       </p>
-      <p>
+      <p data-es="Prueba a preguntar por algo que <em>no</em> esté ahí — una tecnología que nunca he tocado — y mira cómo declina en vez de improvisar. Ese test dice más del sistema que cualquier respuesta que acierte.">
         Try asking about something that <em>isn't</em> there — a technology I've never
         touched — and watch it decline instead of improvise. That test says more about
         the system than any answer it gets right.
       </p>
       <p>
-        <a href="https://github.com/ferquintero2013/rag-perfil-profesional">Source code and documents on GitHub ↗</a>
+        <a href="https://github.com/ferquintero2013/rag-perfil-profesional" data-es="Código y documentos en GitHub ↗">Source code and documents on GitHub ↗</a>
       </p>
     </div>
 
-    <h2>Built with</h2>
-    <p>
+    <h2 data-es="Construido con">Built with</h2>
+    <p data-es="Python, corriendo como función serverless en este mismo dominio: <a href='https://ferney-portfolio.vercel.app/api/ask'>/api/ask</a>. Usa la API de OpenAI: <code>text-embedding-3-small</code> para indexar los documentos, <code>gpt-4o</code> para redactar las respuestas y <code>gpt-4o-mini</code> para el paso barato de reescritura. La búsqueda por palabras clave es <code>rank-bm25</code>.">
       Python, running as a serverless function on this same domain —
       <a href="https://ferney-portfolio.vercel.app/api/ask">/api/ask</a>. It uses
       OpenAI's API: <code>text-embedding-3-small</code> to index the documents,
       <code>gpt-4o</code> to write the answers, and <code>gpt-4o-mini</code> for the
       cheaper rewriting step. Keyword search is <code>rank-bm25</code>.
     </p>
-    <p>
+    <p data-es="<strong>Sin base de datos vectorial.</strong> La primera versión usaba ChromaDB, y entonces medí: 37 documentos caben en 222 KB de memoria, y buscarlos es una multiplicación de matriz que numpy resuelve en menos de un milisegundo. Una base de datos vectorial está pensada para millones de vectores — aquí era infraestructura que pesaba más que el problema, así que la quité. Volvería a meter una pasados unos diez mil fragmentos.">
       <strong>No vector database.</strong> The first version used ChromaDB, and then I
       measured: 37 documents fit in 222 KB of memory, and searching them is one matrix
       multiplication that numpy does in under a millisecond. A vector database is built
       for millions of vectors — here it was infrastructure heavier than the problem, so
       I removed it. I'd bring one back somewhere north of ten thousand chunks.
     </p>
-    <p>
+    <p data-es="Tampoco hay framework de RAG. Cada pieza está escrita a mano — que es como encontré el problema de abajo, y probablemente no lo habría hecho con un pipeline empaquetado.">
       No RAG framework either. Every piece is written by hand — which is how I found the
       problem below, and probably wouldn't have with a pre-packaged pipeline.
     </p>
 
-    <h3>The bug worth mentioning</h3>
-    <p>
+    <h3 data-es="El fallo que vale la pena contar">The bug worth mentioning</h3>
+    <p data-es="La primera versión usaba solo búsqueda semántica, y fallaba en la pregunta más obvia que se le puede hacer: <em>«¿sabe Python?»</em> no recuperaba el proyecto que construí enteramente en Python.">
       The first version used semantic search only, and it failed on the most obvious
       question you could ask it: <em>"does he know Python?"</em> didn't retrieve the
       project I'd built entirely in Python.
     </p>
-    <p>
+    <p data-es="La razón es que ese pasaje describe un sistema de validación documental — modelos de visión, reglas de negocio, verificación de identidad. La palabra «Python» aparece dos veces entre unas ciento veinte. Su significado global apunta a «sistema de validación», no a «habilidades en Python». Ninguna astucia en la consulta arregla eso, porque el problema está en el documento, no en la pregunta. La búsqueda por palabras clave lo resuelve al instante, porque el nombre de una tecnología es un término raro y pesa mucho.">
       The reason is that the passage describes a document-validation system — vision
       models, business rules, identity checks. The word "Python" appears twice in
       about a hundred and twenty. Its overall meaning points at "validation system",
@@ -147,21 +151,21 @@
       problem is in the document, not the question. Keyword search fixes it instantly,
       because a technology name is a rare term and weighs heavily.
     </p>
-    <p>
+    <p data-es="También probé una técnica conocida para esto, HyDE, y la descarté con mediciones: hacía que las puntuaciones de similitud se vieran mejor mientras los resultados reales empeoraban. Buenos números, respuestas equivocadas — un recordatorio útil de que la métrica no es el objetivo.">
       I also tried a well-known technique for this called HyDE and dropped it, with
       measurements: it made the similarity scores look better while making the actual
       results worse. Good numbers, wrong answers — a useful reminder that the metric
       isn't the goal.
     </p>
 
-    <h3>What it doesn't have</h3>
-    <p>
+    <h3 data-es="Lo que no tiene">What it doesn't have</h3>
+    <p data-es="<strong>No hay evaluación automatizada.</strong> Pruebo con un conjunto fijo de preguntas que cubren los casos que me importan, pero las corro a mano — que es como un defecto real se me coló una vez y lo pillé de casualidad. Es lo primero que construiría si esto sirviera a alguien más que a mí.">
       <strong>No automated evaluation suite.</strong> I test with a fixed set of
       questions covering the cases I care about, but I run them by hand — which is how a
       real defect slipped past me once and got caught by accident. It's the first thing
       I'd build if this were serving anyone but me.
     </p>
-    <p>
+    <p data-es="<strong>No hay límite de peticiones de verdad.</strong> Hay un contador por IP, pero vive en la memoria de una instancia serverless, y puede haber varias corriendo a la vez — así que frena ráfagas en lugar de imponer un límite global. Hacerlo bien necesita estado compartido, como Redis. El tope duro de gasto está en la cuenta de OpenAI, que es la capa que de verdad me protege.">
       <strong>No real rate limiting.</strong> There's a per-IP counter, but it lives in
       the memory of a serverless instance, and there can be several running at once —
       so it slows bursts rather than enforcing a global limit. Doing it properly needs
@@ -169,13 +173,13 @@
       the layer that actually protects me.
     </p>
 
-    <h2>Why the robot reacts</h2>
-    <p>
+    <h2 data-es="Por qué reacciona el robot">Why the robot reacts</h2>
+    <p data-es="El robot de la portada cambia de expresión según la respuesta: asiente cuando encontró terreno firme, ladea la cabeza y encoge los hombros cuando los documentos no cubren la pregunta, y mira hacia arriba mientras piensa.">
       The little robot on the front page changes expression with the answer: it nods
       when it found solid ground, tilts its head and shrugs when the documents don't
       cover the question, looks up while it's thinking.
     </p>
-    <p>
+    <p data-es="Eso no es decoración añadida por encima: lee un campo que la API ya devuelve. El sistema no le pregunta al modelo cómo se siente; lo deriva de si la respuesta citó alguna fuente, que ya tenía que calcular. Uno de esos estados, <code>unsure</code>, solo se activa cuando el modelo escribe largo <em>sin</em> citar nada — algo que las instrucciones prohíben. Así que un robot con cara de confusión es en realidad un fallo de grounding, visible desde la interfaz. Nadie lo diseñó como monitoreo; salió de elegir bien la señal.">
       That isn't decoration bolted on top — it reads a field the API already returns.
       The system doesn't ask the model how it feels; it derives it from whether the
       answer cited any sources, which it already had to compute. One of those states,
@@ -190,21 +194,22 @@
   <nav class="pager" aria-label="Other sections">
     <a href="index.html">
       <span class="jump-n mono">←</span>
-      <span class="jump-t">Try the assistant</span>
+      <span class="jump-t" data-es="Probar el asistente">Try the assistant</span>
     </a>
     <a href="work.html">
       <span class="jump-n mono">01</span>
-      <span class="jump-t">Work →</span>
+      <span class="jump-t" data-es="Proyectos →">Work →</span>
     </a>
   </nav>
 
 </main>
 
 <footer>
-  <span class="mono">Vanilla HTML, CSS and JavaScript. No framework, no build step.</span>
-  <a class="mono" href="https://github.com/ferquintero2013/ferney-portfolio">Source of this page ↗</a>
+  <span class="mono" data-es="HTML, CSS y JavaScript puros. Sin framework, sin paso de build.">Vanilla HTML, CSS and JavaScript. No framework, no build step.</span>
+  <a class="mono" href="https://github.com/ferquintero2013/ferney-portfolio" data-es="Código de esta página ↗">Source of this page ↗</a>
 </footer>
 
+<script src="i18n.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
