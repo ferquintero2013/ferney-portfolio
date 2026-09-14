@@ -1,7 +1,7 @@
 {
  "model": "text-embedding-3-small",
  "dimensions": 1536,
- "count": 44,
+ "count": 62,
  "normalized": true,
  "exported": "2026-09-14",
  "chunks": [
@@ -247,24 +247,132 @@
   },
   {
    "id": "chunk_040",
+   "source": "proyecto-agente-reuniones.md",
+   "section": "Proyecto: agente de analisis de reuniones con servidor MCP propio",
+   "text": "# Proyecto: agente de analisis de reuniones con servidor MCP propio\n\n> Periodo: 2026. Herramienta propia construida durante la direccion del proyecto de ERP Odoo en tres paises."
+  },
+  {
+   "id": "chunk_041",
+   "source": "proyecto-agente-reuniones.md",
+   "section": "Que es",
+   "text": "## Que es\n\nUn sistema propio que convierte las reuniones grabadas de un proyecto en estado de gestion actualizado, sin transcripcion manual. El agente obtiene el transcript completo desde Fathom, la plataforma de grabacion; lo analiza bajo un protocolo estricto; lo contrasta contra el estado vigente del proyecto; y escribe el resultado en un tablero de gestion a traves de un servidor MCP construido para ese proposito.\n\n**Ferney Quintero construyo las tres piezas**: el agente y su protocolo de analisis, el servidor MCP que expone las operaciones de escritura, y el tablero de gestion que consume esa informacion."
+  },
+  {
+   "id": "chunk_042",
+   "source": "proyecto-agente-reuniones.md",
+   "section": "Por que construirlo en vez de usar el resumen automatico",
+   "text": "## Por que construirlo en vez de usar el resumen automatico\n\nPorque el resumen automatico de la plataforma no era una fuente confiable para tomar decisiones de gestion, y ese hallazgo origino el proyecto.\n\nAl contrastar resumenes automaticos contra transcripts completos aparecieron tres problemas recurrentes:\n\n1. **Los rotulos de hablante vienen cruzados.** Bloques largos atribuidos a una persona contenian intervenciones de otras dos, de modo que un compromiso podia quedar asignado a quien no lo asumio.\n2. **El resumen conserva la conclusion y pierde la condicion.** Un acuerdo que en la reunion quedo condicionado — \"se hace si el recurso queda dedicado, no compartido\" — se resume como acuerdo cerrado, y esa diferencia es exactamente la que determina si el compromiso se cumple.\n3. **Lo mas valioso suele mencionarse de pasada.** El cierre de un pendiente abierto hacia tres semanas aparece en una frase incidental que ningun resumen conserva, porque no fue el tema de la reunion.\n\nLa conclusion de diseno: el resumen automatico sirve para ubicar una reunion, no para analizarla. El agente trabaja siempre sobre el transcript completo."
+  },
+  {
+   "id": "chunk_043",
+   "source": "proyecto-agente-reuniones.md",
+   "section": "Como funciona",
+   "text": "## Como funciona\n\n**Uno, obtencion.** El agente consulta Fathom y recupera el transcript integro, no su resumen. La fuente es la plataforma en vivo, no archivos exportados, de modo que siempre lee la version actual.\n\n**Dos, analisis con protocolo.** Un protocolo formalizado fija como se lee y que se puede afirmar. Las reglas principales: leer el cien por ciento del transcript, en bloques si es largo; no analizar nunca desde el resumen automatico; no delegar la lectura a un subproceso que devuelva un resumen, porque eso reintroduce el problema que el sistema existe para resolver; reconstruir la atribucion de hablantes por contenido y por rol cuando los rotulos vienen cruzados; registrar como compromiso lo acordado al final de la discusion y no una propuesta intermedia; y asignar cada compromiso a quien lo asumio textualmente, nunca por inferencia.\n\n**Tres, contraste contra el estado vigente.** Antes de escribir nada, el agente compara lo analizado con el estado actual del proyecto y busca cuatro cosas: contradicciones con lo documentado, compromisos nuevos, cambios de prioridad y personas involucradas que no estaban mapeadas. Tambien barre la lista de pendientes abiertos para ver si la reunion cierra o desbloquea alguno.\n\n**Cuatro, escritura a traves del MCP.** El agente escribe en el tablero invocando las herramientas que expone el servidor MCP. La escritura no es texto libre: cada pendiente queda con responsable, fecha concreta y una etiqueta de estado de un vocabulario cerrado — completado, en progreso, verificar estado, bloqueado por, cancelado, sin cerrar. Si algo no quedo cerrado en la reunion se marca *sin cerrar*; si no se sabe, *verificar estado*. Nunca se asume."
+  },
+  {
+   "id": "chunk_044",
+   "source": "proyecto-agente-reuniones.md",
+   "section": "Las decisiones de diseno",
+   "text": "## Las decisiones de diseno\n\n**El sistema escala en vez de resolver.** Cuando el agente encuentra una contradiccion entre lo dicho en la reunion y lo documentado, no la resuelve por su cuenta ni elige la version mas probable: la senala y la deja marcada para decision humana. La razon es directa: quien usa el tablero le dedica poco tiempo al detalle y confia en lo que el sistema entrega, asi que un error silencioso no se detecta, se convierte en una decision mal informada semanas despues.\n\nEs el mismo criterio que Ferney aplica en el resto de sus sistemas: **una automatizacion que falla en silencio es peor que no tener ninguna**. El agente esta disenado para que el fallo sea visible en el punto donde ocurre, no para prometer que no va a fallar.\n\n**El vocabulario cerrado de estados es lo que lo hace auditable.** Prohibir expresiones ambiguas — \"esta semana\", \"hoy\", \"pronto\" — y obligar a fecha concreta y estado explicito convierte el tablero en algo que se puede revisar sin releer la reunion. Un pendiente marcado *verificar estado* comunica algo distinto de uno marcado *bloqueado por*, y esa diferencia permite preparar una reunion en minutos en lugar de una hora.\n\n**La regla de atribucion protege la credibilidad del sistema.** Asignar un compromiso a la persona equivocada destruye la confianza en todo el tablero de una sola vez. Por eso la atribucion se reconstruye por contenido, y ante la duda se guarda la cita textual en lugar de una interpretacion."
+  },
+  {
+   "id": "chunk_045",
+   "source": "proyecto-agente-reuniones.md",
+   "section": "Resultados",
+   "text": "## Resultados\n\nEl sistema sostuvo la direccion de un proyecto de ERP con operacion en tres paises durante siete meses, con multiples reuniones semanales y mas de veinte personas involucradas entre areas de negocio, desarrollo y direccion. El estado del proyecto — frentes de trabajo, pendientes, decisiones y responsables — se mantuvo actualizado despues de cada reunion sin transcripcion manual, y sirvio tanto para preparar las reuniones siguientes como para producir el informe final de traspaso al cierre del contrato.\n\nEl efecto practico: la documentacion de gestion dejo de ser una tarea que se hace al final, cuando ya se olvido el detalle, y paso a ser una consecuencia automatica de que la reunion ocurriera."
+  },
+  {
+   "id": "chunk_046",
+   "source": "proyecto-agente-reuniones.md",
+   "section": "Relacion con el asistente del portafolio",
+   "text": "## Relacion con el asistente del portafolio\n\nLos dos resuelven el mismo problema con la misma filosofia: **un sistema de IA que trabaja sobre documentos debe poder decir de donde saco cada afirmacion y reconocer cuando no la tiene**. En el asistente del portafolio eso se ve en las citas a la fuente y en el estado de grounding visible en la interfaz. En el agente de reuniones se ve en la cita textual ante duda de atribucion y en las etiquetas de estado que distinguen lo confirmado de lo que falta verificar.\n\nLa diferencia esta en el destinatario del error. En un portafolio, una afirmacion sin respaldo es una molestia. En la direccion de un proyecto de ERP en tres paises, es una decision operativa tomada sobre un dato falso."
+  },
+  {
+   "id": "chunk_047",
+   "source": "proyecto-agente-reuniones.md",
+   "section": "Tecnologias",
+   "text": "## Tecnologias\n\nServidor MCP propio, API de Fathom para obtencion de transcripts, agentes de IA con protocolo de analisis formalizado, tablero de gestion propio."
+  },
+  {
+   "id": "chunk_048",
+   "source": "proyecto-erp-odoo.md",
+   "section": "Proyecto: ERP Odoo en tres paises y diagnostico de catalogo",
+   "text": "# Proyecto: ERP Odoo en tres paises y diagnostico de catalogo\n\n> Periodo: marzo - septiembre de 2026 (7 meses). Trabajo independiente bajo contrato.\n> Cliente: empresa de manufactura y retail de moda con operacion en Colombia, Estados Unidos y Mexico. El nombre del cliente no se publica en descripciones de proyecto."
+  },
+  {
+   "id": "chunk_049",
+   "source": "proyecto-erp-odoo.md",
+   "section": "Que hizo Ferney Quintero en este proyecto",
+   "text": "## Que hizo Ferney Quintero en este proyecto\n\nFerney Quintero **dirigio el proyecto y construyo las herramientas con las que lo dirigio**. Las dos cosas, no una sola.\n\nDel lado de direccion: modelo procesos antes de automatizarlos, priorizo el desarrollo, documento los sistemas, coordino a las areas de negocio y llevo el seguimiento de los frentes de trabajo hasta su cierre.\n\nDel lado de ingenieria: construyo en Python el sistema de diagnostico que sostuvo el programa de mantenimiento de catalogo, y el agente de analisis de reuniones con su servidor MCP (documentado aparte) que mantuvo el estado del proyecto actualizado.\n\nAl terminar el contrato el proyecto quedo en punto de continuidad autonoma, con informe final de traspaso y documentacion entregada."
+  },
+  {
+   "id": "chunk_050",
+   "source": "proyecto-erp-odoo.md",
+   "section": "Es trabajo para un cliente real, en produccion",
+   "text": "## Es trabajo para un cliente real, en produccion\n\nConviene dejarlo explicito porque el nombre del cliente no aparece en este documento:\n**este proyecto es trabajo pagado para un cliente real, bajo contrato, no un proyecto personal ni un prototipo.**\n\nEl sistema de diagnostico en Python descrito aqui corrio en produccion cada dos dias durante meses, sobre datos reales de una operacion en tres paises, y sus hallazgos derivaron en decisiones de negocio y en dinero recuperado. Es codigo Python escrito para un cliente real, con consecuencias operativas.\n\nSi alguien pregunta si Ferney ha construido software en Python para clientes reales, o si su experiencia en Python es solo de proyectos propios, la respuesta es que **si tiene trabajo en Python para cliente real**: este sistema de diagnostico. Los otros trabajos de cliente son las automatizaciones de CRM para Onest Vision (GoHighLevel, no Python). Los proyectos propios — el chatbot RAG y el MVP de validacion documental — son adicionales a esto, no un sustituto."
+  },
+  {
+   "id": "chunk_051",
+   "source": "proyecto-erp-odoo.md",
+   "section": "El entorno tecnico",
+   "text": "## El entorno tecnico\n\nOdoo 19 Enterprise en tres instancias productivas independientes, una por pais, con alrededor de veintiseis modulos personalizados. Canales de venta conectados: Shopify, Amazon, TikTok Shop y Mercado Libre. Alrededor conviven sistemas satelite de comercio electronico, datos y produccion, y varios sistemas legados en retiro. La infraestructura corre en un servidor en la nube que fue migrado durante el proyecto.\n\nUna restriccion determino buena parte de las decisiones: **el proyecto contaba con un solo desarrollador para los tres paises**. Todo lo que exigia desarrollo competia por el mismo recurso, asi que la principal palanca de gestion no era pedir mas codigo sino evitar el codigo innecesario."
+  },
+  {
+   "id": "chunk_052",
+   "source": "proyecto-erp-odoo.md",
+   "section": "El problema real",
+   "text": "## El problema real\n\nLa empresa tenia talento, herramientas y datos, pero carecia de procesos formales, direccion de proyecto y seguimiento. El ERP estaba instalado en los tres paises y aun asi la operacion tomaba decisiones sobre informacion que el sistema no reflejaba bien: saldos de inventario que no eran reales, pedidos que no entraban, catalogos desalineados entre el ERP y la tienda en linea, y conciliaciones contables sin plan ni responsable.\n\nEl diagnostico de fondo es el mismo que Ferney ha visto repetirse durante trece anos: **los proyectos de automatizacion rara vez fallan por la herramienta, fallan porque nadie modelo bien el proceso antes de construir encima**."
+  },
+  {
+   "id": "chunk_053",
+   "source": "proyecto-erp-odoo.md",
+   "section": "El sistema de diagnostico que construyo (Python)",
+   "text": "## El sistema de diagnostico que construyo (Python)\n\nUn script de diagnostico en Python que audita, cada dos dias y en menos de tres minutos, el estado de la integracion entre Odoo y Shopify, y produce un informe accionable para quien debe corregir los casos.\n\n**Como esta construido**: se conecta a Odoo por XML-RPC y a la API de administracion de Shopify. Genera informes en Excel con openpyxl, lleva bitacora de cambios en JSONL y degrada a CSV si falta la libreria de Excel, en vez de fallar.\n\n**Que revisa**: once verificaciones ordenadas por urgencia — pedidos que ya fallaron al entrar al ERP, referencias de la tienda que no existen en el ERP, variantes sin referencia, referencias duplicadas en dos fichas distintas, codigos de barras duplicados o divergentes entre sistemas, productos no publicados en el canal de punto de venta, productos activos en la tienda pero dados de baja en el ERP, mapeos rotos hacia registros de inventario inexistentes, y variantes sin inventario activo en todas las bodegas.\n\n**Como entrega el resultado**: un libro de calculo con una hoja por verificacion. Cada fila trae una columna de accion escrita en lenguaje llano — que hay que hacer, no que esta mal — y un enlace directo al registro exacto a corregir. Una hoja adicional asigna cada caso a un responsable con nombre. Lo puede ejecutar una persona no tecnica.\n\n**La decision de diseno que importa**: el modo de correccion asistida tiene topes deliberadamente bajos. Puede aplicar correcciones, pero solo sobre la tienda en linea, nunca sobre el ERP, con un maximo de diez cambios por ejecucion y tres por producto. El razonamiento esta escrito en el propio codigo: la referencia es la llave que une un pedido con su factura, y en la tienda una referencia repetida no produce error, se sobrescribe en silencio. Si un lote supera esos topes no es un conjunto de erratas sueltas sino un problema de catalogo, y eso debe mirarlo una persona. **El tope no es una limitacion del script: es el punto donde la automatizacion se detiene y escala en vez de propagar un error a escala.** Antes de tocar nada guarda copia de seguridad de las referencias y registra cada cambio en una bitacora, de modo que toda correccion es reversible y auditable.\n\n**La verificacion que busca la causa y no el sintoma**: la primera hoja del informe no lista errores del sistema, sino lineas de pedido escritas a mano en el punto de venta. Esa verificacion existe porque el indicador de casos abiertos no bajaba aunque el equipo trabajara: entraban casos nuevos al mismo ritmo al que se cerraban los viejos. El script se diseno para hacer visible esa causa de entrada, no solo para contar pendientes."
+  },
+  {
+   "id": "chunk_054",
+   "source": "proyecto-erp-odoo.md",
+   "section": "Resultados concretos y verificables",
+   "text": "## Resultados concretos y verificables\n\n- **Falla de sincronizacion detectada**: el mecanismo de contraste de reportes encontro una falla del conector que llevaba **una semana sin que nadie la notara**, y que afectaba a decenas de pedidos ya facturados y no entregados, por un valor de decenas de miles de dolares.\n- **Mantenimiento de catalogo**: en un periodo de **tres semanas el equipo cerro cuarenta y ocho referencias**, el mapeo roto entre sistemas quedo en cero y los productos sin punto de venta asignado bajaron a un unico caso.\n- **Conciliacion contable**: estaba estimada en **dos meses**. Al conseguir que el recurso contable quedara dedicado en exclusiva y no compartido, y al acordar una franja diaria de trabajo conjunto con el consultor senior, la estimacion bajo a **aproximadamente tres semanas**.\n- **Desarrollo evitado en manufactura**: corrio el ejercicio completo de produccion de punta a punta y valido que el modulo no requeria desarrollo, solo parametrizacion. Esto libero al unico desarrollador del proyecto en el mes de mayor competencia por su tiempo.\n- **Causa raiz separada del sintoma**: un grupo de referencias llevaba **veintidos dias** sin movimiento pese al trabajo de mantenimiento. Al contrastar tres reportes de fechas distintas demostro que no era atraso operativo: el mismo codigo estaba asignado a dos fichas de producto activas y el ERP no permite reutilizar codigos, asi que el caso requeria una decision de negocio, no mas trabajo.\n- **Inventario disponible no confiable**: descubrio que cada cotizacion abierta reserva inventario, de modo que un backlog de cotizaciones sin cerrar distorsionaba el saldo disponible de toda la operacion. Dirigio la depuracion por canal y detecto ademas cotizaciones sin confirmar que ya tenian factura y movimiento de inventario, donde confirmarlas habria duplicado el movimiento. Se trato caso por caso en lugar de aplicar una correccion masiva.\n- **Decision irreversible identificada a tiempo**: en la operacion de Mexico el requisito aduanero exige que cada unidad de inventario exista individualmente con su numero de pedimento, algo que va contra la logica de unidades agregadas del ERP. Senalo que el cambio debia decidirse antes de cargar el inventario inicial, porque despues no habria vuelta atras y la base todavia estaba limpia."
+  },
+  {
+   "id": "chunk_055",
+   "source": "proyecto-erp-odoo.md",
+   "section": "Como reporta un hallazgo grave",
+   "text": "## Como reporta un hallazgo grave\n\nAl encontrar el grupo de pedidos sin registro de entrada en el ERP, Ferney **no afirmo la causa, porque no la tenia**. Planteo las dos hipotesis posibles — el conector dejo de importar, o el script quedo descalibrado tras la migracion de servidores — y propuso una prueba unica que las distinguia: revisar un pedido especifico en el ERP. Si estaba, el problema era del reporte; si no estaba, el problema era mayor.\n\nEsa forma de reportar convierte una alarma en una verificacion de quince minutos, y protege la credibilidad del reporte: si el hallazgo hubiera sido un falso positivo del script, el correo ya lo contemplaba."
+  },
+  {
+   "id": "chunk_056",
+   "source": "proyecto-erp-odoo.md",
+   "section": "Los principios de trabajo que confirmo el proyecto",
+   "text": "## Los principios de trabajo que confirmo el proyecto\n\n1. **No automatizar errores**: depurar el proceso antes de construir encima. Varios requerimientos se cerraron sin escribir una linea de codigo.\n2. **La adopcion vale mas que la construccion**: ningun desarrollo subio a produccion sin capacitacion previa.\n3. **Orquestar en lugar de programar**: la direccion define el que y protege el tiempo de quien ejecuta el como, sobre todo cuando ese recurso es uno solo.\n4. **Documentar todo**: si el unico que entiende el sistema es quien lo monto, el trabajo no esta terminado.\n5. **El punto de madurez no es corregir mas rapido, sino que las correcciones sean minimas**: evitar que se escriban productos a mano resuelve el problema de raiz; corregir el resultado solo lo administra."
+  },
+  {
+   "id": "chunk_057",
+   "source": "proyecto-erp-odoo.md",
+   "section": "Tecnologias",
+   "text": "## Tecnologias\n\nOdoo 19 Enterprise (inventario, manufactura, facturacion, contabilidad, punto de venta); conectores de comercio electronico con Shopify, Amazon, TikTok Shop y Mercado Libre; facturacion electronica con requisitos fiscales de Colombia y Mexico (CFDI 4.0 y timbrado); migracion de servidor en la nube; y desarrollo propio en Python — Odoo XML-RPC, Shopify Admin API, openpyxl, bitacora JSONL, respaldo CSV."
+  },
+  {
+   "id": "chunk_058",
    "source": "resumen-ejecutivo.md",
    "section": "Rol actual",
    "text": "## Rol actual\n**Ingeniero de IA.** Disena y construye sistemas con inteligencia artificial: agentes, asistentes sobre documentos (RAG), extraccion estructurada con modelos de vision, y automatizacion de procesos entre sistemas.\n\n**Trabaja de forma independiente desde julio de 2025 hasta hoy.** En ese periodo ha combinado proyectos propios, un primer lugar en el hackathon EmprendIA LATAM y clientes bajo contrato. Su cliente actual es **Xpress Shapewear FL LLC**, donde lidera desarrollo de software, IA y automatizacion de procesos desde marzo de 2026. Su ultimo empleo en nomina fue en Nequi, hasta julio de 2025."
   },
   {
-   "id": "chunk_041",
+   "id": "chunk_059",
    "source": "resumen-ejecutivo.md",
    "section": "Parrafo 1: Quien es Ferney",
    "text": "## Parrafo 1: Quien es Ferney\nIngeniero de sistemas con +13 anos de experiencia en el ciclo completo de desarrollo de software. Ha ocupado roles de desarrollador (Java, Scala), QA lead, analista de negocio, project manager y Agile Coach antes de especializarse en inteligencia artificial. Esa trayectoria le permite entender un problema desde la perspectiva tecnica, de negocio y de gestion a la vez. Ha trabajado en fintech (BVC - Bolsa de Valores de Colombia, Nequi), consultoria tecnologica (Sophos Solutions, Imagemaker, Softgic) y e-commerce internacional."
   },
   {
-   "id": "chunk_042",
+   "id": "chunk_060",
    "source": "resumen-ejecutivo.md",
    "section": "Parrafo 2: Propuesta de valor",
    "text": "## Parrafo 2: Propuesta de valor\nSu diferenciador no son las herramientas, sino el criterio para decidir que construir y que no. Sabe leer un proceso antes de automatizarlo, dimensionar una solucion a su escala real, y disenar sistemas de IA que declaran lo que no saben en vez de inventarlo. Ganador del 1er lugar en Best AI Automation del hackathon EmprendIA LATAM."
   },
   {
-   "id": "chunk_043",
+   "id": "chunk_061",
    "source": "resumen-ejecutivo.md",
    "section": "Aclaracion sobre su perfil profesional",
    "text": "## Aclaracion sobre su perfil profesional\nSu rol primario es **Ingeniero de IA**. La experiencia en gerencia de proyectos y agilismo es **complementaria**, no su profesion actual: aporta la capacidad de mapear procesos, alinear stakeholders y estimar alcance, que es justo lo que suele faltarle a un perfil puramente tecnico.\n\nCuando lidera proyectos, son proyectos de inteligencia artificial, agentes y automatizacion. No busca ni ejerce roles de PM o Scrum Master puros."
