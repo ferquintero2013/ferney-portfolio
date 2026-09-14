@@ -1229,4 +1229,24 @@ footer a:hover { color: var(--ink); }
   .proj-foot { flex-direction: column; align-items: flex-start; }
   .pager { grid-template-columns: 1fr; }
   .flow-step { grid-template-columns: 1fr; gap: 2px; }
+
+  /* En un telefono de 360px, 5vw daba 18px y el clamp se quedaba en el
+     minimo de 20: el texto llegaba casi al borde por los dos lados.
+     Va dentro de :root porque una custom property suelta en un media
+     query no es CSS valido y el navegador la descarta en silencio. */
+  :root { --pad: 26px; }
+
+  /* El otro motivo de la sensacion de apreton no es el margen sino la
+     densidad: 16-17px de cuerpo llenan la linea de lado a lado en una
+     pantalla estrecha. Baja el tamano y sube el interlineado, que es lo
+     que da aire sin perder legibilidad. */
+  body { font-size: 15.2px; }
+  .bg-text p,
+  .prose p,
+  .proj p { font-size: 15px; line-height: 1.74; }
+  .bg-lead { font-size: 1rem; line-height: 1.6; }
+  .page-head > p { font-size: 15px; line-height: 1.6; }
+  .page-head h1 { font-size: clamp(1.95rem, 8.6vw, 2.6rem); }
+  .page-head { padding-bottom: 22px; margin-bottom: 26px; }
+  .prose h2 { margin: 34px 0 12px; }
 }
