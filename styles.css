@@ -50,7 +50,15 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+  /* Los halos decorativos se salen del viewport a proposito. Sin esto,
+     en movil el telefono los cuenta como ancho real y la pagina scrollea
+     de lado: el texto se sale de la pantalla. Es clip y no hidden porque
+     hidden crearia un contexto de scroll y rompe el sticky de la barra. */
+  overflow-x: clip;
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition: none !important; animation: none !important; }
@@ -58,6 +66,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 72px; }
 
 body {
   margin: 0;
+  overflow-x: clip;
   background: var(--paper);
   background-image:
     radial-gradient(58rem 40rem at 18% -8%, #172233 0%, transparent 62%),
@@ -787,9 +796,9 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
 .page::before {
   content: "";
   position: absolute;
-  left: -10%;
+  left: 0;
   top: -12%;
-  width: min(40rem, 90vw);
+  width: min(40rem, 100%);
   height: 24rem;
   background: radial-gradient(
     closest-side,
@@ -1202,7 +1211,7 @@ footer a:hover { color: var(--ink); }
   .mark-role { display: none; }
 
   .stage { min-height: 0; padding-top: 20px; padding-bottom: 30px; }
-  .stage::before { top: 30%; width: 130vw; }
+  .stage::before { top: 30%; width: 100%; }
   .scene { grid-template-columns: 1fr; gap: 14px; }
   .bot { width: 92px; justify-self: center; }
   .doors a::after { display: none; }
