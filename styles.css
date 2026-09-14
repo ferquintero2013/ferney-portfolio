@@ -651,6 +651,7 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
 /* --- title --- */
 /* El kicker sostiene la identidad ("AI Engineer") para que el titular
    pueda dedicarse a la tesis en vez de al cargo. */
+.stage .bienvenida { color: var(--accent); }
 .stage .kicker {
   font-size: 0.72rem;
   letter-spacing: 0.16em;
@@ -667,14 +668,6 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
   align-items: baseline;
   gap: 10px;
 }
-.stage .cv-link {
-  color: var(--accent);
-  text-decoration: none;
-  border-bottom: 1px solid color-mix(in oklab, var(--accent) 40%, transparent);
-  padding-bottom: 1px;
-  letter-spacing: 0.1em;
-}
-.stage .cv-link:hover { border-bottom-color: var(--accent); }
 
 .stage h1 {
   font-family: var(--display);
@@ -1246,21 +1239,6 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
 }
 .pager .jump-n { color: var(--dim); }
 
-/* ---------------- footer ---------------- */
-footer {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 20px var(--pad) 40px;
-  border-top: 1px solid var(--line);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 20px;
-  justify-content: space-between;
-  font-size: 11px;
-  color: var(--dim);
-}
-footer a { color: var(--dim); text-decoration: none; }
-footer a:hover { color: var(--ink); }
 
 /* ---------------- responsive ---------------- */
 @media (max-width: 980px) {
