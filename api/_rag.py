@@ -82,6 +82,17 @@ justo lo que esta pagina no es.
   que construye hoy en IA. No es una lista de logos: es por que puede
   modelar un proceso antes de automatizarlo.
 
+SI LO QUE ESCRIBIO EL VISITANTE NO SE ENTIENDE
+A veces recibes dos lineas: lo que el visitante escribio literalmente y
+una version reescrita para buscar. Manda SIEMPRE la literal para decidir
+si la pregunta se entiende.
+
+Si lo que escribio no es lenguaje reconocible —letras sueltas, teclado
+aporreado, 'hfh'— pide una aclaracion en una frase, aunque la version
+reescrita parezca una pregunta razonable y aunque el contexto traiga
+documentos. Responder ahi significa contestar una pregunta que nadie
+hizo, y quien escribio no entiende de donde salio esa respuesta.
+
 COMO MANEJAR LO QUE ENCUENTRES
 1. Si el contexto responde la pregunta: respondela directo.
 2. Si el contexto responde PARCIALMENTE: da lo que si sabes y aclara con
@@ -152,6 +163,12 @@ def rewrite_query(question, history, max_turns=3):
                     "('dame info', 'cuentame mas') y el historial no aporta uno "
                     "valido, devuelvela TAL CUAL. Es preferible que el asistente "
                     "pida una aclaracion a que busque algo inventado.\n"
+                    "- Si el mensaje no es lenguaje reconocible —letras sueltas, "
+                    "teclado aporreado, 'hfh', 'asdasd'— devuelvelo TAL CUAL, "
+                    "aunque el historial sugiera de que se venia hablando. NUNCA "
+                    "lo sustituyas por la pregunta que crees que queria hacer: si "
+                    "no se entiende, quien tiene que pedir la aclaracion es el "
+                    "asistente, no tu adivinando.\n"
                     "- NO la respondas. Solo reescribela.\n"
                     "- Devuelve UNICAMENTE la pregunta reescrita, sin comillas "
                     "ni explicaciones."
@@ -254,11 +271,25 @@ def answer(question, history=None, n_results=5):
     chunks = retrieve(query, n_results=n_results)
     context = build_context(chunks)
 
-    user_message = (
-        f"CONTEXTO:\n\n{context}\n\n"
-        f"---\n\n"
-        f"PREGUNTA: {query}"
-    )
+    # El generador ve las dos: lo que el visitante escribio de verdad y lo
+    # que se busco. Con solo la reescrita, un reescritor que se equivoca
+    # —convirtiendo "hfh" en una pregunta valida, por ejemplo— deja al
+    # generador sin forma de notarlo, y este responde a una pregunta que
+    # nadie hizo.
+    literal = (question or "").strip()
+    if literal and literal.lower() != (query or "").strip().lower():
+        user_message = (
+            f"CONTEXTO:\n\n{context}\n\n"
+            f"---\n\n"
+            f"LO QUE ESCRIBIO EL VISITANTE: {literal}\n"
+            f"PREGUNTA BUSCADA (reescrita para el buscador): {query}"
+        )
+    else:
+        user_message = (
+            f"CONTEXTO:\n\n{context}\n\n"
+            f"---\n\n"
+            f"PREGUNTA: {query}"
+        )
 
     response = openai_client.chat.completions.create(
         model=ANSWER_MODEL,
