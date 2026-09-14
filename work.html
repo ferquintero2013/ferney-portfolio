@@ -151,17 +151,28 @@
       <span class="proj-n mono">04</span>
       <div class="proj-body">
         <div class="proj-top">
-          <h2 data-es="Automatización de CRM y atribución">CRM automation and attribution</h2>
+          <h2 data-es="Motor de atribución UTM sobre un CRM">UTM attribution engine over a CRM</h2>
           <span class="state mono">2026</span>
         </div>
-        <p data-es="Automatizaciones en GoHighLevel para un cliente pagante: gestión de contactos y oportunidades, atribución UTM automatizada, enrutamiento de leads y reportes en los que el equipo comercial podía confiar. Antes las campañas se juzgaban por intuición porque los leads llegaban sin su origen.">
-          GoHighLevel automations for a paying client: contact and opportunity
-          management, automated UTM attribution, lead routing, and reporting the
-          sales team could actually trust. Campaigns had been judged on gut feeling
-          because leads arrived stripped of their origin.
+        <p data-es="Las campañas se juzgaban por intuición: el mismo canal llegaba al CRM con cinco etiquetas distintas, así que los reportes no se podían agregar. Meta Ads entraba como «Social media» sin marcar que era pago; el tráfico orgánico y el pagado de Instagram llegaban idénticos; los escaneos de QR de vallas físicas llegaban sin parámetros. Escribí un motor de clasificación de unas 300 líneas de JavaScript que resuelve cada caso por señales de contexto y normaliza doce campos UTM por evento — seis del primer contacto y seis de la última interacción.">
+          Campaigns were being judged on gut feeling: the same channel reached the CRM
+          under five different labels, so reports couldn't be aggregated. Meta Ads
+          arrived as "Social media" with nothing marking it as paid; organic and paid
+          Instagram traffic looked identical; QR scans from physical billboards came in
+          with no parameters at all. I wrote a ~300-line JavaScript classification
+          engine that resolves each case from contextual signals and normalises twelve
+          UTM fields per event — six first-touch, six last-touch.
+        </p>
+        <p class="note" data-es="Tres flujos más resolvían lo que el CRM no podía: dividir una oportunidad con varios apartamentos en una por unidad, clonar oportunidades entre embudos con más de 40 campos personalizados, y llevar cada respuesta de encuesta a la oportunidad correcta sin duplicar. El hallazgo que más costó: las oportunidades creadas por automatización heredaban los permisos de quien disparaba el flujo, y sin acceso al embudo destino fallaban en silencio.">
+          Three more flows covered what the CRM couldn't: splitting a multi-apartment
+          opportunity into one per unit, cloning opportunities across pipelines with
+          40+ custom fields, and routing each survey response to the right opportunity
+          without duplicating it. The hardest find: opportunities created by automation
+          inherited the triggering user's permissions, and without access to the target
+          pipeline they failed silently.
         </p>
         <div class="proj-foot">
-          <span class="tags mono">GoHighLevel · Zapier · Webhooks</span>
+          <span class="tags mono">n8n (self-hosted) · JavaScript · GoHighLevel REST API</span>
           <span class="links"><span class="muted" data-es="Trabajo de cliente">Client work</span></span>
         </div>
       </div>

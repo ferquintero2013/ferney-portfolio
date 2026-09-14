@@ -1,7 +1,7 @@
 {
  "model": "text-embedding-3-small",
  "dimensions": 1536,
- "count": 63,
+ "count": 73,
  "normalized": true,
  "exported": "2026-09-14",
  "chunks": [
@@ -135,13 +135,13 @@
    "id": "chunk_021",
    "source": "habilidades.md",
    "section": "AI y Automatizacion",
-   "text": "## AI y Automatizacion\n\n| Habilidad | Nivel (1-5) | Anos experiencia | Ultimo uso | Notas |\n|-----------|-------------|-------------------|------------|-------|\n| n8n | 4 | 1+ | Actual | Ganador hackathon EmprendIA LATAM |\n| Zapier | 4 | 2+ | Actual | Certificado como Experto |\n| Anthropic Claude / Claude Code | 4 | 1+ | Actual | Certificado, top skill LinkedIn |\n| Agentes IA / Multi-agent systems | 4 | 1+ | Actual | Lambda AI, Onestvision |\n| ManyChat | 3 | 1 | 2025 | Proyecto Lambda AI |\n| Meta APIs (WhatsApp/Messenger) | 3 | 1 | 2025 | Integracion con agentes de ventas |\n| GoHighLevel CRM | 3 | 1 | 2026 | Automatizaciones CRM, Onest Vision |"
+   "text": "## AI y Automatizacion\n\n| Habilidad | Nivel (1-5) | Anos experiencia | Ultimo uso | Notas |\n|-----------|-------------|-------------------|------------|-------|\n| n8n | 4 | 1+ | Actual | Ganador hackathon EmprendIA LATAM; 4 flujos en produccion con nodos Code para Onest Vision (autoalojado) |\n| Zapier | 4 | 2+ | Actual | Certificado como Experto |\n| Anthropic Claude / Claude Code | 4 | 1+ | Actual | Certificado, top skill LinkedIn |\n| Agentes IA / Multi-agent systems | 4 | 1+ | Actual | Lambda AI, Onestvision |\n| ManyChat | 3 | 1 | 2025 | Proyecto Lambda AI |\n| Meta APIs (WhatsApp/Messenger) | 3 | 1 | 2025 | Integracion con agentes de ventas |\n| GoHighLevel CRM | 3 | 1 | 2026 | Automatizaciones CRM, Onest Vision |"
   },
   {
    "id": "chunk_022",
    "source": "habilidades.md",
    "section": "Desarrollo de Software",
-   "text": "## Desarrollo de Software\n\n| Habilidad | Nivel (1-5) | Anos experiencia | Ultimo uso | Notas |\n|-----------|-------------|-------------------|------------|-------|\n| Java | 3 | 3+ | 2018 | BVC - Bolsa de Valores |\n| Scala | 3 | 2 | 2016 | BVC - desarrollo en equipo Scrum |\n| Microsoft Dynamics AX | 3 | 2 | 2015 | DIIT Consultores - ERP |\n| Frontend (HTML/CSS/JS) | 2 | 1+ | Variable | Certificacion Platzi |"
+   "text": "## Desarrollo de Software\n\n| Habilidad | Nivel (1-5) | Anos experiencia | Ultimo uso | Notas |\n|-----------|-------------|-------------------|------------|-------|\n| Java | 3 | 3+ | 2018 | BVC - Bolsa de Valores |\n| Scala | 3 | 2 | 2016 | BVC - desarrollo en equipo Scrum |\n| Microsoft Dynamics AX | 3 | 2 | 2015 | DIIT Consultores - ERP |\n| JavaScript | 3 | 2+ | 2026 | Motor de clasificacion UTM (~300 lineas) en n8n para Onest Vision; Next.js 15 en Amapola Board |\n| Frontend (HTML/CSS/JS) | 2 | 1+ | Variable | Certificacion Platzi |"
   },
   {
    "id": "chunk_023",
@@ -206,8 +206,8 @@
   {
    "id": "chunk_033",
    "source": "portafolio.md",
-   "section": "4. Automatizaciones CRM (Onest Vision) — Cliente real",
-   "text": "### 4. Automatizaciones CRM (Onest Vision) — Cliente real\n- **Descripcion**: Desarrollo y mantenimiento de automatizaciones CRM en GoHighLevel para gestion de contactos, atribucion UTM automatizada y reporting\n- **Rol**: Independent Contractor (cliente pagante)\n- **Tecnologias**: GoHighLevel CRM, Zapier, automatizaciones de datos\n- **Impacto/Resultados**: Gestion de contactos y oportunidades optimizada, atribucion de datos UTM automatizada, insights de reporting confiables\n- **Periodo**: Enero - Marzo 2026\n- **Link**: _(trabajo de cliente, no publico)_"
+   "section": "4. Automatizaciones CRM y motor de atribucion UTM (Onest Vision) — Cliente real",
+   "text": "### 4. Automatizaciones CRM y motor de atribucion UTM (Onest Vision) — Cliente real\n- **Descripcion**: Cuatro flujos en produccion sobre n8n autoalojado contra la API REST de GoHighLevel, implementando logica que el motor nativo de GHL no podia expresar: division de oportunidades por propiedad, clonado completo entre embudos con mas de 40 campos personalizados, enrutamiento de respuestas de encuesta a la oportunidad correcta sin duplicar, y un motor de atribucion UTM de unas 300 lineas de JavaScript\n- **Rol**: Independent Contractor (cliente pagante)\n- **Tecnologias**: n8n autoalojado, JavaScript, API REST de GoHighLevel, webhooks. **No Zapier**\n- **Impacto/Resultados**: 4 flujos activos, 6 endpoints de API integrados, 12 campos UTM calculados por evento (primer contacto y ultima interaccion), mas de 10 tipos de origen de trafico normalizados. La atribucion paso de ser un dato no confiable a una taxonomia consistente sobre la que el equipo de marketing puede asignar presupuesto\n- **Periodo**: Enero - Marzo 2026\n- **Link**: _(trabajo de cliente, no publico)_"
   },
   {
    "id": "chunk_034",
@@ -361,24 +361,84 @@
   },
   {
    "id": "chunk_059",
+   "source": "proyecto-onest-vision-ghl.md",
+   "section": "Proyecto: automatizaciones de CRM y motor de atribucion UTM (Onest Vision)",
+   "text": "# Proyecto: automatizaciones de CRM y motor de atribucion UTM (Onest Vision)\n\n> Periodo: enero - marzo de 2026. Cliente pagante, contrato como contractor.\n> Cliente final: un proyecto inmobiliario en Medellin, Colombia. El nombre del proyecto no se publica.\n> **Importante**: todo este trabajo se construyo en **n8n autoalojado (self-hosted)** contra la API REST de GoHighLevel, **no en Zapier**."
+  },
+  {
+   "id": "chunk_060",
+   "source": "proyecto-onest-vision-ghl.md",
+   "section": "Que construyo",
+   "text": "## Que construyo\n\nCuatro flujos en produccion sobre n8n autoalojado, que se comunican con la API REST de GoHighLevel (GHL) para implementar logica de negocio que el constructor de flujos nativo de GHL no podia expresar.\n\nEl punto de partida fue una limitacion concreta: el motor nativo de GHL no puede dividir oportunidades con varias propiedades, no copia campos personalizados entre embudos, y crea oportunidades duplicadas cada vez que llega una respuesta de encuesta. Nada de eso se podia desactivar desde la configuracion."
+  },
+  {
+   "id": "chunk_061",
+   "source": "proyecto-onest-vision-ghl.md",
+   "section": "Flujo 1: dividir oportunidades por propiedad",
+   "text": "## Flujo 1: dividir oportunidades por propiedad\n\n**Problema**: en el embudo comercial, una misma oportunidad podia estar ligada a varios apartamentos. El embudo administrativo necesitaba una oportunidad por unidad para seguimiento, gestion documental y cierre. GHL no tiene forma nativa de dividir una oportunidad multiple.\n\n**Solucion**: un flujo n8n disparado por webhook que recibe el ID de la oportunidad, consulta sus campos personalizados via API, identifica la lista de apartamentos, asigna el primero a la oportunidad original con un PUT, y despues itera sobre los restantes con un nodo Split Out creando una oportunidad nueva por cada uno via POST, con sus campos correspondientes."
+  },
+  {
+   "id": "chunk_062",
+   "source": "proyecto-onest-vision-ghl.md",
+   "section": "Flujo 2: clonado completo de oportunidades entre embudos",
+   "text": "## Flujo 2: clonado completo de oportunidades entre embudos\n\n**Problema**: al mover una oportunidad del embudo comercial al administrativo habia que recrearla con **todos** sus campos personalizados — texto, telefonos, valores monetarios, desplegables y archivos adjuntos. La accion nativa \"Create Opportunity\" de GHL solo copia nombre, contacto y etapa, e ignora los campos personalizados. Ademas fallaba por permisos cuando el usuario asignado no tenia acceso al embudo destino.\n\n**Solucion**: un flujo que trae la oportunidad origen con sus **mas de 40 campos personalizados**, la serializa como JSON en un nodo Edit Fields para evitar errores de referencia entre nodos, crea la oportunidad destino via POST, recorre con un nodo Code todos los campos mapeando ID y valor al formato de la API, y envia un unico PUT con el arreglo completo usando JSON.stringify para que arreglos y objetos anidados se serialicen bien."
+  },
+  {
+   "id": "chunk_063",
+   "source": "proyecto-onest-vision-ghl.md",
+   "section": "Flujo 3: respuesta de encuesta hacia la oportunidad correcta",
+   "text": "## Flujo 3: respuesta de encuesta hacia la oportunidad correcta\n\n**Problema**: una encuesta de varios pasos recogia la documentacion del comprador (cedula, certificados bancarios, declaraciones de renta, datos financieros). La encuesta colgaba de un contacto que podia tener varias oportunidades, una por apartamento. Habia que llevar cada respuesta a la oportunidad correcta **sin crear duplicados**, y el comportamiento por defecto de GHL era crear una oportunidad nueva en cada envio.\n\n**Solucion**: un flujo con emparejamiento inteligente. Recibe el envio por webhook extrayendo **mas de 16 campos**, consulta todas las oportunidades del contacto con la API de busqueda, y un nodo Code hace coincidencia sin distincion de mayusculas entre el apartamento de la encuesta y el campo de la oportunidad. Solo actualiza la que coincide, filtrando campos vacios para no sobrescribir datos existentes con blancos."
+  },
+  {
+   "id": "chunk_064",
+   "source": "proyecto-onest-vision-ghl.md",
+   "section": "Flujo 4: motor de atribucion UTM",
+   "text": "## Flujo 4: motor de atribucion UTM\n\nEs la pieza mas compleja de las cuatro y la mas interesante tecnicamente.\n\n**Problema**: GHL captura datos de atribucion desde muchas entradas — anuncios de Meta, Google Ads, busqueda organica, trafico directo, cargas de CSV, enlaces de seguimiento, encuestas, calendarios, referidos, WhatsApp y codigos QR de vallas fisicas. Cada fuente manda el dato en un formato distinto y con distinto nivel de completitud, y **el mismo valor de origen puede significar canales completamente diferentes** segun que otros campos vengan llenos:\n\n- Meta Ads llega como \"Social media\" con medio \"form\", sin utm_source ni utm_medium explicitos: hay que inferir que es pago a partir de senales de contexto.\n- El trafico organico y el pagado de Instagram llegan identicos; solo se distinguen mirando adId, adSetId o campaignId.\n- Entradas manuales del CRM e importaciones de CSV comparten origen pero necesitan clasificaciones distintas.\n- Los escaneos de QR de vallas fisicas llegan sin parametros UTM, solo con un identificador propio enterrado en la URL.\n\nSin normalizar, un mismo canal aparecia con cinco etiquetas distintas en los reportes y la agregacion era imposible.\n\n**Solucion**: un flujo que intercepta la creacion de cada oportunidad, trae los datos de atribucion del contacto, los pasa por un **motor de clasificacion basado en reglas de unas 300 lineas de JavaScript** en un nodo Code, y escribe los valores normalizados de vuelta en el contacto y en la oportunidad.\n\nEl motor es un arbol de decision multidimensional que calcula **seis campos UTM** (source, medium, campaign, content, type, term) y lo hace **dos veces**: para el primer contacto (first touch) y para la ultima interaccion (last touch), **doce campos por evento**. Si no existe ultima interaccion, copia la primera, de modo que ningun campo queda en blanco.\n\nRamas de decision principales: deteccion de senales de pago, identificacion de QR de valla, distincion entre campanas de conversion y de consideracion, desambiguacion de redes sociales con prioridad en cascada, inferencia del tipo de creatividad a partir del texto de la URL (reel, carrusel, banner estatico), y clasificacion de la estrategia de audiencia (lookalike, remarketing, prospectos frios).\n\n**Por que importa para el negocio**: la atribucion dejo de ser un dato en el que no se podia confiar. Con la taxonomia normalizada, el equipo de marketing puede calcular costo por lead por canal, distinguir que canal capto al lead de cual lo reactivo antes de cerrar — critico en un ciclo de venta inmobiliaria que dura semanas o meses — y mover presupuesto con datos en vez de intuicion."
+  },
+  {
+   "id": "chunk_065",
+   "source": "proyecto-onest-vision-ghl.md",
+   "section": "Retos tecnicos que resolvio",
+   "text": "## Retos tecnicos que resolvio\n\n- **Formato JSON en n8n**: mezclar expresiones de n8n dentro de un cuerpo JSON crudo rompia la peticion. Se resolvio construyendo los objetos en nodos Code y serializando con JSON.stringify.\n- **Errores de referencia entre nodos**: los nodos Code de n8n solo pueden referenciar nodos de su cadena directa de ejecucion. Cuando hacia falta el dato de un nodo no adyacente, implemento un patron de nodo intermedio que consolida datos de varias fuentes antes de pasarlos al Code.\n- **Tipos de dato inconsistentes**: campos que llegaban como arreglos serializados en texto en vez de arreglos reales, y habia que parsearlos antes de procesarlos.\n- **Limitaciones de campos de archivo**: el constructor de GHL no expone los campos de subida de archivo en su accion de actualizar oportunidad, y la API rechaza el formato completo que usa internamente. Requirio trabajar con URLs directas.\n- **Errores de permisos silenciosos**: las oportunidades creadas por automatizacion heredaban los permisos del usuario que disparaba el flujo. Si ese usuario no tenia acceso al embudo destino, **la operacion fallaba en silencio** dentro de GHL. Se resolvio creando via API con una llave de nivel administrador.\n\nEse ultimo caso es un ejemplo del criterio que Ferney aplica en todos sus sistemas: **un fallo silencioso es peor que un error visible**, porque nadie lo detecta hasta que ya causo dano."
+  },
+  {
+   "id": "chunk_066",
+   "source": "proyecto-onest-vision-ghl.md",
+   "section": "Resultados",
+   "text": "## Resultados\n\n| Metrica | Valor |\n|---------|-------|\n| Flujos en produccion | 4 flujos n8n activos |\n| Endpoints de API integrados | 6 (GET, POST, PUT, DELETE) |\n| Campos personalizados mapeados | mas de 40 en el clonado; mas de 16 por oportunidad en la encuesta |\n| Logica de clasificacion | ~300 lineas de JavaScript, 6 funciones de clasificacion |\n| Tipos de origen manejados | mas de 10 |\n| Campos UTM calculados | 12 por evento (6 de primer contacto + 6 de ultima interaccion) |\n| Trabajo manual eliminado | division de oportunidades, duplicado entre embudos, enrutamiento de encuestas y limpieza de atribucion |"
+  },
+  {
+   "id": "chunk_067",
+   "source": "proyecto-onest-vision-ghl.md",
+   "section": "Que demuestra este proyecto",
+   "text": "## Que demuestra este proyecto\n\nQue Ferney **escribe codigo cuando la herramienta no da**: el valor no estuvo en configurar GHL sino en detectar donde su modelo se quedaba corto y construir por fuera lo que faltaba, con JavaScript y llamadas directas a la API. Es trabajo de cliente pagante, en produccion."
+  },
+  {
+   "id": "chunk_068",
+   "source": "proyecto-onest-vision-ghl.md",
+   "section": "Tecnologias",
+   "text": "## Tecnologias\n\nn8n autoalojado (webhooks, HTTP Request, nodos Code, logica condicional, Split Out); JavaScript (~300 lineas de logica de clasificacion basada en reglas); API REST de GoHighLevel (GET, POST, PUT, DELETE sobre oportunidades, contactos y campos personalizados); GoHighLevel como CRM y almacen de datos."
+  },
+  {
+   "id": "chunk_069",
    "source": "resumen-ejecutivo.md",
    "section": "Rol actual",
    "text": "## Rol actual\n**Ingeniero de IA.** Disena y construye sistemas con inteligencia artificial: agentes, asistentes sobre documentos (RAG), extraccion estructurada con modelos de vision, y automatizacion de procesos entre sistemas.\n\n**Trabaja de forma independiente desde julio de 2025 hasta hoy.** En ese periodo ha combinado proyectos propios, un primer lugar en el hackathon EmprendIA LATAM y clientes bajo contrato. Su cliente actual es **Xpress Shapewear FL LLC**, donde lidera desarrollo de software, IA y automatizacion de procesos desde marzo de 2026. Su ultimo empleo en nomina fue en Nequi, hasta julio de 2025."
   },
   {
-   "id": "chunk_060",
+   "id": "chunk_070",
    "source": "resumen-ejecutivo.md",
    "section": "Parrafo 1: Quien es Ferney",
    "text": "## Parrafo 1: Quien es Ferney\nIngeniero de sistemas con +13 anos de experiencia en el ciclo completo de desarrollo de software. Ha ocupado roles de desarrollador (Java, Scala), QA lead, analista de negocio, project manager y Agile Coach antes de especializarse en inteligencia artificial. Esa trayectoria le permite entender un problema desde la perspectiva tecnica, de negocio y de gestion a la vez. Ha trabajado en fintech (BVC - Bolsa de Valores de Colombia, Nequi), consultoria tecnologica (Sophos Solutions, Imagemaker, Softgic) y e-commerce internacional."
   },
   {
-   "id": "chunk_061",
+   "id": "chunk_071",
    "source": "resumen-ejecutivo.md",
    "section": "Parrafo 2: Propuesta de valor",
    "text": "## Parrafo 2: Propuesta de valor\nSu diferenciador no son las herramientas, sino el criterio para decidir que construir y que no. Sabe leer un proceso antes de automatizarlo, dimensionar una solucion a su escala real, y disenar sistemas de IA que declaran lo que no saben en vez de inventarlo. Ganador del 1er lugar en Best AI Automation del hackathon EmprendIA LATAM."
   },
   {
-   "id": "chunk_062",
+   "id": "chunk_072",
    "source": "resumen-ejecutivo.md",
    "section": "Aclaracion sobre su perfil profesional",
    "text": "## Aclaracion sobre su perfil profesional\nSu rol primario es **Ingeniero de IA**. La experiencia en gerencia de proyectos y agilismo es **complementaria**, no su profesion actual: aporta la capacidad de mapear procesos, alinear stakeholders y estimar alcance, que es justo lo que suele faltarle a un perfil puramente tecnico.\n\nCuando lidera proyectos, son proyectos de inteligencia artificial, agentes y automatizacion. No busca ni ejerce roles de PM o Scrum Master puros."
