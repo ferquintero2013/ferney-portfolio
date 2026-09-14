@@ -146,8 +146,8 @@
   {
    "id": "chunk_023",
    "source": "habilidades.md",
-   "section": "ERP y Plataformas de Negocio",
-   "text": "## ERP y Plataformas de Negocio\n\n| Habilidad | Nivel (1-5) | Anos experiencia | Ultimo uso | Notas |\n|-----------|-------------|-------------------|------------|-------|\n| Odoo ERP | 3 | 1 | Actual | Implementacion cross-country Xpress Shapewear |\n| Microsoft Dynamics AX | 3 | 2 | 2015 | Desarrollo y consultoria |\n| Shopify | 3 | 1 | Actual | E-commerce Xpress Shapewear |\n| Amazon Seller | 3 | 1 | Actual | E-commerce Xpress Shapewear |\n| TikTok Shop | 3 | 1 | Actual | E-commerce Xpress Shapewear |"
+   "section": "ERP, CRM y Plataformas de Negocio",
+   "text": "## ERP, CRM y Plataformas de Negocio\n\nSistemas de negocio que Ferney ha integrado y automatizado: **ERP** (Odoo 19 Enterprise, Microsoft Dynamics AX), **CRM** (GoHighLevel) y canales de e-commerce (Shopify, Amazon, TikTok Shop, Mercado Libre). El trabajo tipico no es configurar la herramienta sino conectar el proceso entre ellas: que un pedido, un contacto o una referencia signifiquen lo mismo en todos los sistemas.\n\n| Habilidad | Nivel (1-5) | Anos experiencia | Ultimo uso | Notas |\n|-----------|-------------|-------------------|------------|-------|\n| Odoo ERP | 3 | 1 | Actual | Implementacion cross-country Xpress Shapewear |\n| Microsoft Dynamics AX | 3 | 2 | 2015 | Desarrollo y consultoria |\n| GoHighLevel CRM | 3 | 1 | 2026 | Automatizaciones de CRM para Onest Vision, cliente pagante |\n| Shopify | 3 | 1 | Actual | E-commerce Xpress Shapewear |\n| Amazon Seller | 3 | 1 | Actual | E-commerce Xpress Shapewear |\n| TikTok Shop | 3 | 1 | Actual | E-commerce Xpress Shapewear |"
   },
   {
    "id": "chunk_024",
@@ -200,8 +200,8 @@
   {
    "id": "chunk_032",
    "source": "portafolio.md",
-   "section": "3. Implementacion ERP Cross-Country (Xpress Shapewear FL LLC)",
-   "text": "### 3. Implementacion ERP Cross-Country (Xpress Shapewear FL LLC)\n- **Descripcion**: Implementacion de Odoo ERP para operaciones en US, Colombia y Mexico con sincronizacion multi-plataforma (TikTok Shop, Amazon, Shopify)\n- **Rol**: Lider de desarrollo de software, IA y automatizacion, como independiente\n- **Tecnologias**: Odoo, integraciones e-commerce, herramientas IA\n- **Impacto/Resultados**: Eliminacion de inconsistencias de datos entre plataformas, frameworks de gobernanza de producto, documentacion acelerada 3x con IA\n- **Periodo**: Marzo 2026 - Presente\n- **Link**: _(privado)_"
+   "section": "3. Implementacion ERP Cross-Country (cliente de manufactura y retail de moda)",
+   "text": "### 3. Implementacion ERP Cross-Country (cliente de manufactura y retail de moda)\n- **Descripcion**: Implementacion de Odoo ERP para operaciones en US, Colombia y Mexico con sincronizacion multi-plataforma (TikTok Shop, Amazon, Shopify)\n- **Rol**: Lider de desarrollo de software, IA y automatizacion, como independiente\n- **Tecnologias**: Odoo, integraciones e-commerce, herramientas IA\n- **Impacto/Resultados**: Eliminacion de inconsistencias de datos entre plataformas, frameworks de gobernanza de producto, documentacion acelerada 3x con IA\n- **Periodo**: Marzo 2026 - Presente\n- **Link**: _(privado)_"
   },
   {
    "id": "chunk_033",
