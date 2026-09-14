@@ -191,7 +191,6 @@
     usadas += 1;
     esperando = true;
     input.value = "";
-    input.disabled = true;
     send.disabled = true;
     if (suggestions) suggestions.hidden = true;
 
@@ -229,8 +228,10 @@
       })
       .then(function () {
         esperando = false;
-        input.disabled = false;
         send.disabled = false;
+        // El valor se limpia otra vez por si el navegador reinyecto texto
+        // de composicion (IME, teclado predictivo) durante la espera.
+        input.value = "";
         input.focus();
       });
   }
