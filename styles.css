@@ -672,11 +672,11 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
   font-weight: 800;
   /* Mas contenido que antes: el tamano baja para que la tesis quepa en
      dos o tres lineas sin empujar al personaje fuera de pantalla. */
-  font-size: clamp(1.7rem, 4.3vw, 3.05rem);
-  line-height: 1.0;
-  letter-spacing: -0.04em;
+  font-size: clamp(1.5rem, 3.6vw, 2.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
   margin: 0;
-  max-width: 26ch;
+  max-width: 30ch;
   color: var(--ink);
   text-wrap: balance;
 }
@@ -685,12 +685,14 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
 .stage h1 .soft {
   color: var(--muted);
   display: block;
-  margin-top: 0.55em;
-  font-size: 0.5em;
-  font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: -0.015em;
-  max-width: 46ch;
+  margin-top: 0.6em;
+  /* La segunda linea lleva ahora el argumento completo, no un remate:
+     baja de tamano y gana ancho para no crecer hacia abajo. */
+  font-size: 0.42em;
+  font-weight: 500;
+  line-height: 1.42;
+  letter-spacing: 0;
+  max-width: 64ch;
 }
 
 /* --- jump buttons: keys on a control panel --- */
