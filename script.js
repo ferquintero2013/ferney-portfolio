@@ -250,3 +250,75 @@
     });
   }
 })();
+
+/* ==========================================================================
+   Copiar al portapapeles
+
+   Un enlace mailto no hace nada si el visitante no tiene cliente de correo
+   configurado, que en movil es lo habitual: el boton parece roto. Esto
+   hace que la direccion siempre sirva para algo.
+
+   Vive fuera del modulo del chat porque la pagina de contacto no carga
+   ningun chat, y este script se sirve en las cinco paginas.
+   ========================================================================== */
+
+(function () {
+  "use strict";
+
+  var botones = document.querySelectorAll("[data-copiar]");
+  if (!botones.length) return;
+
+  function copiar(texto) {
+    // La API moderna necesita HTTPS y permiso; si falla se recurre al
+    // metodo viejo, que funciona en cualquier navegador.
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(texto);
+    }
+    return new Promise(function (ok, mal) {
+      var ta = document.createElement("textarea");
+      ta.value = texto;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy") ? ok() : mal();
+      } catch (e) {
+        mal(e);
+      } finally {
+        document.body.removeChild(ta);
+      }
+    });
+  }
+
+  botones.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var texto = btn.getAttribute("data-copiar");
+      var original = btn.textContent;
+
+      copiar(texto).then(function () {
+        btn.textContent = window.FQ_LANG && window.FQ_LANG() === "es"
+          ? "Copiado" : "Copied";
+        btn.setAttribute("data-hecho", "si");
+      }).catch(function () {
+        // Ni siquiera el metodo viejo funciono: al menos se selecciona
+        // el correo para que se pueda copiar a mano.
+        btn.textContent = window.FQ_LANG && window.FQ_LANG() === "es"
+          ? "Copia manual" : "Copy manually";
+        var a = document.querySelector('a[href^="mailto:"]');
+        if (a && window.getSelection) {
+          var r = document.createRange();
+          r.selectNodeContents(a);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(r);
+        }
+      }).then(function () {
+        setTimeout(function () {
+          btn.textContent = original;
+          btn.removeAttribute("data-hecho");
+        }, 2200);
+      });
+    });
+  });
+})();
