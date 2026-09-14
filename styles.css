@@ -957,11 +957,13 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
 .tl { list-style: none; margin: 0; padding: 0; position: relative; }
 
 /* Una linea vertical une los anos: la trayectoria se ve como continua en
-   vez de como filas sueltas, que es justo lo que la seccion argumenta. */
+   vez de como filas sueltas, que es justo lo que la seccion argumenta.
+   Corre por el carril que queda entre la columna del ano (46px) y el
+   texto; a 20px caia encima de los numeros y los tachaba. */
 .tl::before {
   content: "";
   position: absolute;
-  left: 20px;
+  left: 53px;
   top: 12px;
   bottom: 12px;
   width: 1px;
@@ -979,7 +981,9 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
 .tl li::before {
   content: "";
   position: absolute;
-  left: 17px;
+  /* box-sizing es border-box, asi que 7px ya incluye el borde:
+     centrado sobre la linea de 53px => 53 - 7/2 */
+  left: 49.5px;
   top: 15px;
   width: 7px;
   height: 7px;
