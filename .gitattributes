@@ -1,0 +1,9 @@
+# Sin esto Git decide por heuristica si un archivo es texto y puede
+# aplicarle conversion de saltos de linea. En un PDF eso lo corrompe,
+# y el dano solo aparece al clonar — que es justo lo que hace Vercel.
+*.pdf  binary
+*.png  binary
+*.jpg  binary
+*.ico  binary
+*.woff binary
+*.woff2 binary
