@@ -23,6 +23,7 @@ from http.server import BaseHTTPRequestHandler
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from _rag import answer
+import _log
 
 MAX_QUESTION_CHARS = 500
 MAX_HISTORY_TURNS = 6
@@ -89,14 +90,30 @@ class handler(BaseHTTPRequestHandler):
 
             historial = self._clean_history(cuerpo.get("history"))
 
+            inicio = time.monotonic()
             resultado = answer(pregunta, history=historial)
+            ms = int((time.monotonic() - inicio) * 1000)
 
-            return self._json(200, {
+            # Se responde primero y se registra despues: el visitante no
+            # debe esperar a que Supabase confirme nada. La funcion sigue
+            # viva hasta que do_POST retorna, asi que el insert ocurre
+            # igual, pero fuera del camino critico.
+            self._json(200, {
                 "answer": resultado["answer"],
                 "mood": resultado["mood"],
                 "cited": resultado["cited"],
                 "query_used": resultado["query_used"],
             })
+
+            _log.registrar(
+                pregunta=pregunta,
+                respuesta=resultado["answer"],
+                mood=resultado["mood"],
+                fuentes=resultado["cited"],
+                query_usada=resultado["query_used"],
+                ms=ms,
+            )
+            return
 
         except json.JSONDecodeError:
             return self._json(400, {"error": "Malformed JSON."})
