@@ -113,18 +113,35 @@
       <span class="proj-n mono">03</span>
       <div class="proj-body">
         <div class="proj-top">
-          <h2 data-es="Implementación de ERP en tres países">Cross-country ERP implementation</h2>
+          <h2 data-es="Diagnóstico de catálogo entre ERP y tienda">Catalog diagnostics between ERP and storefront</h2>
           <span class="state mono">2026</span>
         </div>
-        <p data-es="Odoo en Estados Unidos, Colombia y México para una marca D2C, con Shopify, Amazon y TikTok Shop sincronizados contra él: inventario, pedidos, facturación y datos de producto consistentes en cada tienda. Incluye la reestructuración y limpieza automatizada de los registros contables durante la migración, sustituyendo captura y conciliación manual por un proceso repetible.">
-          Odoo across the US, Colombia and Mexico for a D2C brand, with Shopify,
-          Amazon and TikTok Shop synced against it — inventory, orders, invoicing and
-          product data consistent on every storefront. Including automated
-          restructuring and cleanup of accounting records during the migration,
-          replacing manual entry and reconciliation with a repeatable process.
+        <p data-es="Odoo 19 en tres países, con Shopify, Amazon, TikTok Shop y Mercado Libre encima — y un solo desarrollador para los tres. La operación decidía sobre datos que el sistema no reflejaba: saldos de inventario irreales, pedidos que nunca entraban, catálogos desalineados. Construí en Python un diagnóstico que corre once verificaciones entre Odoo y Shopify cada dos días, en menos de tres minutos, y entrega un libro de cálculo donde cada fila dice qué hacer y enlaza al registro exacto que hay que corregir.">
+          Odoo 19 across three countries, with Shopify, Amazon, TikTok Shop and
+          Mercado Libre on top — and a single developer for all three. The business
+          was deciding on data the system didn't reflect: unreal inventory balances,
+          orders that never arrived, catalogs drifting apart. I built a Python
+          diagnostic that runs eleven checks between Odoo and Shopify every two days,
+          in under three minutes, and returns a workbook where every row says what to
+          do and links straight to the record that needs fixing.
+        </p>
+        <p data-es="Encontró una falla del conector que llevaba una semana sin que nadie la notara, con pedidos por decenas de miles de dólares facturados y sin entregar. El programa de mantenimiento que sostuvo cerró 48 referencias en tres semanas y dejó en cero el mapeo roto entre sistemas. Y separó síntoma de causa: el indicador no bajaba porque entraban casos nuevos al mismo ritmo, todos originados en una misma práctica de captura manual.">
+          It caught a connector failure that had gone a week unnoticed, with orders
+          worth tens of thousands of dollars invoiced and never delivered. The
+          maintenance programme it supported closed 48 SKUs in three weeks and took
+          broken cross-system mapping to zero. And it separated symptom from cause:
+          the backlog wasn't shrinking because new cases arrived at the same rate, all
+          of them traced to one manual-entry practice.
+        </p>
+        <p class="note" data-es="La decisión de diseño: el modo de corrección automática tiene topes bajos a propósito — diez cambios por ejecución, tres por producto, y solo sobre la tienda, nunca sobre el ERP. Si un lote los supera no son erratas sueltas, es un problema de catálogo, y eso lo mira una persona. Antes de tocar nada guarda copia y registra cada cambio, así que toda corrección es reversible.">
+          The design point: the auto-fix mode has deliberately low ceilings — ten
+          changes per run, three per product, and only against the storefront, never
+          the ERP. If a batch exceeds them it isn't scattered typos, it's a catalog
+          problem, and a person should look at it. It backs up and logs every change
+          before touching anything, so every correction is reversible.
         </p>
         <div class="proj-foot">
-          <span class="tags mono">Odoo · Shopify · Amazon · TikTok Shop</span>
+          <span class="tags mono">Python · Odoo XML-RPC · Shopify Admin API · openpyxl</span>
           <span class="links"><span class="muted" data-es="Sistema de cliente">Client system</span></span>
         </div>
       </div>
@@ -177,16 +194,33 @@
       <span class="proj-n mono">06</span>
       <div class="proj-body">
         <div class="proj-top">
-          <h2 data-es="Amapola Board y su servidor MCP">Amapola Board and its MCP server</h2>
+          <h2 data-es="Agente de reuniones, tablero y servidor MCP">Meeting agent, board and MCP server</h2>
           <span class="state mono">2026</span>
         </div>
-        <p data-es="Un tablero de proyectos, más un servidor MCP que permite a un agente de IA leer y escribir tickets directamente. El agente registra su propio trabajo en vez de pedirle a un humano que lo transcriba.">
-          A project board, plus an MCP server that lets an AI agent read and write
-          tickets on it directly. The agent files its own work instead of asking a
-          human to transcribe it.
+        <p data-es="El resumen automático de la plataforma de grabación no servía para decidir. Los rótulos de hablante venían cruzados, así que un compromiso podía quedar asignado a quien no lo asumió; los acuerdos condicionados —«se hace si el recurso queda dedicado»— se resumían como acuerdos cerrados; y lo más valioso, el cierre de un pendiente abierto hacía semanas, se mencionaba de pasada y desaparecía.">
+          The recording platform's auto-summary wasn't a basis for decisions. Speaker
+          labels came scrambled, so a commitment could land on whoever didn't make it;
+          conditional agreements — "we do it if the resource is dedicated" — were
+          summarised as settled ones; and the most valuable thing, an old blocker
+          finally closing, got mentioned in passing and vanished.
+        </p>
+        <p data-es="Construí las tres piezas: un agente que lee el transcript completo y nunca el resumen, el tablero de gestión donde queda el estado, y el servidor MCP por el que el agente escribe en él. Cada pendiente sale con responsable, fecha concreta y un estado de vocabulario cerrado. Sostuvo la gerencia del proyecto de ERP anterior durante siete meses, con más de veinte personas entre negocio, desarrollo y dirección.">
+          I built all three pieces: an agent that reads the full transcript and never
+          the summary, the board where state lives, and the MCP server the agent writes
+          through. Every open item lands with an owner, a hard date and a status from a
+          closed vocabulary. It carried the management of the ERP project above for
+          seven months, across more than twenty people spanning business, development
+          and leadership.
+        </p>
+        <p class="note" data-es="La decisión de diseño: cuando el agente encuentra una contradicción entre lo dicho y lo documentado, no elige la versión más probable — la marca para decisión humana. Quien lee el tablero confía en él y no revisa el detalle, así que un error silencioso no se detecta: reaparece como una decisión mal informada semanas después.">
+          The design point: when the agent finds a contradiction between what was said
+          and what's on record, it doesn't pick the likelier version — it flags it for a
+          human. Whoever reads the board trusts it and won't re-check the detail, so a
+          silent error isn't caught: it resurfaces as a badly informed decision weeks
+          later.
         </p>
         <div class="proj-foot">
-          <span class="tags mono">MCP · AI agents</span>
+          <span class="tags mono">MCP · Fathom API · AI agents</span>
           <span class="links"><span class="muted" data-es="Repositorio privado">Private repository</span></span>
         </div>
       </div>
