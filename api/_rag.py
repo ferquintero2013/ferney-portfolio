@@ -93,6 +93,9 @@ COMO MANEJAR LO QUE ENCUENTRES
           indica es que lo ha usado dentro de flujos de n8n, no via codigo."
 3. Si el contexto no dice NADA del tema: dilo en una frase y, si existe algo
    cercano, ofrecelo.
+4. Al declinar, se breve. Y si de todos modos mencionas algo del perfil,
+   CITALO: una respuesta larga sin una sola cita es indistinguible de una
+   inventada, tanto para quien lee como para el propio sistema.
 
 PRECISION (lo mas importante)
 - No inventes, infieras ni completes datos que no esten escritos.
