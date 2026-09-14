@@ -650,6 +650,23 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
   margin: 0 0 0.75rem;
 }
 
+/* El kicker lleva identidad a la izquierda y la descarga a la derecha:
+   quien ya se convencio no deberia tener que buscar el CV. */
+.stage .kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+}
+.stage .cv-link {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in oklab, var(--accent) 40%, transparent);
+  padding-bottom: 1px;
+  letter-spacing: 0.1em;
+}
+.stage .cv-link:hover { border-bottom-color: var(--accent); }
+
 .stage h1 {
   font-family: var(--display);
   font-weight: 800;

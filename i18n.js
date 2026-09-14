@@ -12,6 +12,7 @@
      data-es-ph       -> reemplaza el placeholder de un input
      data-es-label    -> reemplaza aria-label
      data-es-q        -> reemplaza data-q (preguntas sugeridas del chat)
+     data-es-href     -> reemplaza el destino de un enlace (CV en PDF)
    ========================================================================== */
 
 (function () {
@@ -51,6 +52,11 @@
     document.querySelectorAll("[data-es-label]").forEach(function (el) {
       if (el.dataset.enLabel === undefined) el.dataset.enLabel = el.getAttribute("aria-label") || "";
       el.setAttribute("aria-label", lang === "es" ? el.dataset.esLabel : el.dataset.enLabel);
+    });
+
+    document.querySelectorAll("[data-es-href]").forEach(function (el) {
+      if (el.dataset.enHref === undefined) el.dataset.enHref = el.getAttribute("href") || "";
+      el.setAttribute("href", lang === "es" ? el.dataset.esHref : el.dataset.enHref);
     });
 
     document.querySelectorAll("[data-es-q]").forEach(function (el) {
