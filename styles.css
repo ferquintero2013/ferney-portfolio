@@ -1140,67 +1140,89 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
   font-weight: 500;
 }
 .contact-main .primary:hover { background: var(--accent); border-color: var(--accent); }
-/* --- canales de contacto ---------------------------------------------
-   Antes esto era un boton ambar macizo con un boton de borde fino al
-   lado y tres enlaces subrayados sueltos debajo: tres lenguajes
-   visuales distintos apilados. Ahora es una ficha: cada canal es una
-   fila con la misma estructura — etiqueta, valor, accion — separadas
-   por una linea fina, que es el mismo recurso que usa el resto del
-   sitio. El correo conserva jerarquia por tamano y color, no por
-   relleno solido. */
-.canales {
-  list-style: none;
-  margin: 0 0 26px;
-  padding: 0;
-  border-top: 1px solid var(--line);
-}
-.canal {
-  display: grid;
-  grid-template-columns: 86px minmax(0, 1fr) auto;
+/* --- botones de contacto ---------------------------------------------
+   La version anterior listaba los datos como una ficha, y el problema
+   era que no se leia como algo accionable: un dato y un enlace se ven
+   igual. Estos son botones — superficie propia, icono, flecha y
+   movimiento al pasar por encima — para que se vea que al pulsar va a
+   ocurrir algo. */
+.acciones { display: grid; gap: 12px; margin-bottom: 26px; }
+
+.btn {
+  display: flex;
   align-items: center;
   gap: 14px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--line);
-}
-.canal-et {
-  font-size: 10.5px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--dim);
-}
-.canal-v {
-  color: var(--soft);
+  padding: 15px 18px;
+  border: 1px solid var(--line-2);
+  background: color-mix(in oklab, var(--ink) 4%, transparent);
   text-decoration: none;
-  font-size: 15px;
-  overflow-wrap: anywhere;
-  transition: color .16s;
-}
-.canal-v:hover { color: var(--accent); }
-
-/* El correo sigue siendo la via principal: pesa por tamano y color. */
-.canal-destacado .canal-v {
-  font-family: var(--mono);
-  font-size: clamp(14.5px, 2.4vw, 17px);
   color: var(--ink);
+  transition: border-color .16s, background .16s, transform .16s;
 }
-.canal-destacado .canal-v:hover { color: var(--amber); }
+.btn:hover {
+  border-color: var(--accent);
+  background: color-mix(in oklab, var(--accent) 8%, transparent);
+  transform: translateY(-1px);
+}
+.btn-ico { width: 24px; height: 24px; flex: none; fill: currentColor; }
+.btn-txt { display: grid; gap: 2px; min-width: 0; }
+.btn-t { font-weight: 600; font-size: 15px; }
+.btn-s {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--dim);
+  overflow-wrap: anywhere;
+}
+.btn-flecha {
+  margin-left: auto;
+  color: var(--dim);
+  font-size: 17px;
+  transition: transform .16s, color .16s;
+}
+.btn:hover .btn-flecha { color: var(--accent); transform: translateX(3px); }
 
-/* Un mailto no hace nada si el visitante no tiene cliente de correo
-   configurado, que en movil es lo habitual: el enlace parece roto. El
-   boton de copiar hace que el dato siempre sirva para algo. */
+/* WhatsApp lleva su verde: es la senal que hace que se reconozca de un
+   vistazo, y aqui es la via mas directa. */
+.btn-wa { color: #25d366; border-color: color-mix(in oklab, #25d366 40%, transparent); }
+.btn-wa .btn-t { color: var(--ink); }
+.btn-wa:hover {
+  border-color: #25d366;
+  background: color-mix(in oklab, #25d366 10%, transparent);
+}
+.btn-wa:hover .btn-flecha { color: #25d366; }
+
+.btn-mail { color: var(--amber); }
+.btn-mail .btn-t { color: var(--ink); }
+.btn-fila { display: flex; align-items: stretch; gap: 10px; }
+.btn-fila .btn { flex: 1; min-width: 0; }
+
+/* Un mailto no hace nada si no hay cliente de correo configurado, que en
+   movil es lo habitual. El boton de copiar cubre ese caso. */
 .copiar {
   font-family: var(--mono);
   font-size: 11.5px;
   color: var(--dim);
   background: transparent;
   border: 1px solid var(--line-2);
-  padding: 7px 11px;
+  padding: 0 14px;
   cursor: pointer;
   white-space: nowrap;
   transition: color .16s, border-color .16s;
 }
 .copiar:hover { color: var(--ink); border-color: var(--accent); }
 .copiar[data-hecho="si"] { color: var(--accent); border-color: var(--accent); }
+
+.btn-secundarios { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 2px; }
+.chip {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--soft);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  padding: 9px 15px;
+  transition: color .16s, border-color .16s;
+}
+.chip:hover { color: var(--ink); border-color: var(--accent); }
 .contact-links a {
   text-decoration: none;
   font-size: 14.5px;
@@ -1288,17 +1310,12 @@ footer a:hover { color: var(--ink); }
 
   .page { padding: 32px var(--pad) 52px; }
 
-  /* Tres columnas no caben en un telefono: la etiqueta pasa arriba y el
-     valor comparte fila con el boton de copiar. */
-  .canal {
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas: "et et" "valor accion";
-    gap: 6px 12px;
-    padding: 13px 0;
-  }
-  .canal-et { grid-area: et; }
-  .canal-v { grid-area: valor; }
-  .canal .copiar { grid-area: accion; }
+  /* El correo no cabe junto al boton de copiar en una pantalla estrecha:
+     se partia como "…gmail.co / m". El boton baja y ocupa el ancho. */
+  .btn-fila { flex-direction: column; gap: 8px; }
+  .btn-fila .copiar { padding: 11px 14px; }
+  .btn-s { font-size: 11.5px; }
+  .btn { padding: 14px 15px; gap: 12px; }
   .proj { grid-template-columns: 1fr; gap: 0; }
   .proj-n { display: none; }
   .proj-foot { flex-direction: column; align-items: flex-start; }
