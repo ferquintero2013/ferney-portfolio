@@ -3,7 +3,7 @@
  "dimensions": 1536,
  "count": 44,
  "normalized": true,
- "exported": "2026-09-11",
+ "exported": "2026-09-13",
  "chunks": [
   {
    "id": "chunk_000",
@@ -123,7 +123,7 @@
    "id": "chunk_019",
    "source": "cv.md",
    "section": "Top Skills (destacados en LinkedIn)",
-   "text": "## Top Skills (destacados en LinkedIn)\n- Claude Skills\n- Anthropic Claude\n- Vibe Coding\n- n8n\n- software development\n- Business analysis\n- Project management\n- Agile methodologiest"
+   "text": "## Top Skills (destacados en LinkedIn)\n- Claude Skills\n- Anthropic Claude\n- n8n\n- software development\n- Business analysis\n- Project management\n- Agile methodologies"
   },
   {
    "id": "chunk_020",
@@ -135,7 +135,7 @@
    "id": "chunk_021",
    "source": "habilidades.md",
    "section": "AI y Automatizacion",
-   "text": "## AI y Automatizacion\n\n| Habilidad | Nivel (1-5) | Anos experiencia | Ultimo uso | Notas |\n|-----------|-------------|-------------------|------------|-------|\n| n8n | 4 | 1+ | Actual | Ganador hackathon EmprendIA LATAM |\n| Zapier | 4 | 2+ | Actual | Certificado como Experto |\n| Anthropic Claude / Claude Code | 4 | 1+ | Actual | Certificado, top skill LinkedIn |\n| Agentes IA / Multi-agent systems | 4 | 1+ | Actual | Lambda AI, Onestvision |\n| ManyChat | 3 | 1 | 2025 | Proyecto Lambda AI |\n| Meta APIs (WhatsApp/Messenger) | 3 | 1 | 2025 | Integracion con agentes de ventas |\n| GoHighLevel CRM | 3 | 1 | 2026 | Automatizaciones CRM, Onest Vision |\n| Vibe Coding | 4 | 1+ | Actual | Top skill LinkedIn |"
+   "text": "## AI y Automatizacion\n\n| Habilidad | Nivel (1-5) | Anos experiencia | Ultimo uso | Notas |\n|-----------|-------------|-------------------|------------|-------|\n| n8n | 4 | 1+ | Actual | Ganador hackathon EmprendIA LATAM |\n| Zapier | 4 | 2+ | Actual | Certificado como Experto |\n| Anthropic Claude / Claude Code | 4 | 1+ | Actual | Certificado, top skill LinkedIn |\n| Agentes IA / Multi-agent systems | 4 | 1+ | Actual | Lambda AI, Onestvision |\n| ManyChat | 3 | 1 | 2025 | Proyecto Lambda AI |\n| Meta APIs (WhatsApp/Messenger) | 3 | 1 | 2025 | Integracion con agentes de ventas |\n| GoHighLevel CRM | 3 | 1 | 2026 | Automatizaciones CRM, Onest Vision |"
   },
   {
    "id": "chunk_022",
@@ -177,7 +177,7 @@
    "id": "chunk_028",
    "source": "habilidades.md",
    "section": "En aprendizaje",
-   "text": "## En aprendizaje\n| Habilidad | Fecha inicio | Recurso | Progreso |\n|-----------|-------------|---------|----------|\n| Claude Code / AI Agents | 2025 | Anthropic | Certificado |\n| Vibe Coding | 2025 | Practica | Activo |\n| Python | 2026-04 | Codecademy + practica | Iniciando |\n| Claude API / Anthropic SDK | 2026-04 | Documentacion oficial | Iniciando |\n| LangChain | 2026-05 | Tutorial oficial + proyecto FTC | Pendiente |\n| RAG en no-code (n8n + Vector Store) | 2025 | Proyecto propio | **Completado**: flujo RAG funcional en n8n con Vector Store node (Pinecone). Sin codigo propio — orquestacion no-code. |\n| RAG con codigo (Python + Vector DB) | 2026-05 | Proyecto propio `rag-perfil-profesional` | **COMPLETADO 2026-09-09**: sistema completo en Python — chunking estructural, embeddings, ChromaDB, retrieval hibrido (BM25 + vectorial con RRF), query rewriting y grounding. Desplegado: https://chat-perfil-ferney.streamlit.app/ |\n| Vector databases | 2026-05 | Proyecto propio `rag-perfil-profesional` | **COMPLETADO 2026-09-09**: ChromaDB via codigo (PersistentClient, collections, metadata, query por embeddings, persistencia). Pinecone sigue siendo solo via n8n, no via codigo. |"
+   "text": "## En aprendizaje\n| Habilidad | Fecha inicio | Recurso | Progreso |\n|-----------|-------------|---------|----------|\n| Claude Code / AI Agents | 2025 | Anthropic | Certificado |\n| Python | 2026-04 | Codecademy + practica | Iniciando |\n| Claude API / Anthropic SDK | 2026-04 | Documentacion oficial | Iniciando |\n| LangChain | 2026-05 | Tutorial oficial + proyecto FTC | Pendiente |\n| RAG en no-code (n8n + Vector Store) | 2025 | Proyecto propio | **Completado**: flujo RAG funcional en n8n con Vector Store node (Pinecone). Sin codigo propio — orquestacion no-code. |\n| RAG con codigo (Python + Vector DB) | 2026-05 | Proyecto propio `rag-perfil-profesional` | **COMPLETADO 2026-09-09**: sistema completo en Python — chunking estructural, embeddings, ChromaDB, retrieval hibrido (BM25 + vectorial con RRF), query rewriting y grounding. Desplegado: https://chat-perfil-ferney.streamlit.app/ |\n| Vector databases | 2026-05 | Proyecto propio `rag-perfil-profesional` | **COMPLETADO 2026-09-09**: ChromaDB via codigo (PersistentClient, collections, metadata, query por embeddings, persistencia). Pinecone sigue siendo solo via n8n, no via codigo. |"
   },
   {
    "id": "chunk_029",
