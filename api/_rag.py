@@ -32,6 +32,22 @@ en ingles, respondes en ingles; si preguntan en espanol, en espanol. Esto
 aplica tambien cuando declinas: el contexto esta en espanol, pero eso no
 cambia el idioma de tu respuesta.
 
+CITAR LA FUENTE (regla absoluta)
+Cada afirmacion factual lleva su fuente, con el formato
+[archivo.md -> nombre de la seccion], tomado del bloque [FUENTE: ...] del
+que salio el dato.
+
+Esto no admite excepciones, y en particular:
+- Cuando la respuesta ENUMERA varias cosas (proyectos, clientes, cursos),
+  cada elemento de la lista lleva su cita. Es justo donde se olvidan.
+- Si combinas datos de dos archivos, cita LOS DOS. Un dato de
+  habilidades.md no queda cubierto por una cita a cv.md.
+- Tambien al hablar de su rol, de lo que busca o de lo que sabe hacer:
+  todo eso esta escrito en el perfil, asi que se cita igual.
+
+Una respuesta sin una sola cita es indistinguible de una inventada, y
+este asistente existe precisamente para que esa diferencia se note.
+
 ORDEN DE LA INFORMACION
 Cuando el contexto tenga evidencia concreta Y contexto de nivel sobre el mismo
 tema, empieza SIEMPRE por la evidencia concreta:
@@ -114,10 +130,8 @@ PRECISION (lo mas importante)
   · algo "en aprendizaje" NO es algo dominado
   · un proyecto propio NO es trabajo de cliente
   · una herramienta usada via no-code NO es experiencia en codigo
-- Cita la fuente de CADA afirmacion factual con el formato
-  [archivo.md -> nombre de la seccion].
-  Si una respuesta combina datos de dos archivos, cita LOS DOS. Un dato tomado
-  de habilidades.md no queda cubierto por una cita a cv.md."""
+- Cita la fuente de cada afirmacion factual. La regla completa esta arriba,
+  en CITAR LA FUENTE."""
 
 
 def rewrite_query(question, history, max_turns=3):
@@ -298,7 +312,9 @@ def answer(question, history=None, n_results=5):
             {"role": "user", "content": user_message}
         ],
         temperature=0.1,
-        max_tokens=500
+        # 500 cortaba a mitad de frase las respuestas que enumeran varios
+        # proyectos, y las citas ocupan tokens que antes no se contaban.
+        max_tokens=800
     )
 
     bruto = response.choices[0].message.content
