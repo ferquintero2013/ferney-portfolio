@@ -152,6 +152,21 @@ a { color: inherit; }
 .topbar nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--accent); }
 
 /* --- selector de idioma --- */
+/* Emoji de bandera no vale: Windows no dibuja los indicadores regionales
+   y muestra las letras "GB"/"ES" en su lugar. Van dibujadas en SVG. */
+.flag {
+  width: 15px;
+  height: 10px;
+  display: block;
+  border-radius: 1px;
+  flex: none;
+  /* Apagadas hasta que el idioma esta activo, para que el boton elegido
+     se distinga tambien sin depender solo del fondo. */
+  opacity: .45;
+  transition: opacity .12s ease;
+}
+.lang button[aria-pressed="true"] .flag { opacity: 1; }
+
 .lang {
   display: flex;
   border: 1px solid var(--line-2);
@@ -168,6 +183,12 @@ a { color: inherit; }
   color: var(--dim);
   padding: 5px 9px;
   cursor: pointer;
+  /* Bandera y codigo juntos: la bandera hace que se lea como selector de
+     idioma de un vistazo, y el codigo evita la ambiguedad de la bandera
+     sola — una bandera nombra un pais, no un idioma. */
+  display: flex;
+  align-items: center;
+  gap: 5px;
   transition: background .12s ease, color .12s ease;
 }
 .lang button:hover { color: var(--ink); }
@@ -1269,9 +1290,30 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
 }
 
 @media (max-width: 620px) {
-  .topbar nav { gap: 14px; }
+  .topbar nav { gap: 13px; }
   .topbar nav a { font-size: 12.5px; }
   .mark-role { display: none; }
+
+  /* En pantalla estrecha el selector deja solo la bandera: es la parte
+     que comunica "esto es el idioma", y el codigo sobra cuando el
+     espacio manda. */
+  .lang button { padding: 6px 10px; gap: 0; }
+  .lang button span { display: none; }
+  .flag { width: 18px; height: 12px; }
+
+  /* Aun asi los tres bloques de la barra piden 374px y en un telefono de
+     360 hay 308. Recortar tipografias no cierra esa diferencia, y en
+     espanol el menu es todavia mas largo ("Portafolio Trayectoria
+     Contacto"), asi que la barra pasa a dos filas: nombre y idioma
+     arriba, navegacion completa debajo. Deja de depender de cuanto mida
+     el texto. */
+  .bar { flex-wrap: wrap; row-gap: 9px; gap: 12px; }
+  .topbar nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
 
   .stage { min-height: 0; padding-top: 20px; padding-bottom: 30px; }
   .stage::before { top: 30%; width: 100%; }

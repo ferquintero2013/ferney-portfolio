@@ -30,10 +30,15 @@
   }
 
   function inicial() {
+    // Si el visitante ya eligio idioma alguna vez, se respeta su eleccion.
     var g = guardado();
     if (LANGS.indexOf(g) !== -1) return g;
-    var nav = (navigator.language || navigator.userLanguage || "en").toLowerCase();
-    return nav.indexOf("es") === 0 ? "es" : "en";
+
+    // Si no, ingles siempre. Antes se miraba navigator.language, pero el
+    // publico al que apunta esta pagina son ofertas en ingles: que un
+    // reclutador con el navegador en espanol caiga en la version
+    // castellana era exactamente lo contrario de lo que hace falta.
+    return "en";
   }
 
   function aplicar(lang) {
