@@ -126,6 +126,17 @@ COMO MANEJAR LO QUE ENCUENTRES
 
 PRECISION (lo mas importante)
 - No inventes, infieras ni completes datos que no esten escritos.
+- Que el contexto traiga documentos NO significa que respondan la
+  pregunta. El buscador siempre devuelve algo: cuando no encuentra nada
+  del tema, entrega los pasajes menos malos, que pueden ser datos de
+  contacto o un resumen general. Si lo que llego no responde lo que se
+  pregunto, dilo — no armes una respuesta con lo que haya.
+- PROHIBIDO especular sobre capacidades a partir de datos adyacentes.
+  "Sabe Java y Scala, asi que podria aprender otros lenguajes" es una
+  inferencia que nadie escribio. Si el perfil no lo dice, no existe.
+- Si la pregunta menciona un termino que parece un error de tecleo de
+  algo que SI esta en el perfil, dilo y ofrece la lectura correcta:
+  "No encuentro 'pyton'. Si te referias a Python, sobre eso si hay."
 - Respeta los matices EXACTAMENTE:
   · algo "en aprendizaje" NO es algo dominado
   · un proyecto propio NO es trabajo de cliente
@@ -143,12 +154,18 @@ def rewrite_query(question, history, max_turns=3):
     Esto ocurre ANTES del retrieval. Sin esto, el retriever buscaria
     literalmente "en que año lo hizo" contra el indice y no traeria
     nada util, por mucho historial que reciba despues el generador.
+
+    Corre SIEMPRE, tambien sin historial, porque aqui se corrigen los
+    errores de tecleo. Un "pyton" no lo encuentra ninguna de las dos
+    mitades del buscador: BM25 busca la palabra literal y el embedding de
+    la palabra mal escrita no coincide con el de la buena. El resultado
+    es que el retriever devuelve los cinco chunks menos malos —datos de
+    contacto incluidos— y el generador responde que no hay experiencia en
+    Python, que es falso.
     """
-    if not history:
-        return question
 
     # Solo las ultimas interacciones: mas historial = mas ruido y mas costo
-    recientes = history[-(max_turns * 2):]
+    recientes = (history or [])[-(max_turns * 2):]
     conversacion = "\n".join(
         f"{'Usuario' if m['rol'] == 'user' else 'Asistente'}: {m['texto']}"
         for m in recientes
@@ -163,7 +180,21 @@ def rewrite_query(question, history, max_turns=3):
                     "Reescribe la ultima pregunta del usuario como una pregunta "
                     "COMPLETA y AUTONOMA, resolviendo pronombres y referencias "
                     "implicitas con la conversacion previa.\n"
-                    "- Si la pregunta ya es autonoma, devuelvela sin cambios.\n"
+                    "- CONSERVA EL IDIOMA de la pregunta original, siempre. Si "
+                    "esta en ingles, la reescritura va en ingles. Estas "
+                    "instrucciones estan en espanol, pero eso no es motivo para "
+                    "traducir nada: mas adelante la respuesta se genera en el "
+                    "idioma de esta pregunta, asi que traducirla aqui hace que "
+                    "el visitante reciba la respuesta en un idioma que no uso.\n"
+                    "- CORRIGE los errores de tecleo evidentes, sobre todo en "
+                    "nombres de tecnologias: 'pyton'/'pyhton' -> Python, "
+                    "'javascrip' -> JavaScript, 'Djngo' -> Django, 'Odooo' -> "
+                    "Odoo. Esta pregunta va a un buscador que compara palabras "
+                    "literales, asi que una letra de mas no encuentra nada. "
+                    "Corrige solo lo que sea claramente un error de tecleo de "
+                    "una palabra real; si no reconoces el termino, dejalo igual.\n"
+                    "- Si la pregunta ya es autonoma y esta bien escrita, "
+                    "devuelvela sin cambios.\n"
                     "- La pregunta reescrita debe NOMBRAR el tema de forma "
                     "explicita. Nunca escribas 'el tema anterior', 'lo que "
                     "mencionaste' o parecidos: esta pregunta se usa para buscar "
@@ -191,8 +222,9 @@ def rewrite_query(question, history, max_turns=3):
             {
                 "role": "user",
                 "content": (
-                    f"CONVERSACION PREVIA:\n{conversacion}\n\n"
-                    f"ULTIMA PREGUNTA: {question}"
+                    (f"CONVERSACION PREVIA:\n{conversacion}\n\n" if conversacion
+                     else "SIN CONVERSACION PREVIA: es la primera pregunta.\n\n")
+                    + f"ULTIMA PREGUNTA: {question}"
                 )
             }
         ],
