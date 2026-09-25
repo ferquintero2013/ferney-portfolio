@@ -1,9 +1,9 @@
 {
  "model": "text-embedding-3-small",
  "dimensions": 1536,
- "count": 74,
+ "count": 82,
  "normalized": true,
- "exported": "2026-09-19",
+ "exported": "2026-09-25",
  "chunks": [
   {
    "id": "chunk_000",
@@ -99,7 +99,7 @@
    "id": "chunk_015",
    "source": "cv.md",
    "section": "Inteligencia artificial y datos",
-   "text": "### Inteligencia artificial y datos\n- **1er Lugar — Best AI Automation**, hackathon n8n EmprendIA LATAM (2025)\n- **Claude Code: Software Engineering with Generative AI Agents** — Vanderbilt University\n- **n8n: Agentes y automatizaciones de IA** — Udemy\n- **Generative AI for Business Leaders** — LinkedIn\n- **Inteligencia Artificial: ChatGPT, DALL-E y Hugging Face** — Platzi\n- **Analisis de Datos con Power BI** — Platzi"
+   "text": "### Inteligencia artificial y datos\n- **Bootcamp 2027: Comprender y Crear Agentes IA Profesionales** — Udemy (Julio Colomer), septiembre de 2026, 50.5 horas. Enfocado en **LangGraph**: agentes basicos, intermedios y avanzados hasta subgrafos; sistemas multi-agente; agentes con memoria de largo plazo; herramientas a medida y gestion de correo; human-in-the-loop; criterios para elegir framework; y el proceso completo de construir un agente desde la entrevista inicial con el cliente hasta la aplicacion final. **No cubre CrewAI**: ese modulo se omitio deliberadamente para concentrar el tiempo en LangGraph.\n- **1er Lugar — Best AI Automation**, hackathon n8n EmprendIA LATAM (2025)\n- **Claude Code: Software Engineering with Generative AI Agents** — Vanderbilt University\n- **n8n: Agentes y automatizaciones de IA** — Udemy\n- **Generative AI for Business Leaders** — LinkedIn\n- **Inteligencia Artificial: ChatGPT, DALL-E y Hugging Face** — Platzi\n- **Analisis de Datos con Power BI** — Platzi"
   },
   {
    "id": "chunk_016",
@@ -135,7 +135,7 @@
    "id": "chunk_021",
    "source": "habilidades.md",
    "section": "AI y Automatizacion",
-   "text": "## AI y Automatizacion\n\n| Habilidad | Nivel (1-5) | Anos experiencia | Ultimo uso | Notas |\n|-----------|-------------|-------------------|------------|-------|\n| n8n | 4 | 1+ | Actual | Ganador hackathon EmprendIA LATAM; 4 flujos en produccion con nodos Code para Onest Vision (autoalojado) |\n| Zapier | 4 | 2+ | Actual | Certificado como Experto |\n| Anthropic Claude / Claude Code | 4 | 1+ | Actual | Certificado, top skill LinkedIn |\n| Agentes IA / Multi-agent systems | 4 | 1+ | Actual | Lambda AI, Onestvision |\n| ManyChat | 3 | 1 | 2025 | Proyecto Lambda AI |\n| Meta APIs (WhatsApp/Messenger) | 3 | 1 | 2025 | Integracion con agentes de ventas |\n| GoHighLevel CRM | 3 | 1 | 2026 | Automatizaciones CRM, Onest Vision |"
+   "text": "## AI y Automatizacion\n\n| Habilidad | Nivel (1-5) | Anos experiencia | Ultimo uso | Notas |\n|-----------|-------------|-------------------|------------|-------|\n| n8n | 4 | 1+ | Actual | Ganador hackathon EmprendIA LATAM; 4 flujos en produccion con nodos Code para Onest Vision (autoalojado) |\n| Zapier | 4 | 2+ | Actual | Certificado como Experto |\n| Anthropic Claude / Claude Code | 4 | 1+ | Actual | Certificado, top skill LinkedIn |\n| Agentes IA / Multi-agent systems | 4 | 1+ | Actual | Lambda AI, Onestvision |\n| LangGraph | 3 | <1 | Actual | Bootcamp de 50.5 h (Udemy, sep 2026) mas proyecto propio `langgraph-doc-assistant`: estado tipado, aristas condicionales, ciclos, subgrafos, checkpointers y reducers |\n| Sistemas RAG (diseno y construccion) | 4 | <1 | Actual | Dos sistemas completos en produccion: `rag-perfil-profesional` y `langgraph-doc-assistant`. Busqueda hibrida BM25 + embeddings con RRF, chunking contextual, grounding con citacion y evals automatizados. **El nivel 4 es de arquitectura RAG, no de Python como lenguaje**: ver Python en la tabla de aprendizaje |\n| ManyChat | 3 | 1 | 2025 | Proyecto Lambda AI |\n| Meta APIs (WhatsApp/Messenger) | 3 | 1 | 2025 | Integracion con agentes de ventas |\n| GoHighLevel CRM | 3 | 1 | 2026 | Automatizaciones CRM, Onest Vision |"
   },
   {
    "id": "chunk_022",
@@ -177,7 +177,7 @@
    "id": "chunk_028",
    "source": "habilidades.md",
    "section": "En aprendizaje",
-   "text": "## En aprendizaje\n| Habilidad | Fecha inicio | Recurso | Progreso |\n|-----------|-------------|---------|----------|\n| Claude Code / AI Agents | 2025 | Anthropic | Certificado |\n| Python | 2026-04 | Codecademy + practica | Iniciando |\n| Claude API / Anthropic SDK | 2026-04 | Documentacion oficial | Iniciando |\n| LangChain | 2026-05 | Tutorial oficial + proyecto Xpress Shapewear | Pendiente |\n| RAG en no-code (n8n + Vector Store) | 2025 | Proyecto propio | **Completado**: flujo RAG funcional en n8n con Vector Store node (Pinecone). Sin codigo propio — orquestacion no-code. |\n| RAG con codigo (Python + Vector DB) | 2026-05 | Proyecto propio `rag-perfil-profesional` | **COMPLETADO 2026-09-09**: sistema completo en Python — chunking estructural, embeddings, retrieval hibrido (BM25 + vectorial con RRF), query rewriting, grounding con citacion obligatoria y evals automatizados. Desplegado: https://chat-perfil-ferney.streamlit.app/ |\n| Vector databases | 2026-05 | Proyecto propio `rag-perfil-profesional` | **COMPLETADO 2026-09-09**: primero con ChromaDB via codigo (PersistentClient, collections, metadata, query por embeddings) y despues **retirado a proposito**: con un corpus de 73 fragmentos que ocupa medio megabyte, una base vectorial anade una dependencia y un proceso que no hacen falta. El indice final son vectores normalizados en un array de numpy, donde la similitud coseno es una multiplicacion de matrices. Conoce la herramienta y sabe cuando no usarla. Pinecone sigue siendo solo via n8n, no via codigo. |"
+   "text": "## En aprendizaje\n| Habilidad | Fecha inicio | Recurso | Progreso |\n|-----------|-------------|---------|----------|\n| Claude Code / AI Agents | 2025 | Anthropic | Certificado |\n| Python | 2026-04 | Codecademy + practica en proyectos propios | **En curso.** La formacion formal empezo en abril de 2026 y es reciente: Python no es un lenguaje que haya usado durante anos. Dicho eso, en la practica ya construyo con el dos sistemas completos y desplegados (`rag-perfil-profesional` y `langgraph-doc-assistant`) y el MVP de validacion documental. Si alguien pregunta por su experiencia con Python, ambas cosas son ciertas y hay que decir las dos: sabe construir sistemas reales en Python, y lleva poco tiempo haciendolo. |\n| Claude API / Anthropic SDK | 2026-04 | Documentacion oficial | Iniciando |\n| LangChain | 2026-05 | Tutorial oficial + proyecto Xpress Shapewear | Pendiente. Nota: LangGraph si esta construido y desplegado; son librerias distintas de la misma familia y no se deben confundir. |\n| LangGraph | 2026-09 | Bootcamp Udemy (50.5 h) + proyecto propio `langgraph-doc-assistant` | **COMPLETADO 2026-09-24**: grafo con ciclo de autocorreccion en produccion — nodos de evaluacion y verificacion, ciclos con tope de intentos, memoria del lado del servidor via checkpointer por `thread_id`, y reducers para acumular historial. Codigo abierto: https://github.com/ferquintero2013/langgraph-doc-assistant |\n| Sistemas multi-agente | 2026-09 | Bootcamp Udemy (50.5 h) | Formacion completada. Cubre orquestacion multi-agente, memoria de largo plazo y human-in-the-loop. **Sin CrewAI**: modulo omitido a proposito para concentrar el tiempo en LangGraph. |\n| RAG en no-code (n8n + Vector Store) | 2025 | Proyecto propio | **Completado**: flujo RAG funcional en n8n con Vector Store node (Pinecone). Sin codigo propio — orquestacion no-code. |\n| RAG con codigo (Python + Vector DB) | 2026-05 | Proyecto propio `rag-perfil-profesional` | **COMPLETADO 2026-09-09**: sistema completo en Python — chunking estructural, embeddings, retrieval hibrido (BM25 + vectorial con RRF), query rewriting, grounding con citacion obligatoria y evals automatizados. Desplegado: https://chat-perfil-ferney.streamlit.app/ |\n| Vector databases | 2026-05 | Proyecto propio `rag-perfil-profesional` | **COMPLETADO 2026-09-09**: primero con ChromaDB via codigo (PersistentClient, collections, metadata, query por embeddings) y despues **retirado a proposito**: con un corpus de 73 fragmentos que ocupa medio megabyte, una base vectorial anade una dependencia y un proceso que no hacen falta. El indice final son vectores normalizados en un array de numpy, donde la similitud coseno es una multiplicacion de matrices. Conoce la herramienta y sabe cuando no usarla. Pinecone sigue siendo solo via n8n, no via codigo. |"
   },
   {
    "id": "chunk_029",
@@ -200,251 +200,299 @@
   {
    "id": "chunk_032",
    "source": "portafolio.md",
-   "section": "2. MVP de Validacion Inteligente de Documentos con IA (UTEL) — PUBLICO",
-   "text": "### 2. MVP de Validacion Inteligente de Documentos con IA (UTEL) — PUBLICO\n- **Descripcion**: Sistema de hiperautomatizacion que valida expedientes de admision universitaria. Extrae datos de documentos con GPT-4o Vision, aplica reglas de negocio auditables, hace cross-check de identidad entre documentos para detectar posibles suplantaciones, y genera notificaciones personalizadas al aspirante con IA.\n- **Rol**: Arquitecto y desarrollador unico (100% del codigo, diseno y deploy)\n- **Tecnologias**: Python 3.14, Streamlit, OpenAI GPT-4o Vision + GPT-4o-mini, GitHub API, reglas deterministas de negocio, deploy en Streamlit Community Cloud. Construido usando Claude Code como companero de desarrollo.\n- **Impacto/Resultados**: Reduccion de ~14 minutos a ~5 segundos por documento (99% menos tiempo). Cross-check de identidad = capacidad nueva que no existia en el proceso manual. Notificacion al aspirante 100% automatizada. Trazabilidad completa para auditoria.\n- **Arquitectura**: 6 modulos Python con separacion de responsabilidades — ingesta, extraccion con Vision AI, validacion por reglas de negocio, analisis de expediente con cross-check, generacion de notificacion, UI.\n- **Decisiones de diseno destacadas**: hibrido IA + reglas deterministas (la IA extrae, las reglas deciden), anti-alucinacion via auto-declaracion de confianza del modelo, jerarquia de decision por severidad, modelos distintos por caso de uso (GPT-4o para extraccion critica, GPT-4o-mini 10x mas barato para redaccion).\n- **Periodo**: Agosto - Septiembre 2026\n- **Demo publico**: https://postulaciones-mvp.streamlit.app/\n- **Codigo fuente**: https://github.com/ferquintero2013/postulaciones-mvp-utel"
+   "section": "2. Asistente de documentacion tecnica con LangGraph — PUBLICO",
+   "text": "### 2. Asistente de documentacion tecnica con LangGraph — PUBLICO\n- **Descripcion**: Asistente que responde preguntas sobre la documentacion de una API y muestra el razonamiento que siguio para llegar a cada respuesta. A diferencia de un RAG lineal, la orquestacion es un grafo de LangGraph con decisiones y ciclos: evalua si lo que encontro responde de verdad, reformula la busqueda y reintenta si no, y verifica la respuesta contra las fuentes antes de entregarla. Si no queda respaldada, la descarta.\n- **Rol**: Arquitecto y desarrollador unico (100% del codigo, diseno y deploy)\n- **Tecnologias**: Python, LangGraph (estado tipado, aristas condicionales, ciclos, checkpointers, reducers), OpenAI (GPT-4o + GPT-4o-mini + text-embedding-3-small), rank-bm25, numpy, BeautifulSoup, Streamlit. Construido con Claude Code.\n- **Decisiones tecnicas destacadas**:\n  - **La verificacion es una compuerta del grafo, no una instruccion del prompt**: pedirle a un modelo que no invente es una sugerencia; un nodo que compara la respuesta contra las fuentes y la descarta es un control.\n  - **Chunking contextual**: cada fragmento se prefija con su pagina y su endpoint antes del embedding, porque cortar por encabezados deja treinta secciones tituladas igual e indistinguibles entre si. Medido: fragmentos que no aparecian en ninguna busqueda pasaron a ser el primer resultado.\n  - **Ausencia de evidencia no es evidencia de ausencia**: afirmar que un endpoint \"no requiere parametros\" cuando lo cierto es que no se encontraron es la forma mas danina de fallar para quien esta integrando una API. Es una regla explicita del redactor y del verificador.\n  - **Ciclo de autocorreccion** con tope de dos intentos: una arista hacia atras en el grafo, no un reintento ciego.\n  - **Memoria del lado del servidor** con checkpointer por `thread_id` y reducer en el historial.\n- **Corpus**: 503 fragmentos de 64 paginas de documentacion publica\n- **Periodo**: Septiembre 2026\n- **Codigo fuente**: https://github.com/ferquintero2013/langgraph-doc-assistant\n- **Nota**: es una demostracion tecnica independiente sobre documentacion publica de terceros, sin afiliacion con la empresa cuya documentacion se uso."
   },
   {
    "id": "chunk_033",
    "source": "portafolio.md",
-   "section": "3. Implementacion ERP Cross-Country (cliente de manufactura y retail de moda)",
-   "text": "### 3. Implementacion ERP Cross-Country (cliente de manufactura y retail de moda)\n- **Descripcion**: Implementacion de Odoo ERP para operaciones en US, Colombia y Mexico con sincronizacion multi-plataforma (TikTok Shop, Amazon, Shopify)\n- **Rol**: Lider de desarrollo de software, IA y automatizacion, como independiente\n- **Tecnologias**: Odoo, integraciones e-commerce, herramientas IA\n- **Impacto/Resultados**: Eliminacion de inconsistencias de datos entre plataformas, frameworks de gobernanza de producto, documentacion acelerada 3x con IA\n- **Periodo**: Marzo 2026 - Presente\n- **Link**: _(privado)_"
+   "section": "3. MVP de Validacion Inteligente de Documentos con IA (UTEL) — PUBLICO",
+   "text": "### 3. MVP de Validacion Inteligente de Documentos con IA (UTEL) — PUBLICO\n- **Descripcion**: Sistema de hiperautomatizacion que valida expedientes de admision universitaria. Extrae datos de documentos con GPT-4o Vision, aplica reglas de negocio auditables, hace cross-check de identidad entre documentos para detectar posibles suplantaciones, y genera notificaciones personalizadas al aspirante con IA.\n- **Rol**: Arquitecto y desarrollador unico (100% del codigo, diseno y deploy)\n- **Tecnologias**: Python 3.14, Streamlit, OpenAI GPT-4o Vision + GPT-4o-mini, GitHub API, reglas deterministas de negocio, deploy en Streamlit Community Cloud. Construido usando Claude Code como companero de desarrollo.\n- **Impacto/Resultados**: Reduccion de ~14 minutos a ~5 segundos por documento (99% menos tiempo). Cross-check de identidad = capacidad nueva que no existia en el proceso manual. Notificacion al aspirante 100% automatizada. Trazabilidad completa para auditoria.\n- **Arquitectura**: 6 modulos Python con separacion de responsabilidades — ingesta, extraccion con Vision AI, validacion por reglas de negocio, analisis de expediente con cross-check, generacion de notificacion, UI.\n- **Decisiones de diseno destacadas**: hibrido IA + reglas deterministas (la IA extrae, las reglas deciden), anti-alucinacion via auto-declaracion de confianza del modelo, jerarquia de decision por severidad, modelos distintos por caso de uso (GPT-4o para extraccion critica, GPT-4o-mini 10x mas barato para redaccion).\n- **Periodo**: Agosto - Septiembre 2026\n- **Demo publico**: https://postulaciones-mvp.streamlit.app/\n- **Codigo fuente**: https://github.com/ferquintero2013/postulaciones-mvp-utel"
   },
   {
    "id": "chunk_034",
    "source": "portafolio.md",
-   "section": "4. Automatizaciones CRM y motor de atribucion UTM (Onest Vision) — Cliente real",
-   "text": "### 4. Automatizaciones CRM y motor de atribucion UTM (Onest Vision) — Cliente real\n- **Descripcion**: Cuatro flujos en produccion sobre n8n autoalojado contra la API REST de GoHighLevel, implementando logica que el motor nativo de GHL no podia expresar: division de oportunidades por propiedad, clonado completo entre embudos con mas de 40 campos personalizados, enrutamiento de respuestas de encuesta a la oportunidad correcta sin duplicar, y un motor de atribucion UTM de unas 300 lineas de JavaScript\n- **Rol**: Independent Contractor (cliente pagante)\n- **Tecnologias**: n8n autoalojado, JavaScript, API REST de GoHighLevel, webhooks. **No Zapier**\n- **Impacto/Resultados**: 4 flujos activos, 6 endpoints de API integrados, 12 campos UTM calculados por evento (primer contacto y ultima interaccion), mas de 10 tipos de origen de trafico normalizados. La atribucion paso de ser un dato no confiable a una taxonomia consistente sobre la que el equipo de marketing puede asignar presupuesto\n- **Periodo**: Enero - Marzo 2026\n- **Link**: _(trabajo de cliente, no publico)_"
+   "section": "4. Implementacion ERP Cross-Country (cliente de manufactura y retail de moda)",
+   "text": "### 4. Implementacion ERP Cross-Country (cliente de manufactura y retail de moda)\n- **Descripcion**: Implementacion de Odoo ERP para operaciones en US, Colombia y Mexico con sincronizacion multi-plataforma (TikTok Shop, Amazon, Shopify)\n- **Rol**: Lider de desarrollo de software, IA y automatizacion, como independiente\n- **Tecnologias**: Odoo, integraciones e-commerce, herramientas IA\n- **Impacto/Resultados**: Eliminacion de inconsistencias de datos entre plataformas, frameworks de gobernanza de producto, documentacion acelerada 3x con IA\n- **Periodo**: Marzo 2026 - Presente\n- **Link**: _(privado)_"
   },
   {
    "id": "chunk_035",
    "source": "portafolio.md",
-   "section": "5. Hackathon EmprendIA LATAM - 1er Lugar",
-   "text": "### 5. Hackathon EmprendIA LATAM - 1er Lugar\n- **Descripcion**: Proyecto ganador del primer lugar en la categoria Best AI Automation usando n8n\n- **Rol**: Participante / Desarrollador\n- **Tecnologias**: n8n\n- **Impacto/Resultados**: 1er puesto en Best AI Automation\n- **Periodo**: 2025\n- **Link**: _(agregar si disponible)_"
+   "section": "5. Automatizaciones CRM y motor de atribucion UTM (Onest Vision) — Cliente real",
+   "text": "### 5. Automatizaciones CRM y motor de atribucion UTM (Onest Vision) — Cliente real\n- **Descripcion**: Cuatro flujos en produccion sobre n8n autoalojado contra la API REST de GoHighLevel, implementando logica que el motor nativo de GHL no podia expresar: division de oportunidades por propiedad, clonado completo entre embudos con mas de 40 campos personalizados, enrutamiento de respuestas de encuesta a la oportunidad correcta sin duplicar, y un motor de atribucion UTM de unas 300 lineas de JavaScript\n- **Rol**: Independent Contractor (cliente pagante)\n- **Tecnologias**: n8n autoalojado, JavaScript, API REST de GoHighLevel, webhooks. **No Zapier**\n- **Impacto/Resultados**: 4 flujos activos, 6 endpoints de API integrados, 12 campos UTM calculados por evento (primer contacto y ultima interaccion), mas de 10 tipos de origen de trafico normalizados. La atribucion paso de ser un dato no confiable a una taxonomia consistente sobre la que el equipo de marketing puede asignar presupuesto\n- **Periodo**: Enero - Marzo 2026\n- **Link**: _(trabajo de cliente, no publico)_"
   },
   {
    "id": "chunk_036",
    "source": "portafolio.md",
-   "section": "6. Agentes IA de Soporte de Ventas (Lambda AI) — Proyecto propio",
-   "text": "### 6. Agentes IA de Soporte de Ventas (Lambda AI) — Proyecto propio\n- **Descripcion**: Prototipo de agentes IA de soporte de ventas construido con Meta APIs y ManyChat, integrando multiples repositorios de datos para automatizar captura, calificacion y gestion de leads. Iniciativa propia con el objetivo de lanzar un negocio de chatbots.\n- **Rol**: Creador y desarrollador unico (proyecto personal, no cliente)\n- **Tecnologias**: Meta APIs, ManyChat, n8n, integraciones de datos\n- **Impacto/Resultados**: Arquitectura completa del pipeline de ventas construida y funcional (captura → calificacion → gestion de leads). El mismo patron tecnico gano 1er lugar en el hackathon EmprendIA LATAM. No llego a clientes pagantes.\n- **Periodo**: Agosto - Diciembre 2025\n- **Link**: _(prototipo propio, codigo privado)_"
+   "section": "6. Hackathon EmprendIA LATAM - 1er Lugar",
+   "text": "### 6. Hackathon EmprendIA LATAM - 1er Lugar\n- **Descripcion**: Proyecto ganador del primer lugar en la categoria Best AI Automation usando n8n\n- **Rol**: Participante / Desarrollador\n- **Tecnologias**: n8n\n- **Impacto/Resultados**: 1er puesto en Best AI Automation\n- **Periodo**: 2025\n- **Link**: _(agregar si disponible)_"
   },
   {
    "id": "chunk_037",
    "source": "portafolio.md",
-   "section": "7. QA Lead - Proyecto Mayor de BVC",
-   "text": "### 7. QA Lead - Proyecto Mayor de BVC\n- **Descripcion**: Liderazgo del equipo de QA para uno de los proyectos mas grandes en la historia reciente de la Bolsa de Valores de Colombia\n- **Rol**: Senior Software QA Analyst - Team Leader\n- **Tecnologias**: Scala, Java, herramientas QA\n- **Impacto/Resultados**: Aseguramiento de calidad exitoso en proyecto de alta criticidad financiera\n- **Periodo**: 2015 - 2018\n- **Link**: _(confidencial)_"
+   "section": "7. Agentes IA de Soporte de Ventas (Lambda AI) — Proyecto propio",
+   "text": "### 7. Agentes IA de Soporte de Ventas (Lambda AI) — Proyecto propio\n- **Descripcion**: Prototipo de agentes IA de soporte de ventas construido con Meta APIs y ManyChat, integrando multiples repositorios de datos para automatizar captura, calificacion y gestion de leads. Iniciativa propia con el objetivo de lanzar un negocio de chatbots.\n- **Rol**: Creador y desarrollador unico (proyecto personal, no cliente)\n- **Tecnologias**: Meta APIs, ManyChat, n8n, integraciones de datos\n- **Impacto/Resultados**: Arquitectura completa del pipeline de ventas construida y funcional (captura → calificacion → gestion de leads). El mismo patron tecnico gano 1er lugar en el hackathon EmprendIA LATAM. No llego a clientes pagantes.\n- **Periodo**: Agosto - Diciembre 2025\n- **Link**: _(prototipo propio, codigo privado)_"
   },
   {
    "id": "chunk_038",
    "source": "portafolio.md",
-   "section": "8. Transformacion Agil - Nequi",
-   "text": "### 8. Transformacion Agil - Nequi\n- **Descripcion**: Mejora de productividad en la cadena de valor de desarrollo de producto de software de Nequi (fintech lider en Colombia)\n- **Rol**: Agile Leader\n- **Tecnologias**: Frameworks agiles, metricas de productividad\n- **Impacto/Resultados**: Implementacion de enfoques innovadores para eficiencia y colaboracion en equipos de desarrollo\n- **Periodo**: Marzo 2024 - Julio 2025\n- **Link**: _(interno)_"
+   "section": "8. QA Lead - Proyecto Mayor de BVC",
+   "text": "### 8. QA Lead - Proyecto Mayor de BVC\n- **Descripcion**: Liderazgo del equipo de QA para uno de los proyectos mas grandes en la historia reciente de la Bolsa de Valores de Colombia\n- **Rol**: Senior Software QA Analyst - Team Leader\n- **Tecnologias**: Scala, Java, herramientas QA\n- **Impacto/Resultados**: Aseguramiento de calidad exitoso en proyecto de alta criticidad financiera\n- **Periodo**: 2015 - 2018\n- **Link**: _(confidencial)_"
   },
   {
    "id": "chunk_039",
+   "source": "portafolio.md",
+   "section": "9. Transformacion Agil - Nequi",
+   "text": "### 9. Transformacion Agil - Nequi\n- **Descripcion**: Mejora de productividad en la cadena de valor de desarrollo de producto de software de Nequi (fintech lider en Colombia)\n- **Rol**: Agile Leader\n- **Tecnologias**: Frameworks agiles, metricas de productividad\n- **Impacto/Resultados**: Implementacion de enfoques innovadores para eficiencia y colaboracion en equipos de desarrollo\n- **Periodo**: Marzo 2024 - Julio 2025\n- **Link**: _(interno)_"
+  },
+  {
+   "id": "chunk_040",
    "source": "portafolio.md",
    "section": "Portafolio web",
    "text": "## Portafolio web\n\n- **Sitio publico**: https://ferney-portfolio.vercel.app/\n- **GitHub**: https://github.com/ferquintero2013"
   },
   {
-   "id": "chunk_040",
+   "id": "chunk_041",
    "source": "portafolio.md",
    "section": "Certificaciones y formacion",
-   "text": "## Certificaciones y formacion\n\n**IA y datos:** 1er Lugar Best AI Automation, hackathon n8n EmprendIA LATAM (2025) · Claude Code: Software Engineering with Generative AI Agents (Vanderbilt University) · n8n: Agentes y automatizaciones de IA (Udemy) · Generative AI for Business Leaders (LinkedIn) · Inteligencia Artificial: ChatGPT, DALL-E y Hugging Face (Platzi) · Analisis de Datos con Power BI (Platzi)\n\n**Ingenieria y cloud:** AWS Certified Cloud Practitioner (AWS) · Arquitectura de Software (Platzi) · Curso Practico de Frontend Developer (Platzi) · Experto en Zapier\n\n**Gestion (complementaria al rol tecnico):** Lean Portfolio Management ICP-LPM (ICAgile) · Certified SAFe 5 Scrum Master"
+   "text": "## Certificaciones y formacion\n\n**IA y datos:** Bootcamp 2027: Comprender y Crear Agentes IA Profesionales (Udemy, 50.5 h, septiembre 2026) — enfocado en LangGraph, sistemas multi-agente, memoria de largo plazo y human-in-the-loop; sin CrewAI, modulo omitido a proposito · 1er Lugar Best AI Automation, hackathon n8n EmprendIA LATAM (2025) · Claude Code: Software Engineering with Generative AI Agents (Vanderbilt University) · n8n: Agentes y automatizaciones de IA (Udemy) · Generative AI for Business Leaders (LinkedIn) · Inteligencia Artificial: ChatGPT, DALL-E y Hugging Face (Platzi) · Analisis de Datos con Power BI (Platzi)\n\n**Ingenieria y cloud:** AWS Certified Cloud Practitioner (AWS) · Arquitectura de Software (Platzi) · Curso Practico de Frontend Developer (Platzi) · Experto en Zapier\n\n**Gestion (complementaria al rol tecnico):** Lean Portfolio Management ICP-LPM (ICAgile) · Certified SAFe 5 Scrum Master"
   },
   {
-   "id": "chunk_041",
+   "id": "chunk_042",
    "source": "proyecto-agente-reuniones.md",
    "section": "Proyecto: agente de analisis de reuniones con servidor MCP propio",
    "text": "# Proyecto: agente de analisis de reuniones con servidor MCP propio\n\n> Periodo: 2026. Herramienta propia construida durante la direccion del proyecto de ERP Odoo en tres paises."
   },
   {
-   "id": "chunk_042",
+   "id": "chunk_043",
    "source": "proyecto-agente-reuniones.md",
    "section": "Que es",
    "text": "## Que es\n\nUn sistema propio que convierte las reuniones grabadas de un proyecto en estado de gestion actualizado, sin transcripcion manual. El agente obtiene el transcript completo desde Fathom, la plataforma de grabacion; lo analiza bajo un protocolo estricto; lo contrasta contra el estado vigente del proyecto; y escribe el resultado en un tablero de gestion a traves de un servidor MCP construido para ese proposito.\n\n**Ferney Quintero construyo las tres piezas**: el agente y su protocolo de analisis, el servidor MCP que expone las operaciones de escritura, y el tablero de gestion que consume esa informacion."
   },
   {
-   "id": "chunk_043",
+   "id": "chunk_044",
    "source": "proyecto-agente-reuniones.md",
    "section": "Por que construirlo en vez de usar el resumen automatico",
    "text": "## Por que construirlo en vez de usar el resumen automatico\n\nPorque el resumen automatico de la plataforma no era una fuente confiable para tomar decisiones de gestion, y ese hallazgo origino el proyecto.\n\nAl contrastar resumenes automaticos contra transcripts completos aparecieron tres problemas recurrentes:\n\n1. **Los rotulos de hablante vienen cruzados.** Bloques largos atribuidos a una persona contenian intervenciones de otras dos, de modo que un compromiso podia quedar asignado a quien no lo asumio.\n2. **El resumen conserva la conclusion y pierde la condicion.** Un acuerdo que en la reunion quedo condicionado — \"se hace si el recurso queda dedicado, no compartido\" — se resume como acuerdo cerrado, y esa diferencia es exactamente la que determina si el compromiso se cumple.\n3. **Lo mas valioso suele mencionarse de pasada.** El cierre de un pendiente abierto hacia tres semanas aparece en una frase incidental que ningun resumen conserva, porque no fue el tema de la reunion.\n\nLa conclusion de diseno: el resumen automatico sirve para ubicar una reunion, no para analizarla. El agente trabaja siempre sobre el transcript completo."
   },
   {
-   "id": "chunk_044",
+   "id": "chunk_045",
    "source": "proyecto-agente-reuniones.md",
    "section": "Como funciona",
    "text": "## Como funciona\n\n**Uno, obtencion.** El agente consulta Fathom y recupera el transcript integro, no su resumen. La fuente es la plataforma en vivo, no archivos exportados, de modo que siempre lee la version actual.\n\n**Dos, analisis con protocolo.** Un protocolo formalizado fija como se lee y que se puede afirmar. Las reglas principales: leer el cien por ciento del transcript, en bloques si es largo; no analizar nunca desde el resumen automatico; no delegar la lectura a un subproceso que devuelva un resumen, porque eso reintroduce el problema que el sistema existe para resolver; reconstruir la atribucion de hablantes por contenido y por rol cuando los rotulos vienen cruzados; registrar como compromiso lo acordado al final de la discusion y no una propuesta intermedia; y asignar cada compromiso a quien lo asumio textualmente, nunca por inferencia.\n\n**Tres, contraste contra el estado vigente.** Antes de escribir nada, el agente compara lo analizado con el estado actual del proyecto y busca cuatro cosas: contradicciones con lo documentado, compromisos nuevos, cambios de prioridad y personas involucradas que no estaban mapeadas. Tambien barre la lista de pendientes abiertos para ver si la reunion cierra o desbloquea alguno.\n\n**Cuatro, escritura a traves del MCP.** El agente escribe en el tablero — **Amapola Board**, una aplicacion web — invocando las herramientas que expone el servidor MCP. La escritura no es texto libre: cada pendiente queda con responsable, fecha concreta y una etiqueta de estado de un vocabulario cerrado — completado, en progreso, verificar estado, bloqueado por, cancelado, sin cerrar. Si algo no quedo cerrado en la reunion se marca *sin cerrar*; si no se sabe, *verificar estado*. Nunca se asume."
   },
   {
-   "id": "chunk_045",
+   "id": "chunk_046",
    "source": "proyecto-agente-reuniones.md",
    "section": "Las decisiones de diseno",
    "text": "## Las decisiones de diseno\n\n**El sistema escala en vez de resolver.** Cuando el agente encuentra una contradiccion entre lo dicho en la reunion y lo documentado, no la resuelve por su cuenta ni elige la version mas probable: la senala y la deja marcada para decision humana. La razon es directa: quien usa el tablero le dedica poco tiempo al detalle y confia en lo que el sistema entrega, asi que un error silencioso no se detecta, se convierte en una decision mal informada semanas despues.\n\nEs el mismo criterio que Ferney aplica en el resto de sus sistemas: **una automatizacion que falla en silencio es peor que no tener ninguna**. El agente esta disenado para que el fallo sea visible en el punto donde ocurre, no para prometer que no va a fallar.\n\n**El vocabulario cerrado de estados es lo que lo hace auditable.** Prohibir expresiones ambiguas — \"esta semana\", \"hoy\", \"pronto\" — y obligar a fecha concreta y estado explicito convierte el tablero en algo que se puede revisar sin releer la reunion. Un pendiente marcado *verificar estado* comunica algo distinto de uno marcado *bloqueado por*, y esa diferencia permite preparar una reunion en minutos en lugar de una hora.\n\n**La regla de atribucion protege la credibilidad del sistema.** Asignar un compromiso a la persona equivocada destruye la confianza en todo el tablero de una sola vez. Por eso la atribucion se reconstruye por contenido, y ante la duda se guarda la cita textual en lugar de una interpretacion."
   },
   {
-   "id": "chunk_046",
+   "id": "chunk_047",
    "source": "proyecto-agente-reuniones.md",
    "section": "Como esta construido",
    "text": "## Como esta construido\n\n**El tablero (Amapola Board)** es una aplicacion web en **JavaScript sobre Next.js 15 con App Router**, desplegada como **funciones serverless en Vercel**, con **Supabase** como base de datos.\n\n**La capa MCP** usa **mcp-handler v1.1**, el adaptador de Vercel que envuelve el SDK oficial de MCP. Es decir, el servidor MCP corre como parte de la misma aplicacion serverless, no como un proceso aparte: el agente invoca sus herramientas por HTTP contra el mismo despliegue que sirve el tablero.\n\n**La obtencion de reuniones** se hace contra la API de Fathom, siempre sobre el transcript completo y en vivo, nunca sobre archivos exportados ni sobre el resumen automatico."
   },
   {
-   "id": "chunk_047",
+   "id": "chunk_048",
    "source": "proyecto-agente-reuniones.md",
    "section": "Resultados",
    "text": "## Resultados\n\nEl sistema **proceso alrededor de 180 reuniones** y sostuvo la direccion de un proyecto de ERP con operacion en tres paises durante siete meses, con multiples reuniones semanales y mas de veinte personas involucradas entre areas de negocio, desarrollo y direccion.\n\nLas 180 reuniones quedaron **documentadas y validadas, con un historial coherente del proyecto**: no una pila de resumenes sueltos, sino un estado que se puede recorrer hacia atras y en el que cada compromiso tiene responsable, fecha y origen. El estado del proyecto — frentes de trabajo, pendientes, decisiones y responsables — se mantuvo actualizado despues de cada reunion sin transcripcion manual, y sirvio tanto para preparar las reuniones siguientes como para producir el informe final de traspaso al cierre del contrato.\n\nEl efecto practico: la documentacion de gestion dejo de ser una tarea que se hace al final, cuando ya se olvido el detalle, y paso a ser una consecuencia automatica de que la reunion ocurriera."
   },
   {
-   "id": "chunk_048",
+   "id": "chunk_049",
    "source": "proyecto-agente-reuniones.md",
    "section": "Relacion con el asistente del portafolio",
    "text": "## Relacion con el asistente del portafolio\n\nLos dos resuelven el mismo problema con la misma filosofia: **un sistema de IA que trabaja sobre documentos debe poder decir de donde saco cada afirmacion y reconocer cuando no la tiene**. En el asistente del portafolio eso se ve en las citas a la fuente y en el estado de grounding visible en la interfaz. En el agente de reuniones se ve en la cita textual ante duda de atribucion y en las etiquetas de estado que distinguen lo confirmado de lo que falta verificar.\n\nLa diferencia esta en el destinatario del error. En un portafolio, una afirmacion sin respaldo es una molestia. En la direccion de un proyecto de ERP en tres paises, es una decision operativa tomada sobre un dato falso."
   },
   {
-   "id": "chunk_049",
+   "id": "chunk_050",
    "source": "proyecto-agente-reuniones.md",
    "section": "Tecnologias",
    "text": "## Tecnologias\n\nJavaScript sobre Next.js 15 (App Router); despliegue serverless en Vercel; Supabase como base de datos; capa MCP con mcp-handler v1.1 sobre el SDK oficial de MCP; API de Fathom para obtencion de transcripts; agentes de IA con protocolo de analisis formalizado."
   },
   {
-   "id": "chunk_050",
+   "id": "chunk_051",
+   "source": "proyecto-asistente-docs-langgraph.md",
+   "section": "Proyecto: asistente de documentacion tecnica con LangGraph",
+   "text": "# Proyecto: asistente de documentacion tecnica con LangGraph\n\n> Periodo: septiembre de 2026. Proyecto propio, codigo abierto.\n> Repositorio: https://github.com/ferquintero2013/langgraph-doc-assistant\n> Demostracion tecnica independiente construida sobre documentacion publica de terceros. No esta afiliada a la empresa cuya documentacion se uso."
+  },
+  {
+   "id": "chunk_052",
+   "source": "proyecto-asistente-docs-langgraph.md",
+   "section": "Que construyo",
+   "text": "## Que construyo\n\nUn asistente que responde preguntas sobre documentacion tecnica de una API y **muestra como llego a cada respuesta**. El corpus son 503 fragmentos extraidos de 64 paginas de documentacion publica de una plataforma de firma electronica y validacion de identidad.\n\nLa diferencia con un RAG convencional esta en la arquitectura. La mayoria son lineales —buscar, responder— y por eso fallan de la peor forma posible: si la busqueda no encuentra lo correcto, el modelo responde igual, con la misma confianza, y quien pregunta no tiene como saberlo.\n\nAqui la orquestacion es un **grafo de LangGraph con decisiones y ciclos**."
+  },
+  {
+   "id": "chunk_053",
+   "source": "proyecto-asistente-docs-langgraph.md",
+   "section": "Arquitectura del grafo",
+   "text": "## Arquitectura del grafo\n\n| Nodo | Que decide |\n|------|------------|\n| Contextualizar | Resuelve la pregunta contra la conversacion previa, ANTES de buscar |\n| Buscar | Recuperacion hibrida: BM25 + embeddings, fusionados con Reciprocal Rank Fusion |\n| Evaluar | ¿Lo recuperado responde de verdad? Si no, devuelve el control al ciclo |\n| Reformular | Traduce la consulta al vocabulario tecnico del producto y reintenta |\n| Responder | Redacta unicamente con lo recuperado |\n| Verificar | Revisa la respuesta contra las fuentes ANTES de entregarla |\n| Declinar | Si la respuesta no queda respaldada, se descarta |\n\nEl ciclo `buscar -> evaluar -> reformular -> buscar` es una arista hacia atras en el grafo, con tope de dos intentos."
+  },
+  {
+   "id": "chunk_054",
+   "source": "proyecto-asistente-docs-langgraph.md",
+   "section": "Decisiones tecnicas destacadas",
+   "text": "## Decisiones tecnicas destacadas\n\n**La verificacion es una compuerta del grafo, no una instruccion del prompt.** Pedirle a un modelo \"no inventes\" es una sugerencia que puede ignorar. Un nodo que compara la respuesta contra las fuentes y la descarta es un control que no depende de su obediencia. Es la diferencia entre pedir y garantizar.\n\n**Chunking contextual.** Cortar la documentacion por encabezados produce fragmentos que pierden la identidad de su pagina: una seccion titulada \"Parametros de consulta\" es indistinguible de las otras treinta secciones con ese mismo titulo en el corpus, porque el nombre del endpoint vive en la introduccion, no en la tabla. Cada fragmento se prefija con su pagina y su endpoint **antes** de generar el embedding, de modo que esa identidad entra tanto al indice vectorial como al de BM25. Medido: fragmentos que no aparecian en ninguna busqueda pasaron a ser el resultado numero uno.\n\n**Ausencia de evidencia no es evidencia de ausencia.** Un asistente sobre documentacion tiene una forma de fallar que es peor que no responder: afirmar que un endpoint \"no requiere parametros\" cuando lo cierto es que no los encontro. Para quien esta integrando una API, esas dos frases llevan a sitios muy distintos. El redactor y el verificador tienen reglas explicitas que separan una afirmacion sobre el producto de una afirmacion sobre la busqueda.\n\n**Ventana de recuperacion medida, no supuesta.** El numero de fragmentos que se le pasan al redactor se fijo midiendo en que posicion del ranking caian las respuestas correctas, no eligiendo un numero redondo.\n\n**Dos modelos segun la tarea.** GPT-4o redacta la respuesta al usuario; GPT-4o-mini toma las decisiones mecanicas del grafo (evaluar, reformular, verificar), con salida JSON estructurada para que el enrutamiento no dependa de interpretar texto libre.\n\n**Sin base vectorial, a proposito.** Con 503 fragmentos los vectores normalizados caben en un array de numpy y la similitud coseno es una multiplicacion de matrices. Una base vectorial aqui es infraestructura que no paga su costo. Misma decision, y por la misma razon medida, que en el chatbot RAG del portafolio.\n\n**Memoria del lado del servidor.** El checkpointer de LangGraph (`MemorySaver`) guarda el estado por `thread_id`, de modo que cada conversacion continua sin que el cliente reenvie el historial. El historial se declara con un reducer (`Annotated[list, add]`) para que se acumule en vez de sobrescribirse — sin ese detalle la memoria parece funcionar y no funciona."
+  },
+  {
+   "id": "chunk_055",
+   "source": "proyecto-asistente-docs-langgraph.md",
+   "section": "La interfaz muestra el razonamiento",
+   "text": "## La interfaz muestra el razonamiento\n\nCada respuesta trae un desplegable con el recorrido que hizo el grafo: cuando reformulo la busqueda, cuando se rindio, cuando descarto su propia respuesta por no estar respaldada. Un chatbot que responde bien no se distingue a simple vista de uno que acerto por casualidad; uno que muestra por donde paso, si."
+  },
+  {
+   "id": "chunk_056",
+   "source": "proyecto-asistente-docs-langgraph.md",
+   "section": "Que demuestra este proyecto",
+   "text": "## Que demuestra este proyecto\n\n- Orquestacion de agentes con LangGraph: estado tipado, aristas condicionales, ciclos, subgrafos, checkpointers y reducers\n- Diseno de sistemas que fallan de forma segura: declinar es un resultado valido del grafo, no un error\n- Criterio para elegir arquitectura segun el volumen real de datos, no segun la moda\n- Extraccion y estructuracion de un corpus desde cero: scraping respetuoso (una peticion por segundo), chunking estructural, indexacion por lotes\n- Capacidad de depurar sistemas de recuperacion midiendo, no suponiendo"
+  },
+  {
+   "id": "chunk_057",
+   "source": "proyecto-asistente-docs-langgraph.md",
+   "section": "Tecnologias",
+   "text": "## Tecnologias\n\nPython, LangGraph, OpenAI (GPT-4o, GPT-4o-mini, text-embedding-3-small), rank-bm25, numpy, BeautifulSoup, Streamlit. Construido con Claude Code."
+  },
+  {
+   "id": "chunk_058",
    "source": "proyecto-erp-odoo.md",
    "section": "Proyecto: ERP Odoo en tres paises y diagnostico de catalogo",
    "text": "# Proyecto: ERP Odoo en tres paises y diagnostico de catalogo\n\n> Periodo: marzo - septiembre de 2026 (7 meses). Trabajo independiente bajo contrato.\n> Cliente: empresa de manufactura y retail de moda con operacion en Colombia, Estados Unidos y Mexico. El nombre del cliente no se publica en descripciones de proyecto."
   },
   {
-   "id": "chunk_051",
+   "id": "chunk_059",
    "source": "proyecto-erp-odoo.md",
    "section": "Que hizo Ferney Quintero en este proyecto",
    "text": "## Que hizo Ferney Quintero en este proyecto\n\nFerney Quintero **dirigio el proyecto y construyo las herramientas con las que lo dirigio**. Las dos cosas, no una sola.\n\nDel lado de direccion: modelo procesos antes de automatizarlos, priorizo el desarrollo, documento los sistemas, coordino a las areas de negocio y llevo el seguimiento de los frentes de trabajo hasta su cierre.\n\nDel lado de ingenieria: construyo en Python el sistema de diagnostico que sostuvo el programa de mantenimiento de catalogo, y el agente de analisis de reuniones con su servidor MCP (documentado aparte) que mantuvo el estado del proyecto actualizado.\n\nAl terminar el contrato el proyecto quedo en punto de continuidad autonoma, con informe final de traspaso y documentacion entregada."
   },
   {
-   "id": "chunk_052",
+   "id": "chunk_060",
    "source": "proyecto-erp-odoo.md",
    "section": "Es trabajo para un cliente real, en produccion",
    "text": "## Es trabajo para un cliente real, en produccion\n\nConviene dejarlo explicito porque el nombre del cliente no aparece en este documento:\n**este proyecto es trabajo pagado para un cliente real, bajo contrato, no un proyecto personal ni un prototipo.**\n\nEl sistema de diagnostico en Python descrito aqui corrio en produccion cada dos dias durante meses, sobre datos reales de una operacion en tres paises, y sus hallazgos derivaron en decisiones de negocio y en dinero recuperado. Es codigo Python escrito para un cliente real, con consecuencias operativas.\n\nSi alguien pregunta si Ferney ha construido software en Python para clientes reales, o si su experiencia en Python es solo de proyectos propios, la respuesta es que **si tiene trabajo en Python para cliente real**: este sistema de diagnostico. Los otros trabajos de cliente son las automatizaciones de CRM para Onest Vision (GoHighLevel, no Python). Los proyectos propios — el chatbot RAG y el MVP de validacion documental — son adicionales a esto, no un sustituto."
   },
   {
-   "id": "chunk_053",
+   "id": "chunk_061",
    "source": "proyecto-erp-odoo.md",
    "section": "El entorno tecnico",
    "text": "## El entorno tecnico\n\nOdoo 19 Enterprise en tres instancias productivas independientes, una por pais, con alrededor de veintiseis modulos personalizados. Canales de venta conectados: Shopify, Amazon, TikTok Shop y Mercado Libre. Alrededor conviven sistemas satelite de comercio electronico, datos y produccion, y varios sistemas legados en retiro. La infraestructura corre en un servidor en la nube que fue migrado durante el proyecto.\n\nUna restriccion determino buena parte de las decisiones: **el proyecto contaba con un solo desarrollador para los tres paises**. Todo lo que exigia desarrollo competia por el mismo recurso, asi que la principal palanca de gestion no era pedir mas codigo sino evitar el codigo innecesario."
   },
   {
-   "id": "chunk_054",
+   "id": "chunk_062",
    "source": "proyecto-erp-odoo.md",
    "section": "El problema real",
    "text": "## El problema real\n\nLa empresa tenia talento, herramientas y datos, pero carecia de procesos formales, direccion de proyecto y seguimiento. El ERP estaba instalado en los tres paises y aun asi la operacion tomaba decisiones sobre informacion que el sistema no reflejaba bien: saldos de inventario que no eran reales, pedidos que no entraban, catalogos desalineados entre el ERP y la tienda en linea, y conciliaciones contables sin plan ni responsable.\n\nEl diagnostico de fondo es el mismo que Ferney ha visto repetirse durante trece anos: **los proyectos de automatizacion rara vez fallan por la herramienta, fallan porque nadie modelo bien el proceso antes de construir encima**."
   },
   {
-   "id": "chunk_055",
+   "id": "chunk_063",
    "source": "proyecto-erp-odoo.md",
    "section": "El sistema de diagnostico que construyo (Python)",
    "text": "## El sistema de diagnostico que construyo (Python)\n\nUn script de diagnostico en Python que audita, cada dos dias y en menos de tres minutos, el estado de la integracion entre Odoo y Shopify, y produce un informe accionable para quien debe corregir los casos.\n\n**Como esta construido**: se conecta a Odoo por XML-RPC y a la API de administracion de Shopify. Genera informes en Excel con openpyxl, lleva bitacora de cambios en JSONL y degrada a CSV si falta la libreria de Excel, en vez de fallar.\n\n**Que revisa**: once verificaciones ordenadas por urgencia — pedidos que ya fallaron al entrar al ERP, referencias de la tienda que no existen en el ERP, variantes sin referencia, referencias duplicadas en dos fichas distintas, codigos de barras duplicados o divergentes entre sistemas, productos no publicados en el canal de punto de venta, productos activos en la tienda pero dados de baja en el ERP, mapeos rotos hacia registros de inventario inexistentes, y variantes sin inventario activo en todas las bodegas.\n\n**Como entrega el resultado**: un libro de calculo con una hoja por verificacion. Cada fila trae una columna de accion escrita en lenguaje llano — que hay que hacer, no que esta mal — y un enlace directo al registro exacto a corregir. Una hoja adicional asigna cada caso a un responsable con nombre. Lo puede ejecutar una persona no tecnica.\n\n**La decision de diseno que importa**: el modo de correccion asistida tiene topes deliberadamente bajos. Puede aplicar correcciones, pero solo sobre la tienda en linea, nunca sobre el ERP, con un maximo de diez cambios por ejecucion y tres por producto. El razonamiento esta escrito en el propio codigo: la referencia es la llave que une un pedido con su factura, y en la tienda una referencia repetida no produce error, se sobrescribe en silencio. Si un lote supera esos topes no es un conjunto de erratas sueltas sino un problema de catalogo, y eso debe mirarlo una persona. **El tope no es una limitacion del script: es el punto donde la automatizacion se detiene y escala en vez de propagar un error a escala.** Antes de tocar nada guarda copia de seguridad de las referencias y registra cada cambio en una bitacora, de modo que toda correccion es reversible y auditable.\n\n**La verificacion que busca la causa y no el sintoma**: la primera hoja del informe no lista errores del sistema, sino lineas de pedido escritas a mano en el punto de venta. Esa verificacion existe porque el indicador de casos abiertos no bajaba aunque el equipo trabajara: entraban casos nuevos al mismo ritmo al que se cerraban los viejos. El script se diseno para hacer visible esa causa de entrada, no solo para contar pendientes."
   },
   {
-   "id": "chunk_056",
+   "id": "chunk_064",
    "source": "proyecto-erp-odoo.md",
    "section": "Resultados concretos y verificables",
    "text": "## Resultados concretos y verificables\n\n- **Falla de sincronizacion detectada**: el mecanismo de contraste de reportes encontro una falla del conector que llevaba **una semana sin que nadie la notara**, y que afectaba a decenas de pedidos ya facturados y no entregados, por un valor de decenas de miles de dolares.\n- **Mantenimiento de catalogo**: en un periodo de **tres semanas el equipo cerro cuarenta y ocho referencias**, el mapeo roto entre sistemas quedo en cero y los productos sin punto de venta asignado bajaron a un unico caso.\n- **Conciliacion contable**: estaba estimada en **dos meses**. Al conseguir que el recurso contable quedara dedicado en exclusiva y no compartido, y al acordar una franja diaria de trabajo conjunto con el consultor senior, la estimacion bajo a **aproximadamente tres semanas**.\n- **Desarrollo evitado en manufactura**: corrio el ejercicio completo de produccion de punta a punta y valido que el modulo no requeria desarrollo, solo parametrizacion. Esto libero al unico desarrollador del proyecto en el mes de mayor competencia por su tiempo.\n- **Causa raiz separada del sintoma**: un grupo de referencias llevaba **veintidos dias** sin movimiento pese al trabajo de mantenimiento. Al contrastar tres reportes de fechas distintas demostro que no era atraso operativo: el mismo codigo estaba asignado a dos fichas de producto activas y el ERP no permite reutilizar codigos, asi que el caso requeria una decision de negocio, no mas trabajo.\n- **Inventario disponible no confiable**: descubrio que cada cotizacion abierta reserva inventario, de modo que un backlog de cotizaciones sin cerrar distorsionaba el saldo disponible de toda la operacion. Dirigio la depuracion por canal y detecto ademas cotizaciones sin confirmar que ya tenian factura y movimiento de inventario, donde confirmarlas habria duplicado el movimiento. Se trato caso por caso en lugar de aplicar una correccion masiva.\n- **Decision irreversible identificada a tiempo**: en la operacion de Mexico el requisito aduanero exige que cada unidad de inventario exista individualmente con su numero de pedimento, algo que va contra la logica de unidades agregadas del ERP. Senalo que el cambio debia decidirse antes de cargar el inventario inicial, porque despues no habria vuelta atras y la base todavia estaba limpia."
   },
   {
-   "id": "chunk_057",
+   "id": "chunk_065",
    "source": "proyecto-erp-odoo.md",
    "section": "Como reporta un hallazgo grave",
    "text": "## Como reporta un hallazgo grave\n\nAl encontrar el grupo de pedidos sin registro de entrada en el ERP, Ferney **no afirmo la causa, porque no la tenia**. Planteo las dos hipotesis posibles — el conector dejo de importar, o el script quedo descalibrado tras la migracion de servidores — y propuso una prueba unica que las distinguia: revisar un pedido especifico en el ERP. Si estaba, el problema era del reporte; si no estaba, el problema era mayor.\n\nEsa forma de reportar convierte una alarma en una verificacion de quince minutos, y protege la credibilidad del reporte: si el hallazgo hubiera sido un falso positivo del script, el correo ya lo contemplaba."
   },
   {
-   "id": "chunk_058",
+   "id": "chunk_066",
    "source": "proyecto-erp-odoo.md",
    "section": "Los principios de trabajo que confirmo el proyecto",
    "text": "## Los principios de trabajo que confirmo el proyecto\n\n1. **No automatizar errores**: depurar el proceso antes de construir encima. Varios requerimientos se cerraron sin escribir una linea de codigo.\n2. **La adopcion vale mas que la construccion**: ningun desarrollo subio a produccion sin capacitacion previa.\n3. **Orquestar en lugar de programar**: la direccion define el que y protege el tiempo de quien ejecuta el como, sobre todo cuando ese recurso es uno solo.\n4. **Documentar todo**: si el unico que entiende el sistema es quien lo monto, el trabajo no esta terminado.\n5. **El punto de madurez no es corregir mas rapido, sino que las correcciones sean minimas**: evitar que se escriban productos a mano resuelve el problema de raiz; corregir el resultado solo lo administra."
   },
   {
-   "id": "chunk_059",
+   "id": "chunk_067",
    "source": "proyecto-erp-odoo.md",
    "section": "Tecnologias",
    "text": "## Tecnologias\n\nOdoo 19 Enterprise (inventario, manufactura, facturacion, contabilidad, punto de venta); conectores de comercio electronico con Shopify, Amazon, TikTok Shop y Mercado Libre; facturacion electronica con requisitos fiscales de Colombia y Mexico (CFDI 4.0 y timbrado); migracion de servidor en la nube; y desarrollo propio en Python — Odoo XML-RPC, Shopify Admin API, openpyxl, bitacora JSONL, respaldo CSV."
   },
   {
-   "id": "chunk_060",
+   "id": "chunk_068",
    "source": "proyecto-onest-vision-ghl.md",
    "section": "Proyecto: automatizaciones de CRM y motor de atribucion UTM (Onest Vision)",
    "text": "# Proyecto: automatizaciones de CRM y motor de atribucion UTM (Onest Vision)\n\n> Periodo: enero - marzo de 2026. Cliente pagante, contrato como contractor.\n> Cliente final: un proyecto inmobiliario en Medellin, Colombia. El nombre del proyecto no se publica.\n> **Importante**: todo este trabajo se construyo en **n8n autoalojado (self-hosted)** contra la API REST de GoHighLevel, **no en Zapier**."
   },
   {
-   "id": "chunk_061",
+   "id": "chunk_069",
    "source": "proyecto-onest-vision-ghl.md",
    "section": "Que construyo",
    "text": "## Que construyo\n\nCuatro flujos en produccion sobre n8n autoalojado, que se comunican con la API REST de GoHighLevel (GHL) para implementar logica de negocio que el constructor de flujos nativo de GHL no podia expresar.\n\nEl punto de partida fue una limitacion concreta: el motor nativo de GHL no puede dividir oportunidades con varias propiedades, no copia campos personalizados entre embudos, y crea oportunidades duplicadas cada vez que llega una respuesta de encuesta. Nada de eso se podia desactivar desde la configuracion."
   },
   {
-   "id": "chunk_062",
+   "id": "chunk_070",
    "source": "proyecto-onest-vision-ghl.md",
    "section": "Flujo 1: dividir oportunidades por propiedad",
    "text": "## Flujo 1: dividir oportunidades por propiedad\n\n**Problema**: en el embudo comercial, una misma oportunidad podia estar ligada a varios apartamentos. El embudo administrativo necesitaba una oportunidad por unidad para seguimiento, gestion documental y cierre. GHL no tiene forma nativa de dividir una oportunidad multiple.\n\n**Solucion**: un flujo n8n disparado por webhook que recibe el ID de la oportunidad, consulta sus campos personalizados via API, identifica la lista de apartamentos, asigna el primero a la oportunidad original con un PUT, y despues itera sobre los restantes con un nodo Split Out creando una oportunidad nueva por cada uno via POST, con sus campos correspondientes."
   },
   {
-   "id": "chunk_063",
+   "id": "chunk_071",
    "source": "proyecto-onest-vision-ghl.md",
    "section": "Flujo 2: clonado completo de oportunidades entre embudos",
    "text": "## Flujo 2: clonado completo de oportunidades entre embudos\n\n**Problema**: al mover una oportunidad del embudo comercial al administrativo habia que recrearla con **todos** sus campos personalizados — texto, telefonos, valores monetarios, desplegables y archivos adjuntos. La accion nativa \"Create Opportunity\" de GHL solo copia nombre, contacto y etapa, e ignora los campos personalizados. Ademas fallaba por permisos cuando el usuario asignado no tenia acceso al embudo destino.\n\n**Solucion**: un flujo que trae la oportunidad origen con sus **mas de 40 campos personalizados**, la serializa como JSON en un nodo Edit Fields para evitar errores de referencia entre nodos, crea la oportunidad destino via POST, recorre con un nodo Code todos los campos mapeando ID y valor al formato de la API, y envia un unico PUT con el arreglo completo usando JSON.stringify para que arreglos y objetos anidados se serialicen bien."
   },
   {
-   "id": "chunk_064",
+   "id": "chunk_072",
    "source": "proyecto-onest-vision-ghl.md",
    "section": "Flujo 3: respuesta de encuesta hacia la oportunidad correcta",
    "text": "## Flujo 3: respuesta de encuesta hacia la oportunidad correcta\n\n**Problema**: una encuesta de varios pasos recogia la documentacion del comprador (cedula, certificados bancarios, declaraciones de renta, datos financieros). La encuesta colgaba de un contacto que podia tener varias oportunidades, una por apartamento. Habia que llevar cada respuesta a la oportunidad correcta **sin crear duplicados**, y el comportamiento por defecto de GHL era crear una oportunidad nueva en cada envio.\n\n**Solucion**: un flujo con emparejamiento inteligente. Recibe el envio por webhook extrayendo **mas de 16 campos**, consulta todas las oportunidades del contacto con la API de busqueda, y un nodo Code hace coincidencia sin distincion de mayusculas entre el apartamento de la encuesta y el campo de la oportunidad. Solo actualiza la que coincide, filtrando campos vacios para no sobrescribir datos existentes con blancos."
   },
   {
-   "id": "chunk_065",
+   "id": "chunk_073",
    "source": "proyecto-onest-vision-ghl.md",
    "section": "Flujo 4: motor de atribucion UTM",
    "text": "## Flujo 4: motor de atribucion UTM\n\nEs la pieza mas compleja de las cuatro y la mas interesante tecnicamente.\n\n**Problema**: GHL captura datos de atribucion desde muchas entradas — anuncios de Meta, Google Ads, busqueda organica, trafico directo, cargas de CSV, enlaces de seguimiento, encuestas, calendarios, referidos, WhatsApp y codigos QR de vallas fisicas. Cada fuente manda el dato en un formato distinto y con distinto nivel de completitud, y **el mismo valor de origen puede significar canales completamente diferentes** segun que otros campos vengan llenos:\n\n- Meta Ads llega como \"Social media\" con medio \"form\", sin utm_source ni utm_medium explicitos: hay que inferir que es pago a partir de senales de contexto.\n- El trafico organico y el pagado de Instagram llegan identicos; solo se distinguen mirando adId, adSetId o campaignId.\n- Entradas manuales del CRM e importaciones de CSV comparten origen pero necesitan clasificaciones distintas.\n- Los escaneos de QR de vallas fisicas llegan sin parametros UTM, solo con un identificador propio enterrado en la URL.\n\nSin normalizar, un mismo canal aparecia con cinco etiquetas distintas en los reportes y la agregacion era imposible.\n\n**Solucion**: un flujo que intercepta la creacion de cada oportunidad, trae los datos de atribucion del contacto, los pasa por un **motor de clasificacion basado en reglas de unas 300 lineas de JavaScript** en un nodo Code, y escribe los valores normalizados de vuelta en el contacto y en la oportunidad.\n\nEl motor es un arbol de decision multidimensional que calcula **seis campos UTM** (source, medium, campaign, content, type, term) y lo hace **dos veces**: para el primer contacto (first touch) y para la ultima interaccion (last touch), **doce campos por evento**. Si no existe ultima interaccion, copia la primera, de modo que ningun campo queda en blanco.\n\nRamas de decision principales: deteccion de senales de pago, identificacion de QR de valla, distincion entre campanas de conversion y de consideracion, desambiguacion de redes sociales con prioridad en cascada, inferencia del tipo de creatividad a partir del texto de la URL (reel, carrusel, banner estatico), y clasificacion de la estrategia de audiencia (lookalike, remarketing, prospectos frios).\n\n**Por que importa para el negocio**: la atribucion dejo de ser un dato en el que no se podia confiar. Con la taxonomia normalizada, el equipo de marketing puede calcular costo por lead por canal, distinguir que canal capto al lead de cual lo reactivo antes de cerrar — critico en un ciclo de venta inmobiliaria que dura semanas o meses — y mover presupuesto con datos en vez de intuicion."
   },
   {
-   "id": "chunk_066",
+   "id": "chunk_074",
    "source": "proyecto-onest-vision-ghl.md",
    "section": "Retos tecnicos que resolvio",
    "text": "## Retos tecnicos que resolvio\n\n- **Formato JSON en n8n**: mezclar expresiones de n8n dentro de un cuerpo JSON crudo rompia la peticion. Se resolvio construyendo los objetos en nodos Code y serializando con JSON.stringify.\n- **Errores de referencia entre nodos**: los nodos Code de n8n solo pueden referenciar nodos de su cadena directa de ejecucion. Cuando hacia falta el dato de un nodo no adyacente, implemento un patron de nodo intermedio que consolida datos de varias fuentes antes de pasarlos al Code.\n- **Tipos de dato inconsistentes**: campos que llegaban como arreglos serializados en texto en vez de arreglos reales, y habia que parsearlos antes de procesarlos.\n- **Limitaciones de campos de archivo**: el constructor de GHL no expone los campos de subida de archivo en su accion de actualizar oportunidad, y la API rechaza el formato completo que usa internamente. Requirio trabajar con URLs directas.\n- **Errores de permisos silenciosos**: las oportunidades creadas por automatizacion heredaban los permisos del usuario que disparaba el flujo. Si ese usuario no tenia acceso al embudo destino, **la operacion fallaba en silencio** dentro de GHL. Se resolvio creando via API con una llave de nivel administrador.\n\nEse ultimo caso es un ejemplo del criterio que Ferney aplica en todos sus sistemas: **un fallo silencioso es peor que un error visible**, porque nadie lo detecta hasta que ya causo dano."
   },
   {
-   "id": "chunk_067",
+   "id": "chunk_075",
    "source": "proyecto-onest-vision-ghl.md",
    "section": "Resultados",
    "text": "## Resultados\n\n| Metrica | Valor |\n|---------|-------|\n| Flujos en produccion | 4 flujos n8n activos |\n| Endpoints de API integrados | 6 (GET, POST, PUT, DELETE) |\n| Campos personalizados mapeados | mas de 40 en el clonado; mas de 16 por oportunidad en la encuesta |\n| Logica de clasificacion | ~300 lineas de JavaScript, 6 funciones de clasificacion |\n| Tipos de origen manejados | mas de 10 |\n| Campos UTM calculados | 12 por evento (6 de primer contacto + 6 de ultima interaccion) |\n| Trabajo manual eliminado | division de oportunidades, duplicado entre embudos, enrutamiento de encuestas y limpieza de atribucion |"
   },
   {
-   "id": "chunk_068",
+   "id": "chunk_076",
    "source": "proyecto-onest-vision-ghl.md",
    "section": "Que demuestra este proyecto",
    "text": "## Que demuestra este proyecto\n\nQue Ferney **escribe codigo cuando la herramienta no da**: el valor no estuvo en configurar GHL sino en detectar donde su modelo se quedaba corto y construir por fuera lo que faltaba, con JavaScript y llamadas directas a la API. Es trabajo de cliente pagante, en produccion."
   },
   {
-   "id": "chunk_069",
+   "id": "chunk_077",
    "source": "proyecto-onest-vision-ghl.md",
    "section": "Tecnologias",
    "text": "## Tecnologias\n\nn8n autoalojado (webhooks, HTTP Request, nodos Code, logica condicional, Split Out); JavaScript (~300 lineas de logica de clasificacion basada en reglas); API REST de GoHighLevel (GET, POST, PUT, DELETE sobre oportunidades, contactos y campos personalizados); GoHighLevel como CRM y almacen de datos."
   },
   {
-   "id": "chunk_070",
+   "id": "chunk_078",
    "source": "resumen-ejecutivo.md",
    "section": "Rol actual",
    "text": "## Rol actual\n**Ingeniero de IA.** Disena y construye sistemas con inteligencia artificial: agentes, asistentes sobre documentos (RAG), extraccion estructurada con modelos de vision, y automatizacion de procesos entre sistemas.\n\n**Trabaja de forma independiente desde julio de 2025 hasta hoy.** En ese periodo ha combinado proyectos propios, un primer lugar en el hackathon EmprendIA LATAM y clientes bajo contrato. Su cliente actual es **Xpress Shapewear FL LLC**, donde lidera desarrollo de software, IA y automatizacion de procesos desde marzo de 2026. Su ultimo empleo en nomina fue en Nequi, hasta julio de 2025."
   },
   {
-   "id": "chunk_071",
+   "id": "chunk_079",
    "source": "resumen-ejecutivo.md",
    "section": "Parrafo 1: Quien es Ferney",
    "text": "## Parrafo 1: Quien es Ferney\nIngeniero de sistemas con +13 anos de experiencia en el ciclo completo de desarrollo de software. Ha ocupado roles de desarrollador (Java, Scala), QA lead, analista de negocio, project manager y Agile Coach antes de especializarse en inteligencia artificial. Esa trayectoria le permite entender un problema desde la perspectiva tecnica, de negocio y de gestion a la vez. Ha trabajado en fintech (BVC - Bolsa de Valores de Colombia, Nequi), consultoria tecnologica (Sophos Solutions, Imagemaker, Softgic) y e-commerce internacional."
   },
   {
-   "id": "chunk_072",
+   "id": "chunk_080",
    "source": "resumen-ejecutivo.md",
    "section": "Parrafo 2: Propuesta de valor",
    "text": "## Parrafo 2: Propuesta de valor\nSu diferenciador no son las herramientas, sino el criterio para decidir que construir y que no. Sabe leer un proceso antes de automatizarlo, dimensionar una solucion a su escala real, y disenar sistemas de IA que declaran lo que no saben en vez de inventarlo. Ganador del 1er lugar en Best AI Automation del hackathon EmprendIA LATAM."
   },
   {
-   "id": "chunk_073",
+   "id": "chunk_081",
    "source": "resumen-ejecutivo.md",
    "section": "Aclaracion sobre su perfil profesional",
    "text": "## Aclaracion sobre su perfil profesional\nSu rol primario es **Ingeniero de IA**. La experiencia en gerencia de proyectos y agilismo es **complementaria**, no su profesion actual: aporta la capacidad de mapear procesos, alinear stakeholders y estimar alcance, que es justo lo que suele faltarle a un perfil puramente tecnico.\n\nCuando lidera proyectos, son proyectos de inteligencia artificial, agentes y automatizacion. No busca ni ejerce roles de PM o Scrum Master puros."
