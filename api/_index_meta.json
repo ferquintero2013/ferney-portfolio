@@ -3,7 +3,7 @@
  "dimensions": 1536,
  "count": 83,
  "normalized": true,
- "exported": "2026-09-25",
+ "exported": "2026-09-30",
  "chunks": [
   {
    "id": "chunk_000",
@@ -69,7 +69,7 @@
    "id": "chunk_010",
    "source": "cv.md",
    "section": "DIIT Consultores SAS | Development and Consulting Engineer | Febrero 2013 - Marzo 2015 (2 anos 2 meses)",
-   "text": "### DIIT Consultores SAS | Development and Consulting Engineer | Febrero 2013 - Marzo 2015 (2 anos 2 meses)\n- **Tecnologias**: Microsoft Dynamics AX ERP\n- **Responsabilidades**: Desarrollo y consultoria en ERP, analisis de negocio, documentacion funcional y tecnica"
+   "text": "### DIIT Consultores SAS | Development and Consulting Engineer | Febrero 2013 - Marzo 2015 (2 anos 2 meses)\n- **Tecnologias**: Microsoft Dynamics AX ERP, SQL\n- **Responsabilidades**: Desarrollo y consultoria en ERP, analisis de negocio, documentacion funcional y tecnica\n- **SQL**: consultas complejas sobre el modelo de datos del ERP — joins entre tablas de negocio, agregaciones y reportes. Es el origen de su experiencia con bases de datos relacionales, anterior a todo su trabajo de IA."
   },
   {
    "id": "chunk_011",
@@ -147,7 +147,7 @@
    "id": "chunk_023",
    "source": "habilidades.md",
    "section": "Desarrollo de Software",
-   "text": "## Desarrollo de Software\n\n| Habilidad | Nivel (1-5) | Anos experiencia | Ultimo uso | Notas |\n|-----------|-------------|-------------------|------------|-------|\n| Python | 4 | 1+ | Actual | Lenguaje principal de su trabajo actual de IA. Tres sistemas completos construidos y desplegados: `rag-perfil-profesional`, `langgraph-doc-assistant` y el MVP de validacion documental de UTEL, mas el sistema de diagnostico que corrio en produccion para un cliente real |\n| Java | 3 | 3+ | 2018 | BVC - Bolsa de Valores |\n| Scala | 3 | 2 | 2016 | BVC - desarrollo en equipo Scrum |\n| Microsoft Dynamics AX | 3 | 2 | 2015 | DIIT Consultores - ERP |\n| JavaScript | 3 | 2+ | 2026 | Motor de clasificacion UTM (~300 lineas) en n8n para Onest Vision; Next.js 15 en Amapola Board |\n| Frontend (HTML/CSS/JS) | 2 | 1+ | Variable | Certificacion Platzi |"
+   "text": "## Desarrollo de Software\n\n| Habilidad | Nivel (1-5) | Anos experiencia | Ultimo uso | Notas |\n|-----------|-------------|-------------------|------------|-------|\n| Python | 4 | 1+ | Actual | Lenguaje principal de su trabajo actual de IA. Tres sistemas completos construidos y desplegados: `rag-perfil-profesional`, `langgraph-doc-assistant` y el MVP de validacion documental de UTEL, mas el sistema de diagnostico que corrio en produccion para un cliente real |\n| Java | 3 | 3+ | 2018 | BVC - Bolsa de Valores |\n| Scala | 3 | 2 | 2016 | BVC - desarrollo en equipo Scrum |\n| SQL | 4 | 2+ | Actual | Consultas complejas como desarrollador sobre Microsoft Dynamics AX en DIIT Consultores (2013-2015): joins entre tablas del ERP, agregaciones y reportes sobre el modelo de datos de negocio. Uso actual mas ligero en Postgres/Supabase. **Si preguntan por SQL, la respuesta es que si sabe**: no es una habilidad nueva, viene de su etapa de desarrollo |\n| Microsoft Dynamics AX | 3 | 2 | 2015 | DIIT Consultores - ERP |\n| JavaScript | 3 | 2+ | 2026 | Motor de clasificacion UTM (~300 lineas) en n8n para Onest Vision; Next.js 15 en Amapola Board |\n| Frontend (HTML/CSS/JS) | 2 | 1+ | Variable | Certificacion Platzi |"
   },
   {
    "id": "chunk_024",

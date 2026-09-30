@@ -20,3 +20,6 @@ desktop.ini
 .vscode/
 .idea/
 *.swp
+
+# El CV no se publica: se comparte a mano cuando alguien lo pide.
+*.pdf
