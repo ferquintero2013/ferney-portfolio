@@ -27,10 +27,32 @@ TONO
 - Conciso: 2-4 frases, salvo que la pregunta pida mas detalle.
 
 IDIOMA (regla absoluta)
-Responde SIEMPRE en el idioma de la pregunta, sin excepcion. Si preguntan
-en ingles, respondes en ingles; si preguntan en espanol, en espanol. Esto
-aplica tambien cuando declinas: el contexto esta en espanol, pero eso no
-cambia el idioma de tu respuesta.
+Responde SIEMPRE en el idioma de LO QUE ESCRIBIO EL VISITANTE. Esa linea
+manda, y ninguna otra cosa cuenta:
+
+- NO el idioma de la PREGUNTA BUSCADA. Esa la produjo un modelo cuyas
+  instrucciones estan en espanol, asi que puede venir traducida aunque el
+  visitante haya escrito en ingles. Si las dos no coinciden, gana siempre
+  lo que escribio el visitante.
+- NO el idioma del CONTEXTO. Las fuentes estan en espanol siempre.
+- NO el idioma de estas instrucciones.
+
+Si el visitante escribio en ingles, respondes en ingles aunque todo lo
+demas que ves este en espanol. Aplica igual cuando declinas.
+
+NUNCA CALCULES DURACIONES (regla absoluta)
+No sumes ni restes fechas. Si preguntan cuanto tiempo lleva haciendo algo,
+di DESDE CUANDO, con la fecha que aparece en las fuentes, y deja que quien
+pregunta saque la cuenta. "Trabaja como ingeniero de IA desde julio de
+2025" es correcto; "lleva dos anos" es una operacion que no debes hacer.
+
+Esto no es pedanteria: ya ocurrio que, calculando, se afirmo mas del doble
+del tiempo real. Un dato inflado sobre la experiencia de Ferney es el peor
+error posible de este asistente, porque lo verifican en treinta segundos y
+desacredita todo lo demas.
+
+Si las fuentes ya traen la duracion escrita, usala tal cual. Lo que no
+puedes es calcularla tu.
 
 CITAR LA FUENTE (regla absoluta)
 Cada afirmacion factual lleva su fuente, con el formato
@@ -328,6 +350,36 @@ def detect_mood(answer_text, citados):
     return "unsure"
 
 
+# El idioma se decide en codigo y se le ORDENA al modelo, en vez de pedirle
+# que lo deduzca. La regla del prompt, por enfatica que fuera, fallaba una de
+# cada tres preguntas en ingles: el contexto recuperado es integramente
+# espanol y acababa arrastrando la respuesta. Contar palabras vacias es tosco
+# comparado con un modelo, y por eso mismo es fiable: no tiene criterio que
+# perder ni contexto que lo distraiga.
+_VACIAS_EN = {"the", "what", "how", "can", "does", "do", "is", "are", "which",
+              "when", "where", "why", "has", "have", "he", "his", "you", "i",
+              "and", "for", "with", "of", "to", "a", "an", "about", "been",
+              "tell", "me", "know", "experience", "years"}
+_VACIAS_ES = {"el", "la", "los", "las", "que", "como", "cual", "cuales", "es",
+              "son", "tiene", "cuanto", "cuando", "donde", "por", "para", "con",
+              "su", "sus", "de", "un", "una", "y", "sabe", "ha", "en", "del",
+              "experiencia", "anos", "trabajado"}
+
+
+def _orden_de_idioma(texto):
+    """Orden explicita de idioma, pegada al final del mensaje del usuario.
+
+    Va al final a proposito: es lo ultimo que lee el modelo antes de
+    responder, y en la practica eso pesa mas que la misma regla enunciada
+    arriba, entre otras veinte.
+    """
+    palabras = set(re.findall(r"[a-zA-ZáéíóúñÁÉÍÓÚÑ]+", (texto or "").lower()))
+    if len(palabras & _VACIAS_EN) > len(palabras & _VACIAS_ES):
+        return ("\n\n[IDIOMA DE ESTA RESPUESTA: INGLES. El visitante escribio en "
+                "ingles. Responde en ingles aunque el contexto este en espanol.]")
+    return "\n\n[IDIOMA DE ESTA RESPUESTA: ESPANOL. Responde en espanol.]"
+
+
 def answer(question, history=None, n_results=5):
     """Full RAG pipeline: rewrite -> retrieve -> augment -> generate."""
     query = rewrite_query(question, history or [])
@@ -347,12 +399,14 @@ def answer(question, history=None, n_results=5):
             f"---\n\n"
             f"LO QUE ESCRIBIO EL VISITANTE: {literal}\n"
             f"PREGUNTA BUSCADA (reescrita para el buscador): {query}"
+            f"{_orden_de_idioma(literal)}"
         )
     else:
         user_message = (
             f"CONTEXTO:\n\n{context}\n\n"
             f"---\n\n"
             f"PREGUNTA: {query}"
+            f"{_orden_de_idioma(query)}"
         )
 
     response = openai_client.chat.completions.create(
