@@ -67,6 +67,11 @@ def _limite_alcanzado(ip):
 class handler(BaseHTTPRequestHandler):
 
     def do_POST(self):
+        # Se declaran fuera del try porque el manejador de errores los
+        # necesita: si algo falla a mitad, hay que poder registrar igual QUE
+        # se pregunto y cuanto tardo en fallar.
+        pregunta = ""
+        inicio = time.monotonic()
         try:
             ip = (self.headers.get("x-forwarded-for") or "").split(",")[0].strip()
             if _limite_alcanzado(ip or "desconocida"):
@@ -117,10 +122,24 @@ class handler(BaseHTTPRequestHandler):
 
         except json.JSONDecodeError:
             return self._json(400, {"error": "Malformed JSON."})
-        except Exception:
+        except Exception as e:
             # El detalle va al log del servidor, nunca al cliente: un stack
             # trace en la respuesta filtra rutas y estructura interna.
             print(traceback.format_exc())
+
+            # Y tambien a Supabase. Antes solo se registraban los exitos, y
+            # por eso el asistente estuvo varios dias caido sin dejar rastro:
+            # se agoto el saldo de OpenAI, cada pregunta lanzaba 429, y el
+            # log no guardo ni una fila. Un registro que solo escribe cuando
+            # todo va bien es inutil para lo unico que de verdad importa,
+            # que es enterarse cuando no.
+            _log.registrar(
+                pregunta=pregunta or "(no se alcanzo a leer la pregunta)",
+                respuesta=f"{type(e).__name__}: {str(e)[:300]}",
+                mood="error",
+                fuentes=[],
+                ms=int((time.monotonic() - inicio) * 1000),
+            )
             return self._json(500, {"error": "Something went wrong on my side."})
 
     @staticmethod
