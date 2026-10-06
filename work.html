@@ -113,6 +113,39 @@
       <span class="proj-n mono">03</span>
       <div class="proj-body">
         <div class="proj-top">
+          <h2 data-es="Asistente sobre la documentación de una API">Assistant over an API's documentation</h2>
+          <span class="state live mono" data-es="En vivo">Live</span>
+        </div>
+        <p data-es="Responde preguntas técnicas sobre la documentación pública de AUCO, una plataforma de firma electrónica y validación de identidad, y muestra el razonamiento que siguió para llegar a cada respuesta. La mayoría de los RAG son lineales: buscan y responden. Si la búsqueda falla, el modelo responde igual, con la misma seguridad, y quien pregunta no tiene cómo saberlo. Para una API de identidad eso es caro: decirle a alguien que un endpoint no requiere parámetros, cuando lo cierto es que no los encontró, lo manda en la dirección equivocada.">
+          It answers technical questions about the public documentation of AUCO, a
+          platform for electronic signature and identity verification, and shows the
+          reasoning it followed to reach each answer. Most RAG systems are linear: search,
+          then answer. If the search fails the model answers anyway, with the same
+          confidence, and the person asking has no way to tell. For an identity API that's
+          expensive: telling someone an endpoint requires no parameters, when the truth is
+          it didn't find them, sends them in the wrong direction.
+        </p>
+        <p class="note" data-es="La decisión de diseño: la verificación es una compuerta del grafo, no una instrucción del prompt. Antes de entregar cualquier respuesta la coteja contra las fuentes, y si no queda respaldada la descarta y lo dice. Pedirle a un modelo que no invente es una sugerencia que puede ignorar; un nodo que revisa y descarta es un control. Demostración técnica independiente, sin afiliación con AUCO.">
+          The design point: verification is a gate in the graph, not an instruction in the
+          prompt. Before delivering any answer it checks it against the sources, and if it
+          isn't supported it discards its own work and says so. Asking a model not to
+          invent is a suggestion it can ignore; a node that checks and discards is a
+          control. Independent technical demonstration, not affiliated with AUCO.
+        </p>
+        <div class="proj-foot">
+          <span class="tags mono">Python · LangGraph · BM25 + embeddings · Streamlit</span>
+          <span class="links">
+            <a href="https://langgraph-doc-assistant-yazpwfqfeeunxxa2gucstq.streamlit.app/" data-es="Ver demo">Live demo</a>
+            <a href="https://github.com/ferquintero2013/langgraph-doc-assistant" data-es="Código">Source</a>
+          </span>
+        </div>
+      </div>
+    </li>
+
+    <li class="proj">
+      <span class="proj-n mono">04</span>
+      <div class="proj-body">
+        <div class="proj-top">
           <h2 data-es="Diagnóstico de catálogo entre ERP y tienda">Catalog diagnostics between ERP and storefront</h2>
           <span class="state mono">2026</span>
         </div>
@@ -148,7 +181,7 @@
     </li>
 
     <li class="proj">
-      <span class="proj-n mono">04</span>
+      <span class="proj-n mono">05</span>
       <div class="proj-body">
         <div class="proj-top">
           <h2 data-es="Motor de atribución UTM sobre un CRM">UTM attribution engine over a CRM</h2>
@@ -179,7 +212,7 @@
     </li>
 
     <li class="proj">
-      <span class="proj-n mono">05</span>
+      <span class="proj-n mono">06</span>
       <div class="proj-body">
         <div class="proj-top">
           <h2 data-es="Agentes de ventas con IA en WhatsApp e Instagram">AI sales agents on WhatsApp and Instagram</h2>
@@ -202,7 +235,7 @@
     </li>
 
     <li class="proj">
-      <span class="proj-n mono">06</span>
+      <span class="proj-n mono">07</span>
       <div class="proj-body">
         <div class="proj-top">
           <h2 data-es="Agente de reuniones, tablero y servidor MCP">Meeting agent, board and MCP server</h2>
