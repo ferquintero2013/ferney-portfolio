@@ -400,9 +400,13 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
    data-point lo pone script.js al pasar el cursor por una puerta. El
    robot gira la cabeza hacia ella y estira el brazo en su direccion.
    -------------------------------------------------------------------- */
-.stage[data-point="up"]   .bot-head { transform: rotate(-13deg) translateX(-5px); }
-.stage[data-point="mid"]  .bot-head { transform: rotate(-8deg)  translateX(-5px); }
-.stage[data-point="down"] .bot-head { transform: rotate(-3deg)  translateX(-4px); }
+/* El arco cruza el cero a proposito: arriba mira arriba, abajo mira abajo.
+   Antes las tres rotaciones eran negativas (-13, -8, -3), asi que la cabeza
+   siempre apuntaba hacia arriba y solo variaba cuanto. La puerta de abajo
+   nunca se leia como la de abajo. */
+.stage[data-point="up"]   .bot-head { transform: rotate(-14deg) translateX(-5px); }
+.stage[data-point="mid"]  .bot-head { transform: rotate(-4deg)  translateX(-5px); }
+.stage[data-point="down"] .bot-head { transform: rotate(6deg)   translateX(-4px); }
 
 .stage[data-point="up"]   .bot-arm-l { transform: translate(-16px, -30px) rotate(-38deg); }
 .stage[data-point="mid"]  .bot-arm-l { transform: translate(-19px, -6px)  rotate(-14deg); }
@@ -413,9 +417,13 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
 .stage[data-point="mid"]  .bot-arm-r,
 .stage[data-point="down"] .bot-arm-r { transform: translateY(14px) rotate(10deg); }
 
-.stage[data-point="up"]   .bot-face,
-.stage[data-point="mid"]  .bot-face,
-.stage[data-point="down"] .bot-face { transform: translateX(-5px) !important; }
+/* Y los ojos acompanan. Antes las tres puertas compartian el mismo
+   translateX sin componente vertical, asi que la mirada no se movia y solo
+   la cabeza giraba un poco. El !important es necesario: el seguimiento del
+   cursor escribe transform en linea, y el estilo en linea gana. */
+.stage[data-point="up"]   .bot-face { transform: translate(-5px, -4px) !important; }
+.stage[data-point="mid"]  .bot-face { transform: translate(-5px, 0)    !important; }
+.stage[data-point="down"] .bot-face { transform: translate(-4px, 5px)  !important; }
 
 /* Senalando no sigue al cursor ni saluda: esta atendiendo a otra cosa */
 .stage:not([data-point="none"]) .bot-arm-r { animation: none !important; }
