@@ -1,4 +1,4 @@
-# GENERADO POR sync_api.py — NO EDITAR A MANO.
+# GENERADO POR sync_api.py. NO EDITAR A MANO.
 # La fuente esta en el repositorio rag-perfil-profesional:
 #   rag.py
 

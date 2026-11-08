@@ -1,3 +1,7 @@
+# GENERADO POR sync_api.py. NO EDITAR A MANO.
+# La fuente esta en el repositorio rag-perfil-profesional:
+#   log.py
+
 # -*- coding: utf-8 -*-
 """Registro de consultas del asistente.
 
